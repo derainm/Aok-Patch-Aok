@@ -1,0 +1,192 @@
+[header]
+size=2555949
+md5=19-DB-AB-1E-39-B3-D6-8A-6E-AC-20-B2-5F-65-3B-9D
+version=2.0a
+drspos=0025C470
+[data]
+0001BCD6  1024   HV        regread set                                                 
+0001BCE1   640    H        regread                                                     
+0001BCE8   800    H        regread                                                     
+0001BCF7   800    H        set                                                         
+0001BD04   600    V        set                                                         
+0001BD1C   768    V        set                                                         
+0001BD23  1280    H        regread set                                                 
+0001D370   800    H        test                                                        
+0001D37D   600    V        test                                                        
+0001D395  1024   HV        test                                                        
+0001D3AF   768    V        test                                                        
+0001D3D2  1280    H        test                                                        
+0001D953   800    H        test                                                        
+0001D982   600    V        test                                                        
+0001D98C  1024   HV        test                                                        
+0001D9BB   768    V        test                                                        
+0001D9C5  1280    H        test                                                        
+00048709   800    H        test                                                        
+00048710  1024    H        test                                                        
+00048717  1280    H        test                                                        
+0004873C   800    H        test                                                        
+0004875C  1024    H        test                                                        
+00048780  1280    H        test                                                        
+00049007  1024    H        set                                                         
+0004900C   768    V        set                                                         
+00049022  1280    H        set                                                         
+00049027  1024    V        set                                                         
+0004902E   800    H        set                                                         
+00049033   600    V        set                                                         
+00049067  1600    H        test                                                        
+00050ABE   600    V        sometest                                                    
+00050C58   768    V        sometest                                                    
+00050D30  1024    V        sometest                                                    
+00050ED3  1200    V        sometest                                                    
+000511D5   600    V        test for setcliprgn                                         
+000511E3   768    V        test for setcliprgn                                         
+000511FD  1024    V        test for setcliprgn                                         
+00051217  1600    V        test for setcliprgn
+Not Found
+Not Found
+Not Found
+Not Found
+Not Found
+Not Found
+Not Found
+0005E08B   800    H        sometest                                                    
+0005E09B  1024    H        sometest                                                    
+0005E0A6  1280    H        sometest                                                                                            
+0005E11A   640    H        test_to_find_storage_slot                                   
+0005E123   480    V        test_to_find_storage_slot                                   
+0005E135   800    H        test_to_find_storage_slot                                   
+0005E13E   600    V        test_to_find_storage_slot                                   
+0005E150  1024    H        test_to_find_storage_slot                                   
+0005E159   768    V        test_to_find_storage_slot                                   
+0005E16B  1280    H        test_to_find_storage_slot                                   
+0005E174  1024    V        test_to_find_storage_slot                                   
+0005E186  1600    H        test_to_find_storage_slot                                   
+0005E18F  1200    V        test_to_find_storage_slot                                   
+0005E1A1   320    H        test_to_find_storage_slot                                   
+0005E1AE   200    V        test_to_find_storage_slot                                   
+0005E1C0   320    H        test_to_find_storage_slot                                   
+0005E1EF   640    H        test_to_find_storage_slot                                   
+0005E1F8   480    V        test_to_find_storage_slot                                   
+0005E20A   800    H        test_to_find_storage_slot                                   
+0005E213   600    V        test_to_find_storage_slot                                   
+0005E225  1024    H        test_to_find_storage_slot                                   
+0005E22E   768    V        test_to_find_storage_slot                                   
+0005E243   320    H        test_to_find_storage_slot                                   
+0005E250   200    V        test_to_find_storage_slot                                   
+0005E262   320    H        test_to_find_storage_slot                                   
+0005E291   640    H        test_to_find_storage_slot                                   
+0005E29A   480    V        test_to_find_storage_slot                                   
+0005E2AF   800    H        test_to_find_storage_slot                                   
+0005E2B8   600    V        test_to_find_storage_slot                                   
+0005E2CD  1024    H        test_to_find_storage_slot                                   
+0005E2D6   768    V        test_to_find_storage_slot                                   
+0005E2EB   320    H        test_to_find_storage_slot                                   
+0005E2F8   200    V        test_to_find_storage_slot                                   
+0005E30D   320    H        test_to_find_storage_slot                                   
+0005E33F   640    H        test_to_find_storage_slot                                   
+0005E348   480    V        test_to_find_storage_slot                                   
+0005E35D   800    H        test_to_find_storage_slot                                   
+0005E366   600    V        test_to_find_storage_slot                                   
+0005E37B  1024    H        test_to_find_storage_slot                                   
+0005E384   768    V        test_to_find_storage_slot                                   
+0005E399   320    H        test_to_find_storage_slot                                   
+0005E3A2   200    V        test_to_find_storage_slot                                   
+0005E3B7   320    H        test_to_find_storage_slot                                   
+0005E3EE  1024    H        test_to_find_storage_slot                                   
+0005E3F7   320    H        test_to_find_storage_slot                                   
+0005E3FE   640    H        test_to_find_storage_slot                                   
+0005E405   800    H        test_to_find_storage_slot                                   
+0005E420   200    V        test_to_find_storage_slot                                   
+0005E444  1280    H        test_to_find_storage_slot                                   
+0005E44B  1600    H        test_to_find_storage_slot                                   
+0005E46B   800    H        test_to_find_storage_slot                                   
+0005E474   320    H        test_to_find_storage_slot                                   
+0005E47B   640    H        test_to_find_storage_slot                                   
+0005E490   200    V        test_to_find_storage_slot                                   
+0005E4B4  1024    H        test_to_find_storage_slot                                   
+0005E4BB  1600    H        test_to_find_storage_slot                                   
+0005E4E1   800    H        test_to_find_storage_slot                                   
+0005E4EA   320    H        test_to_find_storage_slot                                   
+0005E4F1   640    H        test_to_find_storage_slot                                   
+0005E509   200    V        test_to_find_storage_slot                                   
+0005E536  1024    H        test_to_find_storage_slot                                   
+0005E53D  1600    H        test_to_find_storage_slot                                   
+0005E563   800    H        test_to_find_storage_slot                                   
+0005E56C   320    H        test_to_find_storage_slot                                   
+0005E573   640    H        test_to_find_storage_slot                                   
+0005E587   200    V        test_to_find_storage_slot                                   
+0005E5B0  1024    H        test_to_find_storage_slot                                   
+0005E5B7  1600    H        test_to_find_storage_slot                                   
+000DABEB  1280    H        test set choose gfx                                         
+000DAC07  1280    H        width of some alt. to playground (30 top lines under gui)   
+000DAC1C  1024   dV   744  height of pt 2 of alt to playground                         
+000DAC2E  1024   dV   774  height of playground                                        
+000DAC33  1280    H        width of playground                                         
+000DAC67  1024   dV   817  Y of map                                                    
+000DACCA  1024   dV   827  Y of center items                                           
+000DACD9  1024   dV   845  Y of left items                                             
+000DAD11  1024   dV   968  MAX Y of left items (the reason that vertical MINIMIZING didn't work I think)                                                                                                                       
+000DAE18  1280   dH   978  X of topright menu                                          
+000DAE2E  1280   dH  1038  X of topright menu 2                                        
+000DAE44  1280   dH  1098  X of topright menu 3                                        
+000DAE5A  1280   dH  1158  X of topright menu 4                                        
+000DAE70  1280   dH  1217  X of topright menu 5
+000DAE82  1024   dV   829  Y of bottomright btn 1                                      
+000DAE9B  1024   dV   956  Y of bottomright btn 2                                      
+000DAEB4  1024   dV   826  Y of bottomright btn 3                                      
+000DAECD  1024   dV   826  Y of bottomright btn 4                                      
+000DAEE6  1024   dV   856  Y of bottomright btn 5                                      
+000DAEFF  1024   dV   946  Y of bottomright btn 6                                      
+000DAF18  1024   dV   975  Y of bottomright btn 7                                      
+000DAF31  1024   dV   979  Y of bottomright btn 8                                      
+000DAF42  1024    H        test for resolution (draw routine)                          
+000DAF5E  1024    H        W of alt to playground                                      
+000DAF73   768   dV   538  Ht of alt to playground                                     
+000DAF85   768   dV   568  H of playground                                             
+000DAF8A  1024    H        W of playground                                             
+000DAFBE   768   dV   599  Y of map                                                    
+000DB021   768   dV   616  Y of center items                                           
+000DB030   768   dV   624  Y of left items                                             
+000DB068   768   dV   747  MAX Y of left items 
+000DB16F  1024   dH   721  X of topright menu 1                                        
+000DB185  1024   dH   781  X of topright menu 2                                        
+000DB19B  1024   dH   841  X of topright menu 3                                        
+000DB1B1  1024   dH   901  X of topright menu 4                                        
+000DB1C7  1024   dH   960  X of topright menu 5                                                                               
+000DB1D9   768   dV   614  Y of btmright btn 1                                         
+000DB1F2   768   dV   719  Y of btmright btn 2                                         
+000DB20B   768   dV   612  Y of btmright btn 3                                         
+000DB224   768   dV   606  Y of btmright btn 4                                         
+000DB23D   768   dV   631  Y of btmright btn 5                                         
+000DB256   768   dV   709  Y of btmright btn 6                                         
+000DB26F   768   dV   733  Y of btmright btn 7                                         
+000DB288   768   dV   729  Y of btmright btn 8                                         
+000DB299   800    H        test set choose gfx                                         
+000DB2B5   800    H        Width of alt playfield                                      
+000DB2E1   800    H        Width of playfield 
+000DF9F6  1600    H        test
+000DF9FF  1200    V        test                                                                                                  
+000DFA24  1280    H        test                                                       
+000DFA2D  1024    V        test                                                        
+000DFA61  1024    H        test                                                        
+000DFA6a   768    V        test                                                        
+000E2140  1280    H        test for drawing smth at either 126,10 (1280x1024) or 126,4                                                                                                                                                                                        
+Not Found
+Not Found
+Not Found
+Not Found
+Not Found
+000E4CAA  1280    H        test   
+000E4DD1  1024    H        test
+000ED684   800    H        set                                                         
+000ED6A7  1024    H        set                                                         
+000ED6CE  1280    H        set                                                         
+000EF019   800    H        set                                                         
+000EF01E   600    V        set                                                         
+000EF034  1024    H        set                                                         
+000EF039   768    V        set                                                         
+000EF04F  1280    H        set                                                         
+000EF054  1024    V        set 
+000ED658  1024    H        test                                                        
+000ED65F  1280    H        test                                                                                                                                                                                                                                 
+001A7C25  1280    H        test for what vertical position to use for top left texts!  

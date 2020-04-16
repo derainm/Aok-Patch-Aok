@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aokWideScreen(for aofset.patcher)", "aokWideScreen(for aofset.patcher).csproj", "{332478C2-282E-4B39-9E1B-395EC92A3122}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlpLib", "SlpLib\SlpLib.csproj", "{91039798-D94E-4782-BA35-6D4C1EDFFACB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{332478C2-282E-4B39-9E1B-395EC92A3122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{332478C2-282E-4B39-9E1B-395EC92A3122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{332478C2-282E-4B39-9E1B-395EC92A3122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{332478C2-282E-4B39-9E1B-395EC92A3122}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91039798-D94E-4782-BA35-6D4C1EDFFACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91039798-D94E-4782-BA35-6D4C1EDFFACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91039798-D94E-4782-BA35-6D4C1EDFFACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91039798-D94E-4782-BA35-6D4C1EDFFACB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85E0ED5F-A300-43A0-ADEC-674C25F46F9C}
+	EndGlobalSection
+EndGlobal
