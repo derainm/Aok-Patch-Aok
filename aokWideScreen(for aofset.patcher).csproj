@@ -50,6 +50,9 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon1.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="KGySoft.CoreLibraries, Version=5.0.1.0, Culture=neutral, PublicKeyToken=b45eba277439ddfe, processorArchitecture=MSIL">
       <HintPath>packages\KGySoft.CoreLibraries.5.0.1\lib\net45\KGySoft.CoreLibraries.dll</HintPath>
@@ -574,6 +577,9 @@
     <None Include="Mods\RealTerrain\ter15010.slp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Mods\RealTerrain\ter15011.slp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Mods\RealTerrain\ter15014.slp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -913,6 +919,7 @@
     <None Include="Resources\back.PNG" />
     <None Include="Resources\back1.PNG" />
     <None Include="Resources\TerrainV2.PNG" />
+    <Content Include="Icon1.ico" />
     <Content Include="Mgx fix\mgxfix.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
