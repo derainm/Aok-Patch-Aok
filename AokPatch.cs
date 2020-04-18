@@ -595,10 +595,15 @@ namespace Aok_Patch.patcher_
                 UserFeedback.Info("Trying to find a patch file for all executables > 2MiB in size");
                 using (IEnumerator<string> enumerator = ((IEnumerable<string>)FindFiles("executables", "*.exe", new long?(), (string)null)).Where<string>((Func<string, bool>)(exe => new FileInfo(exe).Length > 2000000L)).GetEnumerator())
                 {
+                    string current =string.Empty;
                     while (enumerator.MoveNext())
                     {
-                        string current = enumerator.Current;
-                        FindResAndPatchExecutable(result1, result2, current, patchVersion);
+                        //current exe empire or age2_x1
+                        current = enumerator.Current;
+                        if (current.ToLower().Contains("empires2.exe") || current.ToLower().Contains("age2_x1.exe"))
+                        { 
+                            FindResAndPatchExecutable(result1, result2, current, patchVersion);
+                        }
                     }
 
                 }
@@ -610,7 +615,12 @@ namespace Aok_Patch.patcher_
                 {
                     while (enumerator.MoveNext())
                     {
+                        //current exe empire or age2_x1
                         current = enumerator.Current;
+                        if (current.ToLower().Contains("empires2.exe") || current.ToLower().Contains("age2_x1.exe"))
+                        {
+                            FindResAndPatchExecutable(result1, result2, current, patchVersion);
+                        }
                     }
                 }
                 var length = args.Length / 2;
@@ -1465,8 +1475,13 @@ namespace Aok_Patch.patcher_
             #endregion
             return bmp;
         }
-        private void ConverteBmpToMosaic(Bitmap bmp,string SlpFileName,string fileName,uint id)
+        private bool ConverteBmpToMosaic(Bitmap bmp,string SlpFileName,string fileName,uint id,Color[] lstColor)
         {
+            bool needToWriteSlp = true;
+            if (bmp.Width==1024 && bmp.Height ==768|| bmp.Width == 1280 && bmp.Height == 1024)
+            {
+                return false;
+            }
             #region converte in mosaic image
             var file = SlpFileName.Replace(Path.GetDirectoryName(SlpFileName) + @"\", "").Replace(".bmp", "");
 
@@ -1485,10 +1500,10 @@ namespace Aok_Patch.patcher_
             string newBmpFile = Path.GetDirectoryName(SlpFileName) + @"\" + file + "_r_" + fileName + ".bmp";
             //if (WidthToCut == 1280)
             //    FixParasite(tempBitmap);
-
+            
             
             //fix parasite
-            if (WidthToCut == 1280 || bmp.Width !=1024)
+           if (WidthToCut == 1280 || bmp.Width !=1024)
             { 
                 using (Graphics graphics = Graphics.FromImage(tempBitmap))
                 {
@@ -1523,11 +1538,11 @@ namespace Aok_Patch.patcher_
             ReplaceColor(tempBitmap, Color.FromArgb(29, 0, 29, 50), Color.Black);
             //tempBitmap.MakeTransparent(myTransparentColor);
             tempBitmap.Save(newBmpFile, ImageFormat.Bmp);
-            var lstColor = GetAokPaletteColor();
+            
             //using (var stream = new FileStream(file, FileMode.Create))
             //{
             // You can either use an arbitrary palette,
-            var b = tempBitmap.ConvertPixelFormat(PixelFormat.Format8bppIndexed, lstColor.ToArray(),default(Color), 255);// Color backColor = default, byte alphaThreshold = 128
+            var b = tempBitmap.ConvertPixelFormat(PixelFormat.Format8bppIndexed, lstColor,default(Color), 255);// Color backColor = default, byte alphaThreshold = 128
                 b.Save(newBmpFile, ImageFormat.Bmp);
                 // or, you can let the built-in encoder use dithering with a fixed palette.
                 // Pixel format is adjusted so transparency will be preserved.
@@ -1543,6 +1558,7 @@ namespace Aok_Patch.patcher_
             }*/
             bmp.Dispose();
             #endregion converte in mosaic image
+            return needToWriteSlp;
         }
         private List<Color> GetAokPaletteColor()
         {
@@ -1736,14 +1752,8 @@ namespace Aok_Patch.patcher_
             int cpt = 0;
             int x = 0;
             int y = 0;
-            //x = comboBox1280.Text != "Auto" ? int.Parse(comboBox1280.Text.Split('x').First()) : 0;
-            //var nbResChosed = 1;
-            //if (comboBox1024.Text != "Auto")
-            //    nbResChosed = 2;
-            //if (comboBox1280.Text != "Auto" && (comboBox1280.Text != "Auto" || comboBox1024.Text != "Auto" ||comboBox800.Text== "Auto"))
-            //nbResChosed = 3;
-            //Dictionary<uint, uint> Correspondance = getIdInterfaceCorrespondance();
 
+            var lstColor = GetAokPaletteColor().ToArray();
             foreach (var item in idToPick)
             {
  
@@ -1760,7 +1770,10 @@ namespace Aok_Patch.patcher_
                     workingDir += "\\";
 
 
-                ConverteBmpToMosaic(bmp, SlpFileName, fileName, id);
+                if(!ConverteBmpToMosaic(bmp, SlpFileName, fileName, id, lstColor))
+                {
+                    continue;
+                }
 
                 SlpWrite(workingDir, fileName, fileName + ".slp");
 

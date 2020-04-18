@@ -188,7 +188,7 @@
             // 
             // btn_Patch
             // 
-            this.btn_Patch.Location = new System.Drawing.Point(134, 224);
+            this.btn_Patch.Location = new System.Drawing.Point(97, 235);
             this.btn_Patch.Name = "btn_Patch";
             this.btn_Patch.Size = new System.Drawing.Size(287, 46);
             this.btn_Patch.TabIndex = 6;
@@ -214,7 +214,7 @@
             this.GB_ManualRes.Controls.Add(this.comboBox1024);
             this.GB_ManualRes.Controls.Add(this.comboBox800);
             this.GB_ManualRes.Controls.Add(this.labelImageres);
-            this.GB_ManualRes.Location = new System.Drawing.Point(125, 29);
+            this.GB_ManualRes.Location = new System.Drawing.Point(88, 38);
             this.GB_ManualRes.Name = "GB_ManualRes";
             this.GB_ManualRes.Size = new System.Drawing.Size(296, 165);
             this.GB_ManualRes.TabIndex = 11;
@@ -279,11 +279,11 @@
             // cb_SetManuelReso
             // 
             this.cb_SetManuelReso.AutoSize = true;
-            this.cb_SetManuelReso.Location = new System.Drawing.Point(125, 6);
+            this.cb_SetManuelReso.Location = new System.Drawing.Point(88, 15);
             this.cb_SetManuelReso.Name = "cb_SetManuelReso";
-            this.cb_SetManuelReso.Size = new System.Drawing.Size(108, 17);
+            this.cb_SetManuelReso.Size = new System.Drawing.Size(168, 17);
             this.cb_SetManuelReso.TabIndex = 13;
-            this.cb_SetManuelReso.Text = "Set Manuel Reso";
+            this.cb_SetManuelReso.Text = "Set Manuel Resolution screen";
             this.cb_SetManuelReso.UseVisualStyleBackColor = true;
             this.cb_SetManuelReso.CheckedChanged += new System.EventHandler(this.cb_SetManuelReso_CheckedChanged);
             // 
@@ -460,7 +460,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Image = global::Aok_Patch.patcher_.MainForm.Enchanted_Farms;
+            this.label16.Image = global::Aok_Patch.patcher_.MainForm.enchanted_farms2;
             this.label16.Location = new System.Drawing.Point(5, 479);
             this.label16.MinimumSize = new System.Drawing.Size(150, 100);
             this.label16.Name = "label16";
@@ -647,7 +647,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(134, 273);
+            this.label19.Location = new System.Drawing.Point(97, 284);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(251, 13);
             this.label19.TabIndex = 17;
@@ -657,7 +657,7 @@
             // 
             this.linkLabel1.AccessibleName = "https://bit.ly/2K86dY9";
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(134, 296);
+            this.linkLabel1.Location = new System.Drawing.Point(97, 307);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(113, 13);
             this.linkLabel1.TabIndex = 15;
@@ -668,7 +668,7 @@
             // labelWideScreen
             // 
             this.labelWideScreen.AutoSize = true;
-            this.labelWideScreen.Location = new System.Drawing.Point(141, 315);
+            this.labelWideScreen.Location = new System.Drawing.Point(104, 326);
             this.labelWideScreen.Name = "labelWideScreen";
             this.labelWideScreen.Size = new System.Drawing.Size(0, 13);
             this.labelWideScreen.TabIndex = 14;

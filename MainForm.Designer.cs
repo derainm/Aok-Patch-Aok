@@ -123,6 +123,16 @@ namespace Aok_Patch.patcher_ {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap enchanted_farms2 {
+            get {
+                object obj = ResourceManager.GetObject("enchanted_farms2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap enchantedBlood {
             get {
                 object obj = ResourceManager.GetObject("enchantedBlood", resourceCulture);
@@ -196,6 +206,16 @@ namespace Aok_Patch.patcher_ {
         public static System.Drawing.Bitmap miniMapColor {
             get {
                 object obj = ResourceManager.GetObject("miniMapColor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap previewressolution {
+            get {
+                object obj = ResourceManager.GetObject("previewressolution", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

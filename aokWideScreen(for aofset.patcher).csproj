@@ -916,6 +916,9 @@
     <Content Include="Mgx fix\mgxfix.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\enchanted farms.PNG" />
+    <None Include="Resources\resizeframes.exe" />
+    <None Include="Resources\previewressolution.PNG" />
     <Content Include="Stream\Berbers.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

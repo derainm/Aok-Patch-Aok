@@ -256,7 +256,8 @@ namespace Aok_Patch.patcher_
             if (msk)
             {
                 string str = this.maskfile;
-                img.loadbitmap(str, 0);
+                if (File.Exists(str))
+                    img.loadbitmap(str, 0);
                 f = img.returnrawpixels();
                 //replace black pixel by transparent pixel
                 for (int j = 0; j < height; j++)
