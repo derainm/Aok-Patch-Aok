@@ -92,11 +92,33 @@ namespace Aok_Patch.patcher_
             {
                 this.fo = new FileStream(outputfile, FileMode.Create, FileAccess.Write);
                 convertimage(picture, width, height);
-                WriteBitmapFileHeader();
-                WriteBitmapInfoHeader();
-                Writecolortable();
-                WriteBitmap();
+                //WriteBitmapFileHeader();
+                BinaryWriter writer = new BinaryWriter(this.fo);
+                writer.Write(this.bfType);
+                writer.Write(intToDWord(this.bfSize));
+                writer.Write(intToWord(this.bfReserved1));
+                writer.Write(intToWord(this.bfReserved2));
+                writer.Write(intToDWord(this.bfOffset));
+                //WriteBitmapInfoHeader();
+                writer.Write(intToDWord(this.biSize));
+                writer.Write(intToDWord(this.biWidth));
+                writer.Write(intToDWord(this.biHeight));
+                writer.Write(intToWord(this.biPlanes));
+                writer.Write(intToWord(this.biBitCount));
+                writer.Write(intToDWord(this.biCompression));
+                writer.Write(intToDWord(this.biSizeImage));
+                writer.Write(intToDWord(this.biXPelsPerMeter));
+                writer.Write(intToDWord(this.biYPelsPerMeter));
+                writer.Write(intToDWord(this.biClrUsed));
+                writer.Write(intToDWord(this.biClrImportant));
+                //Writecolortable();
+                writer.Write(this.colortable);
+                //WriteBitmap();
+                writer.Write(this.bitmap);
+                writer.Close();
+                writer.Dispose();
                 this.fo.Close();
+                this.fo.Dispose();
             }
             catch (Exception e)
             {
@@ -164,12 +186,7 @@ namespace Aok_Patch.patcher_
     {
         try
         {
-            BinaryWriter writer = new BinaryWriter(this.fo);
-            writer.Write(this.bfType);
-            writer.Write(intToDWord(this.bfSize));
-            writer.Write(intToWord(this.bfReserved1));
-            writer.Write(intToWord(this.bfReserved2));
-            writer.Write(intToDWord(this.bfOffset));
+
             //writer.Close();
         }
         catch (Exception wbfh)
@@ -184,17 +201,7 @@ namespace Aok_Patch.patcher_
         try
         {
             BinaryWriter writer = new BinaryWriter(this.fo);
-            writer.Write(intToDWord(this.biSize));
-            writer.Write(intToDWord(this.biWidth));
-            writer.Write(intToDWord(this.biHeight));
-            writer.Write(intToWord(this.biPlanes));
-            writer.Write(intToWord(this.biBitCount));
-            writer.Write(intToDWord(this.biCompression));
-            writer.Write(intToDWord(this.biSizeImage));
-            writer.Write(intToDWord(this.biXPelsPerMeter));
-            writer.Write(intToDWord(this.biYPelsPerMeter));
-            writer.Write(intToDWord(this.biClrUsed));
-            writer.Write(intToDWord(this.biClrImportant));
+
         }
         catch (Exception wbih)
         {
@@ -208,7 +215,7 @@ namespace Aok_Patch.patcher_
         try
         {
             BinaryWriter writer = new BinaryWriter(this.fo);
-            writer.Write(this.colortable);
+            
             //writer.Close();
         }
         catch (Exception wbih)
@@ -223,8 +230,7 @@ namespace Aok_Patch.patcher_
         try
         {
             BinaryWriter writer = new BinaryWriter(this.fo);
-            writer.Write(this.bitmap);
-            writer.Close();
+
         }
         catch (Exception wbih)
         {

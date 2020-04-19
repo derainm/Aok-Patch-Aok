@@ -315,6 +315,7 @@ namespace Aok_Patch.patcher_
                     }
                 }
                 fs.Close();
+                fs.Dispose();
             }
             catch (Exception ex)
             {
@@ -330,7 +331,14 @@ namespace Aok_Patch.patcher_
                 this.frames[i].converttobitmap(filename, this.mask, this.outline1, this.outline2, this.shadow, this.sample);
             }
         }
-
+        public virtual void saveMultiFames(string outdir)
+        {
+            for (int i = 0; i < this.numframes; i++)
+            {
+                string filename = outdir.ToString() + this.name + i + ".bmp";
+                this.frames[i].converttobitmap(filename, this.mask, this.outline1, this.outline2, this.shadow, this.sample);
+            }
+        }
         public virtual void savecsv(string outdir)
         {
             string filename = outdir.ToString() + "Frames" + this.name + "\\" + this.name + ".csv";

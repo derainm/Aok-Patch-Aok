@@ -7,7 +7,7 @@
     <ProjectGuid>{332478C2-282E-4B39-9E1B-395EC92A3122}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AssemblyName>Aok Patch</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <RootNamespace>Aok_Patch.patcher_</RootNamespace>
     <TargetFrameworkProfile />
@@ -55,11 +55,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="KGySoft.CoreLibraries, Version=5.0.1.0, Culture=neutral, PublicKeyToken=b45eba277439ddfe, processorArchitecture=MSIL">
-      <HintPath>packages\KGySoft.CoreLibraries.5.0.1\lib\net45\KGySoft.CoreLibraries.dll</HintPath>
+      <HintPath>packages\KGySoft.CoreLibraries.5.0.1\lib\net40\KGySoft.CoreLibraries.dll</HintPath>
     </Reference>
     <Reference Include="KGySoft.Drawing, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b45eba277439ddfe, processorArchitecture=MSIL">
       <HintPath>packages\KGySoft.Drawing.5.0.0\lib\net40\KGySoft.Drawing.dll</HintPath>
     </Reference>
+    <Reference Include="NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NAudio.1.10.0\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System.Data" />
     <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
@@ -76,6 +80,12 @@
     </Compile>
     <Compile Include="AokPatch.Designer.cs">
       <DependentUpon>AokPatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BinaViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BinaViewer.Designer.cs">
+      <DependentUpon>BinaViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="commandclass.cs" />
     <Compile Include="DirectBitmap.cs" />
@@ -106,6 +116,12 @@
     <Compile Include="slpreader.cs" />
     <Compile Include="SlpStretcher.cs" />
     <Compile Include="FatalError.cs" />
+    <Compile Include="SlpViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlpViewer.Designer.cs">
+      <DependentUpon>SlpViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="slpwriter.cs" />
     <Compile Include="TabControlHelper.cs" />
     <Compile Include="UserFeedback.cs" />
@@ -118,6 +134,9 @@
     <EmbeddedResource Include="AokPatch.resx">
       <DependentUpon>AokPatch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BinaViewer.resx">
+      <DependentUpon>BinaViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MainForm.Designer.cs</LastGenOutput>
@@ -125,6 +144,9 @@
     <EmbeddedResource Include="Properties\Resource1.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlpViewer.resx">
+      <DependentUpon>SlpViewer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -901,6 +923,7 @@
     <None Include="Mods\terrain-v2\ter15031.slp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
     <None Include="Resources\Add civ.PNG" />
     <None Include="Resources\Canyonscenter.webp" />
     <None Include="Resources\Thumbnail.gif" />
@@ -980,7 +1003,6 @@
     <Content Include="Stream\Vietnamese.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="packages.config" />
     <None Include="Resources\AoC_10.patch" />
     <None Include="Resources\AoC_10ce.patch" />
     <None Include="Resources\AOE2_Alpha.pal" />

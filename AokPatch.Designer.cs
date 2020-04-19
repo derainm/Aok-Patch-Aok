@@ -74,6 +74,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.checkBoxSmallWall = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.DrsEditor = new System.Windows.Forms.TabPage();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBoxSearchId = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.comboBoxSelectedDataFile = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxTypeSlp = new System.Windows.Forms.ComboBox();
+            this.dataGridViewSlpViewer = new System.Windows.Forms.DataGridView();
             this.WideScreen = new System.Windows.Forms.TabPage();
             this.label19 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -110,6 +118,8 @@
             this.groupBox2.SuspendLayout();
             this.tabControlAokPatch.SuspendLayout();
             this.Mods.SuspendLayout();
+            this.DrsEditor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSlpViewer)).BeginInit();
             this.WideScreen.SuspendLayout();
             this.MiniMapColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSizeOfX)).BeginInit();
@@ -293,17 +303,19 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlAokPatch.Controls.Add(this.Mods);
+            this.tabControlAokPatch.Controls.Add(this.DrsEditor);
             this.tabControlAokPatch.Controls.Add(this.WideScreen);
             this.tabControlAokPatch.Controls.Add(this.MiniMapColor);
             this.tabControlAokPatch.Controls.Add(this.AokChatColor);
             this.tabControlAokPatch.Controls.Add(this.AddCivOnAok20);
             this.tabControlAokPatch.Controls.Add(this.Windowed);
             this.tabControlAokPatch.Controls.Add(this.FixRecord);
-            this.tabControlAokPatch.Location = new System.Drawing.Point(30, 22);
+            this.tabControlAokPatch.Location = new System.Drawing.Point(30, 12);
             this.tabControlAokPatch.Name = "tabControlAokPatch";
             this.tabControlAokPatch.SelectedIndex = 0;
-            this.tabControlAokPatch.Size = new System.Drawing.Size(576, 438);
+            this.tabControlAokPatch.Size = new System.Drawing.Size(576, 448);
             this.tabControlAokPatch.TabIndex = 14;
+            this.tabControlAokPatch.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControlAokPatch_Selecting);
             // 
             // Mods
             // 
@@ -338,7 +350,7 @@
             this.Mods.Controls.Add(this.label7);
             this.Mods.Location = new System.Drawing.Point(4, 22);
             this.Mods.Name = "Mods";
-            this.Mods.Size = new System.Drawing.Size(568, 412);
+            this.Mods.Size = new System.Drawing.Size(568, 422);
             this.Mods.TabIndex = 6;
             this.Mods.Text = "Mods";
             this.Mods.UseVisualStyleBackColor = true;
@@ -386,7 +398,6 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Image = global::Aok_Patch.patcher_.MainForm.TerrainV2;
             this.label18.Location = new System.Drawing.Point(5, 605);
             this.label18.MinimumSize = new System.Drawing.Size(150, 100);
             this.label18.Name = "label18";
@@ -521,7 +532,6 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Image = global::Aok_Patch.patcher_.MainForm.fireArrowHd;
             this.label12.Location = new System.Drawing.Point(284, 126);
             this.label12.MinimumSize = new System.Drawing.Size(150, 100);
             this.label12.Name = "label12";
@@ -628,6 +638,93 @@
             this.label7.Size = new System.Drawing.Size(150, 100);
             this.label7.TabIndex = 17;
             // 
+            // DrsEditor
+            // 
+            this.DrsEditor.Controls.Add(this.label25);
+            this.DrsEditor.Controls.Add(this.textBoxSearchId);
+            this.DrsEditor.Controls.Add(this.label24);
+            this.DrsEditor.Controls.Add(this.comboBoxSelectedDataFile);
+            this.DrsEditor.Controls.Add(this.label1);
+            this.DrsEditor.Controls.Add(this.comboBoxTypeSlp);
+            this.DrsEditor.Controls.Add(this.dataGridViewSlpViewer);
+            this.DrsEditor.Location = new System.Drawing.Point(4, 22);
+            this.DrsEditor.Name = "DrsEditor";
+            this.DrsEditor.Size = new System.Drawing.Size(568, 422);
+            this.DrsEditor.TabIndex = 7;
+            this.DrsEditor.Text = "DrsEditor";
+            this.DrsEditor.UseVisualStyleBackColor = true;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(413, 32);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(36, 13);
+            this.label25.TabIndex = 7;
+            this.label25.Text = "Go to:";
+            // 
+            // textBoxSearchId
+            // 
+            this.textBoxSearchId.Location = new System.Drawing.Point(460, 29);
+            this.textBoxSearchId.Name = "textBoxSearchId";
+            this.textBoxSearchId.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSearchId.TabIndex = 5;
+            this.textBoxSearchId.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(4, 32);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(45, 13);
+            this.label24.TabIndex = 4;
+            this.label24.Text = "Drs File:";
+            // 
+            // comboBoxSelectedDataFile
+            // 
+            this.comboBoxSelectedDataFile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSelectedDataFile.FormattingEnabled = true;
+            this.comboBoxSelectedDataFile.Location = new System.Drawing.Point(55, 29);
+            this.comboBoxSelectedDataFile.Name = "comboBoxSelectedDataFile";
+            this.comboBoxSelectedDataFile.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSelectedDataFile.TabIndex = 3;
+            this.comboBoxSelectedDataFile.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectedDataFile_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(218, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Type:";
+            // 
+            // comboBoxTypeSlp
+            // 
+            this.comboBoxTypeSlp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTypeSlp.FormattingEnabled = true;
+            this.comboBoxTypeSlp.Items.AddRange(new object[] {
+            "slp",
+            "way",
+            "bina"});
+            this.comboBoxTypeSlp.Location = new System.Drawing.Point(259, 29);
+            this.comboBoxTypeSlp.Name = "comboBoxTypeSlp";
+            this.comboBoxTypeSlp.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTypeSlp.TabIndex = 1;
+            this.comboBoxTypeSlp.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeSlp_SelectedIndexChanged);
+            // 
+            // dataGridViewSlpViewer
+            // 
+            this.dataGridViewSlpViewer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewSlpViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSlpViewer.Location = new System.Drawing.Point(0, 56);
+            this.dataGridViewSlpViewer.Name = "dataGridViewSlpViewer";
+            this.dataGridViewSlpViewer.ReadOnly = true;
+            this.dataGridViewSlpViewer.Size = new System.Drawing.Size(568, 370);
+            this.dataGridViewSlpViewer.TabIndex = 0;
+            this.dataGridViewSlpViewer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSlpViewer_CellClick);
+            this.dataGridViewSlpViewer.CurrentCellChanged += new System.EventHandler(this.dataGridViewSlpViewer_CurrentCellChanged);
+            // 
             // WideScreen
             // 
             this.WideScreen.Controls.Add(this.label19);
@@ -639,7 +736,7 @@
             this.WideScreen.Location = new System.Drawing.Point(4, 22);
             this.WideScreen.Name = "WideScreen";
             this.WideScreen.Padding = new System.Windows.Forms.Padding(3);
-            this.WideScreen.Size = new System.Drawing.Size(568, 412);
+            this.WideScreen.Size = new System.Drawing.Size(568, 422);
             this.WideScreen.TabIndex = 1;
             this.WideScreen.Text = "WideScreen";
             this.WideScreen.UseVisualStyleBackColor = true;
@@ -681,7 +778,7 @@
             this.MiniMapColor.Controls.Add(this.btnPatchMinMapColor);
             this.MiniMapColor.Location = new System.Drawing.Point(4, 22);
             this.MiniMapColor.Name = "MiniMapColor";
-            this.MiniMapColor.Size = new System.Drawing.Size(568, 412);
+            this.MiniMapColor.Size = new System.Drawing.Size(568, 422);
             this.MiniMapColor.TabIndex = 2;
             this.MiniMapColor.Text = "Mini Map Color";
             this.MiniMapColor.UseVisualStyleBackColor = true;
@@ -745,7 +842,7 @@
             this.AokChatColor.Controls.Add(this.label3);
             this.AokChatColor.Location = new System.Drawing.Point(4, 22);
             this.AokChatColor.Name = "AokChatColor";
-            this.AokChatColor.Size = new System.Drawing.Size(568, 412);
+            this.AokChatColor.Size = new System.Drawing.Size(568, 422);
             this.AokChatColor.TabIndex = 3;
             this.AokChatColor.Text = "Aok chat color";
             this.AokChatColor.UseVisualStyleBackColor = true;
@@ -790,7 +887,7 @@
             this.AddCivOnAok20.Controls.Add(this.label5);
             this.AddCivOnAok20.Location = new System.Drawing.Point(4, 22);
             this.AddCivOnAok20.Name = "AddCivOnAok20";
-            this.AddCivOnAok20.Size = new System.Drawing.Size(568, 412);
+            this.AddCivOnAok20.Size = new System.Drawing.Size(568, 422);
             this.AddCivOnAok20.TabIndex = 4;
             this.AddCivOnAok20.Text = "Add civ on Aok 2.0";
             this.AddCivOnAok20.UseVisualStyleBackColor = true;
@@ -940,7 +1037,7 @@
             this.Windowed.Controls.Add(this.label6);
             this.Windowed.Location = new System.Drawing.Point(4, 22);
             this.Windowed.Name = "Windowed";
-            this.Windowed.Size = new System.Drawing.Size(568, 412);
+            this.Windowed.Size = new System.Drawing.Size(568, 422);
             this.Windowed.TabIndex = 5;
             this.Windowed.Text = "Windowed";
             this.Windowed.UseVisualStyleBackColor = true;
@@ -973,7 +1070,7 @@
             this.FixRecord.Location = new System.Drawing.Point(4, 22);
             this.FixRecord.Name = "FixRecord";
             this.FixRecord.Padding = new System.Windows.Forms.Padding(3);
-            this.FixRecord.Size = new System.Drawing.Size(568, 412);
+            this.FixRecord.Size = new System.Drawing.Size(568, 422);
             this.FixRecord.TabIndex = 0;
             this.FixRecord.Text = "Fix records";
             this.FixRecord.UseVisualStyleBackColor = true;
@@ -1008,6 +1105,9 @@
             this.tabControlAokPatch.ResumeLayout(false);
             this.Mods.ResumeLayout(false);
             this.Mods.PerformLayout();
+            this.DrsEditor.ResumeLayout(false);
+            this.DrsEditor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSlpViewer)).EndInit();
             this.WideScreen.ResumeLayout(false);
             this.WideScreen.PerformLayout();
             this.MiniMapColor.ResumeLayout(false);
@@ -1104,5 +1204,13 @@
         private System.Windows.Forms.CheckBox checkBoxSmallWall;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TabPage DrsEditor;
+        private System.Windows.Forms.DataGridView dataGridViewSlpViewer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxTypeSlp;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox comboBoxSelectedDataFile;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox textBoxSearchId;
     }
 }

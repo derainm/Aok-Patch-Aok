@@ -19,6 +19,8 @@ using System.Threading;
 using System.Windows.Forms;
 using KGySoft.Drawing;
 using System.Text.RegularExpressions;
+using System.Data;
+using NAudio;
 
 namespace Aok_Patch.patcher_
 {
@@ -710,7 +712,12 @@ namespace Aok_Patch.patcher_
                         }
                     }
                     else
-                        PatchExecutable(newWidth, newHeight, patchForExe, dictHeigth, dictWidth);
+                    {
+                        HashSet<int> intSet = new HashSet<int>();
+                        int num = newWidth + newHeight * 65536;
+                        if (intSet.Add(num))
+                            PatchExecutable(newWidth, newHeight, patchForExe, dictHeigth, dictWidth);
+                    }
                 }
             }
             catch (Exception ex)
@@ -978,9 +985,15 @@ namespace Aok_Patch.patcher_
                 return;
             FileVersionInfo.GetVersionInfo(Path.Combine(Environment.SystemDirectory, this.gameExe));
             FileVersionInfo.GetVersionInfo(this.gameExe);
-
+            List<string> lstDrsFile = Directory.GetFiles(this.gameData).Select(x => Path.GetFileName(x)).ToList();
+            foreach (var item in lstDrsFile.Where(x => x.EndsWith(".drs")).ToList())
+            {
+                comboBoxSelectedDataFile.Items.Add(item);
+            }
+            if(lstDrsFile.Where(x => x.EndsWith(".drs")).ToList().Count>0)
+            comboBoxSelectedDataFile.SelectedIndex = 0;
         }
-
+       
         private void values(out int[] Ar, int v, int Size)
         {
             int num = v;
@@ -1380,6 +1393,7 @@ namespace Aok_Patch.patcher_
 
         private void AokPatch_Load(object sender, EventArgs e)
         {
+            
             GB_ManualRes.Visible= false;
             var scope = new ManagementScope();
             labelDescSIgnal.Visible = false;
@@ -1400,15 +1414,34 @@ namespace Aok_Patch.patcher_
                     //bug for the 1 st spot when chose another ressolution
                     //comboBox800.Items.Add("" + result["HorizontalResolution"] + "x" + result["VerticalResolution"]);
                     if (int.Parse(result["HorizontalResolution"]+"") >= 1024 && int.Parse(result["HorizontalResolution"] + "") >= 768)
-                        comboBox1024.Items.Add("" + result["HorizontalResolution"] + "x" + result["VerticalResolution"]);
+                    {
+
+                        HashSet<int> intSet = new HashSet<int>();
+                        int num = int.Parse(result["HorizontalResolution"] + "") + int.Parse(result["HorizontalResolution"] + "") * 65536;
+                        if (intSet.Add(num))
+                            comboBox1024.Items.Add("" + result["HorizontalResolution"] + "x" + result["VerticalResolution"]);
+                    }
+
                     if (int.Parse(result["HorizontalResolution"] + "") >=1280  && int.Parse(result["HorizontalResolution"] + "") >= 1024)
-                        comboBox1280.Items.Add("" + result["HorizontalResolution"] + "x" + result["VerticalResolution"]);
+                    {
+                        HashSet<int> intSet = new HashSet<int>();
+                        int num = int.Parse(result["HorizontalResolution"] + "") + int.Parse(result["HorizontalResolution"] + "") * 65536;
+                        if (intSet.Add(num))
+                            comboBox1280.Items.Add("" + result["HorizontalResolution"] + "x" + result["VerticalResolution"]); 
+                    }
                 }
             }
             comboBox800.SelectedIndex = 0;
             comboBox1024.SelectedIndex = 0;
             comboBox1280.SelectedIndex = 0;
             tabhelper = new TabControlHelper(tabControlAokPatch);
+
+            //comboBoxTypeSlp.SelectedIndex = 0;
+            slpView.Show();
+            slpView.Visible = false;
+
+            //slpView.Hide();
+            //tabhelper.HidePage(tabControlAokPatch.TabPages["DrsEditor"]);
         }
         public int[] frameDataOffsets;
         public int[] frameOutlineOffset;
@@ -1509,10 +1542,15 @@ namespace Aok_Patch.patcher_
                 {
                     using (System.Drawing.SolidBrush myBrush = new System.Drawing.SolidBrush(Color.FromArgb(180, 255, 180)))
                     {
-                        graphics.FillRectangle(myBrush, new Rectangle(0, tempBitmap.Width/4, tempBitmap.Width, tempBitmap.Height*3/4- tempBitmap.Height / 3-100)); // whatever
+
+                        int start = Convert.ToInt32(0.03333333 * tempBitmap.Height);
+                        int recHeight = tempBitmap.Height - Convert.ToInt32(0.03333333 * tempBitmap.Height) - Convert.ToInt32(0.23 * tempBitmap.Height);
+
+                        graphics.FillRectangle(myBrush, new Rectangle(0, start, tempBitmap.Width, recHeight)); // whatever
+                       // graphics.FillRectangle(myBrush, new Rectangle(0, tempBitmap.Width/4, tempBitmap.Width, tempBitmap.Height*3/4- tempBitmap.Height / 3-100)); // whatever
 
                     } // myBrush will be disposed at this line
-                    tempBitmap.Save(fileName);
+                    //tempBitmap.Save(fileName);
                 } // graphics will be disposed at 
                 tempBitmap.Save(newBmpFile, ImageFormat.Bmp);
             }
@@ -3569,6 +3607,341 @@ namespace Aok_Patch.patcher_
         {
             checkBoxRealTerrain.Checked = false;
             checkBoxTerrainV2.Checked = false;
+        }
+
+        private void tabControlAokPatch_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if(((TabControl)sender).SelectedTab!=null &&((TabControl)sender).SelectedTab.Name =="DrsEditor")
+            {
+                if (!string.IsNullOrEmpty(this.gameExe))
+                {
+                    string fd = Path.Combine(this.gameData,comboBoxSelectedDataFile.Text);
+                    lstDrsTable = LoadDrsInList(fd);
+                    fillDataGridView(dataGridViewSlpViewer, lstDrsTable);
+                }
+
+            }
+        }
+        private void fillDataGridView(DataGridView dgv, List<DrsTable> lstDrs)
+        {
+            DataTable table = new DataTable();
+            DataColumn column;
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.Int32");
+            column.ColumnName = "ID";
+            table.Columns.Add(column);
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "Type";
+            table.Columns.Add(column);
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.Int32");
+            column.ColumnName = "Length";
+            table.Columns.Add(column);
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "Comment";
+            table.Columns.Add(column);
+            DataRow r;
+            //uint type = 0;
+            //if (comboBoxTypeSlp.Text == "slp")
+            //    type = 1936486432;
+            if (lstDrs.Where(x => x.Type == type).FirstOrDefault() != null)
+            {
+                foreach (var item in lstDrs.Where(x => x.Type == type).First().Items)
+                {
+                    r = table.NewRow();
+                    r[0] = item.Id;
+                    r[1] = comboBoxTypeSlp.Text;
+                    r[2] = item.Size;
+                    r[3] = "";
+                    table.Rows.Add(r);
+                }
+            }
+            dataGridViewSlpViewer.DataSource = table;
+        }
+        private List<DrsTable> LoadDrsInList(string drsPathFile)
+        {
+            //List<DrsItem> lstitems = new List<DrsItem>();
+            DrsTable[] drsTableArray;
+            List<DrsItem> lstItem = new List<DrsItem>();
+
+            using (FileStream fileStream1 = new FileStream(drsPathFile, FileMode.Open))//, FileSystemRights.ReadData, FileShare.Read, 1048576, FileOptions.SequentialScan))
+            {
+                BinaryReader binaryReader = new BinaryReader(fileStream1);
+                bool flag = false;
+                while (true)
+                {
+                    byte num = binaryReader.ReadByte();
+                    if (num == (byte)26)
+                        flag = true;
+                    else if (num > (byte)0 & flag)
+                        break;
+                }
+                binaryReader.ReadBytes(3);
+                binaryReader.ReadBytes(12);
+                uint num1 = binaryReader.ReadUInt32();
+                uint num2 = binaryReader.ReadUInt32();
+
+                drsTableArray = new DrsTable[(int)num1];
+                for (int index = 0; (long)index < (long)num1; ++index)
+                    drsTableArray[index] = new DrsTable();
+                foreach (DrsTable drsTable in drsTableArray)
+                {
+                    drsTable.Type = binaryReader.ReadUInt32();
+                    drsTable.Start = binaryReader.ReadUInt32();
+                    uint num3 = binaryReader.ReadUInt32();
+                    DrsItem[] drsItemArray = new DrsItem[(int)num3];
+                    for (int index = 0; (long)index < (long)num3; ++index)
+                        drsItemArray[index] = new DrsItem();
+                    drsTable.Items = (IEnumerable<DrsItem>)drsItemArray;
+                }
+                foreach (DrsTable drsTable in drsTableArray)
+                {
+                    //Trace.Assert(fileStream1.Position == (long)drsTable.Start);
+                    foreach (DrsItem drsItem in drsTable.Items)
+                    {
+                        drsItem.Id = binaryReader.ReadUInt32();
+                        drsItem.Start = binaryReader.ReadUInt32();
+                        drsItem.Size = binaryReader.ReadUInt32();
+                    }
+                }
+                foreach (DrsItem drsItem in ((IEnumerable<DrsTable>)drsTableArray).SelectMany<DrsTable, DrsItem>((Func<DrsTable, IEnumerable<DrsItem>>)(table => table.Items)))
+                {
+                    //Trace.Assert(fileStream1.Position == (long)drsItem.Start);
+                    drsItem.Data = binaryReader.ReadBytes((int)drsItem.Size);
+                }
+                //where type is slp not .way or .bina
+                //lstItem = drsTableArray.Where(w => w.Type == 1936486432).First().Items.ToList();
+                binaryReader.Close();
+            }
+            return drsTableArray.ToList();
+
+        }
+
+        private void comboBoxSelectedDataFile_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.gameExe))
+            {
+                string fd = Path.Combine(this.gameData, comboBoxSelectedDataFile.Text);
+                lstDrsTable = LoadDrsInList(fd);
+                fillDataGridView(dataGridViewSlpViewer, lstDrsTable);
+            }
+        }
+
+        private void comboBoxTypeSlp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.gameExe))
+            {
+                string fd = Path.Combine(this.gameData, comboBoxSelectedDataFile.Text);
+                var lst = LoadDrsInList(fd);
+                //1651076705
+                //1936486432
+                //2002875936
+                switch(comboBoxTypeSlp.Text)
+                {
+                    case "slp":
+                        type = 1936486432;
+                        break;
+                    case "way":
+                        type = 2002875936;
+                        break;
+                    case "bina":
+                        type =   1651076705;
+                        break;
+                }
+                fillDataGridView(dataGridViewSlpViewer, lst);
+            }
+        }
+        protected virtual bool IsFileLocked(FileInfo file)
+        {
+            FileStream stream = null;
+
+            try
+            {
+                stream = file.Open(FileMode.Open, FileAccess.ReadWrite, FileShare.None);
+            }
+            catch (IOException)
+            {
+                //the file is unavailable because it is:
+                //still being written to
+                //or being processed by another thread
+                //or does not exist (has already been processed)
+                return true;
+            }
+            finally
+            {
+                if (stream != null)
+                    stream.Close();
+            }
+
+            //file is not locked
+            return false;
+        }
+        private SlpViewer slpView =new SlpViewer();
+        private BinaViewer binaViewer = new BinaViewer();
+        private List<DrsTable> lstDrsTable;
+        public string imageFileName;
+        private uint type = 1936486432;
+        private void dataGridViewSlpViewer_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.gameExe) && e.RowIndex>0)
+            {               
+                var dtw = ((DataGridView)sender).Rows[e.RowIndex];
+                var id = dtw.Cells[0].Value.ToString();
+                showDrsInformation(id);
+
+            }
+
+        }
+        private void showDrsInformation(string index)
+        {
+            if (!string.IsNullOrEmpty(this.gameExe) && int.Parse(index) > 0)
+            {
+                //if slp
+                if (type == 1936486432)
+                {
+                    if (!binaViewer.IsDisposed)
+                    {
+                        binaViewer.Close();
+                    }
+                    String workingDir = Directory.GetCurrentDirectory();
+                    if (!workingDir.EndsWith("\\"))
+                        workingDir += "\\tmpBmp\\";
+
+                    if (!Directory.Exists(@"tmpBmp\"))
+                        Directory.CreateDirectory(@"tmpBmp\");
+                    //string fd = Path.Combine(this.gameData, comboBoxSelectedDataFile.Text);
+                    //var dtw = ((DataGridView)sender).Rows[e.RowIndex];
+                    //var id = dtw.Cells[0].Value.ToString();
+                    var id = index;
+                    if (lstDrsTable.Where(x => x.Type == type).First().Items.Where(w => w.Id == uint.Parse(id)).FirstOrDefault() != null)
+                    {
+                        File.WriteAllBytes(@"tmpBmp\tmpReadSlp.slp", lstDrsTable.Where(x => x.Type == type).First().Items.Where(w => w.Id == uint.Parse(id)).First().Data);
+                        string SlpFileName = "tmpReadSlp.slp";
+                        slpReader slpname = new slpReader();
+
+                        string fi = Path.GetFileName(SlpFileName);
+                        Console.WriteLine("Extracting frames from " + fi + "...");
+                        slpname.sample = fi.Equals("int50101.slp") ? "50532.bmp" : "50500.bmp";
+                        Console.WriteLine(fi + " " + slpname.sample);
+                        slpname.name = fi.Split('.').First();
+                        SlpFileName = Path.Combine(workingDir, SlpFileName);
+                        slpname.Read(SlpFileName);
+                        slpname.saveMultiFames(workingDir);
+                        var fileName = Path.GetDirectoryName(SlpFileName) + $@"\{slpname.name}.bmp";
+                        var myListFiles = Directory.GetFiles(workingDir).Where(x => x.Contains("tmpReadSlp") && x.EndsWith(".bmp")).ToList();
+                        var list = myListFiles.Select(x => x.Replace(workingDir + @"tmpReadSlp", "").Replace(".bmp", "")).Select(x => int.Parse(x)).OrderBy(x => x).ToList();
+
+                        List<string> lstbmp = list.Select(x => string.Format("{0}tmpReadSlp{1}.bmp", workingDir, x)).Take(slpname.numframes).ToList();
+
+                        imageFileName = fileName;
+
+                        var disposed = slpView.IsDisposed;
+                        if (disposed)
+                        {
+                            slpView = new SlpViewer(lstbmp);
+                            slpView.Show();
+                            slpView.Play();
+                        }
+                        else
+                            slpView.Visible = true;
+                        slpView.lstbitemap = lstbmp;
+                        slpView.Play();
+                    }
+                }
+                if (type == 2002875936)
+                {
+                    //var dtw = ((DataGridView)sender).Rows[e.RowIndex];
+                    //var id = dtw.Cells[0].Value.ToString();
+                    var id = index;
+                    var file = lstDrsTable.Where(x => x.Type == type).First().Items.Where(w => w.Id == uint.Parse(id)).First().Data;
+                    Stream filestream = new MemoryStream(file);
+                    NAudio.Wave.WaveStream pcm = new NAudio.Wave.WaveChannel32(new NAudio.Wave.WaveFileReader(filestream));//new NAudio.Wave.WaveFileReader("")
+                    var stream = new NAudio.Wave.BlockAlignReductionStream(pcm);
+                    var output = new NAudio.Wave.DirectSoundOut();
+                    output.Init(stream);
+                    output.Play();
+                }
+                if (type == 1651076705)
+                {
+                    //var dtw = ((DataGridView)sender).Rows[e.RowIndex];
+                    //var id = dtw.Cells[0].Value.ToString();
+                    var id = index;
+                    var buffer = lstDrsTable.Where(x => x.Type == type).First().Items.Where(w => w.Id == uint.Parse(id)).First().Data;
+                    if (!slpView.IsDisposed)
+                    {
+                        slpView.Close();
+                    }
+                    var disposed = binaViewer.IsDisposed;
+                    if (disposed)
+                    {
+                        binaViewer = new BinaViewer(Encoding.UTF8.GetString(buffer, 0, buffer.Length));
+                    }
+                    else
+                    {
+                        binaViewer.setText(Encoding.UTF8.GetString(buffer, 0, buffer.Length));
+                    }
+                    binaViewer.Show();
+
+                }
+            }
+        }
+        public Image byteArrayToImage(byte[] bytesArr)
+        {
+            using (MemoryStream memstr = new MemoryStream(bytesArr))
+            {
+                Image img = Image.FromStream(memstr);
+                return img;
+            }
+        }
+        public byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, imageIn.RawFormat);
+                return ms.ToArray();
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            int myIdToSearch;
+            if(int.TryParse(textBoxSearchId.Text, out myIdToSearch))
+            {
+                dataGridViewSlpViewer.ClearSelection();
+                int rowIndex = -1;
+                foreach (DataGridViewRow row in dataGridViewSlpViewer.Rows)
+                {
+                    var val = row.Cells[0].Value;
+                    if (row.Cells[0].Value !=null && int.Parse(row.Cells[0].Value.ToString()) == myIdToSearch)
+                    {
+                        rowIndex = row.Index;
+                        break;
+                    }
+                }
+                if(rowIndex>=0)
+                {
+                   dataGridViewSlpViewer.Rows[rowIndex].Selected = true;
+                   showDrsInformation(dataGridViewSlpViewer.Rows[rowIndex].Cells[0].Value.ToString());
+                }
+            }
+        }
+
+        private void dataGridViewSlpViewer_CurrentCellChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonOpenFileDrs_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                lstDrsTable = LoadDrsInList(openFileDialog.FileName);
+                fillDataGridView(dataGridViewSlpViewer, lstDrsTable);
+
+            }
         }
     }
     public class TextBoxListener : TraceListener

@@ -197,6 +197,7 @@ namespace Aok_Patch.patcher_
         Aokbitmap b = new Aokbitmap(mask, outline1, outline2, shadow);
         b.sample = samp;
         b.Write(filename, this.picture, this.width, this.height);
+         
     }
 
     internal virtual void cmdcolorblock(byte[] array, bool playercolorused)
