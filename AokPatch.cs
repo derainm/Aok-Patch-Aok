@@ -4054,7 +4054,7 @@ namespace Aok_Patch.patcher_
                             Id= (uint)LastId +1,
                             Data = data,
                             Size = (uint)data.Length,
-                            //Start = (uint)lastStartPos
+                            Start = (uint)lastStartPos
                         };
                         //lastStartPos += (uint)data.Length;
                         lstDrsItem.Add(drsItem);
