@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AokPatch));
             this.radioButton__20 = new System.Windows.Forms.RadioButton();
             this.radioButton_20a = new System.Windows.Forms.RadioButton();
@@ -75,6 +76,11 @@
             this.checkBoxSmallWall = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.DrsEditor = new System.Windows.Forms.TabPage();
+            this.buttonSaveAs = new System.Windows.Forms.Button();
+            this.buttonSaveDrs = new System.Windows.Forms.Button();
+            this.buttonUpdateSlpID = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.textBoxUpdateSlpId = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.textBoxSearchId = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -114,6 +120,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.FixRecord = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
+            this.contextMenuStripDrsEditorOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replaceFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.extractFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GB_ManualRes.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControlAokPatch.SuspendLayout();
@@ -128,6 +139,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_nb_2_add)).BeginInit();
             this.Windowed.SuspendLayout();
             this.FixRecord.SuspendLayout();
+            this.contextMenuStripDrsEditorOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // radioButton__20
@@ -214,7 +226,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(166, 60);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Browser ...";
+            this.button1.Text = "Browser game exe ...";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnBrowser_Click);
             // 
@@ -279,7 +291,7 @@
             this.groupBox2.Controls.Add(this.radioButton_10e);
             this.groupBox2.Controls.Add(this.radioButton_10);
             this.groupBox2.Controls.Add(this.radioButton_20b);
-            this.groupBox2.Location = new System.Drawing.Point(34, 466);
+            this.groupBox2.Location = new System.Drawing.Point(34, 501);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(568, 96);
             this.groupBox2.TabIndex = 12;
@@ -313,7 +325,7 @@
             this.tabControlAokPatch.Location = new System.Drawing.Point(30, 12);
             this.tabControlAokPatch.Name = "tabControlAokPatch";
             this.tabControlAokPatch.SelectedIndex = 0;
-            this.tabControlAokPatch.Size = new System.Drawing.Size(576, 448);
+            this.tabControlAokPatch.Size = new System.Drawing.Size(576, 502);
             this.tabControlAokPatch.TabIndex = 14;
             this.tabControlAokPatch.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControlAokPatch_Selecting);
             // 
@@ -350,7 +362,7 @@
             this.Mods.Controls.Add(this.label7);
             this.Mods.Location = new System.Drawing.Point(4, 22);
             this.Mods.Name = "Mods";
-            this.Mods.Size = new System.Drawing.Size(568, 422);
+            this.Mods.Size = new System.Drawing.Size(568, 476);
             this.Mods.TabIndex = 6;
             this.Mods.Text = "Mods";
             this.Mods.UseVisualStyleBackColor = true;
@@ -398,6 +410,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
+            this.label18.Image = global::Aok_Patch.patcher_.MainForm.TerrainV2;
             this.label18.Location = new System.Drawing.Point(5, 605);
             this.label18.MinimumSize = new System.Drawing.Size(150, 100);
             this.label18.Name = "label18";
@@ -532,6 +545,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.Image = global::Aok_Patch.patcher_.MainForm.fireArrowHd;
             this.label12.Location = new System.Drawing.Point(284, 126);
             this.label12.MinimumSize = new System.Drawing.Size(150, 100);
             this.label12.Name = "label12";
@@ -640,6 +654,11 @@
             // 
             // DrsEditor
             // 
+            this.DrsEditor.Controls.Add(this.buttonSaveAs);
+            this.DrsEditor.Controls.Add(this.buttonSaveDrs);
+            this.DrsEditor.Controls.Add(this.buttonUpdateSlpID);
+            this.DrsEditor.Controls.Add(this.label26);
+            this.DrsEditor.Controls.Add(this.textBoxUpdateSlpId);
             this.DrsEditor.Controls.Add(this.label25);
             this.DrsEditor.Controls.Add(this.textBoxSearchId);
             this.DrsEditor.Controls.Add(this.label24);
@@ -649,23 +668,71 @@
             this.DrsEditor.Controls.Add(this.dataGridViewSlpViewer);
             this.DrsEditor.Location = new System.Drawing.Point(4, 22);
             this.DrsEditor.Name = "DrsEditor";
-            this.DrsEditor.Size = new System.Drawing.Size(568, 422);
+            this.DrsEditor.Size = new System.Drawing.Size(568, 476);
             this.DrsEditor.TabIndex = 7;
             this.DrsEditor.Text = "DrsEditor";
             this.DrsEditor.UseVisualStyleBackColor = true;
             // 
+            // buttonSaveAs
+            // 
+            this.buttonSaveAs.Image = global::Aok_Patch.patcher_.MainForm.icons8_save_tabs_list_32;
+            this.buttonSaveAs.Location = new System.Drawing.Point(58, 2);
+            this.buttonSaveAs.Name = "buttonSaveAs";
+            this.buttonSaveAs.Size = new System.Drawing.Size(46, 44);
+            this.buttonSaveAs.TabIndex = 12;
+            this.buttonSaveAs.UseVisualStyleBackColor = true;
+            this.buttonSaveAs.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // buttonSaveDrs
+            // 
+            this.buttonSaveDrs.Image = global::Aok_Patch.patcher_.MainForm.icons8_save_as_40;
+            this.buttonSaveDrs.Location = new System.Drawing.Point(6, 2);
+            this.buttonSaveDrs.Name = "buttonSaveDrs";
+            this.buttonSaveDrs.Size = new System.Drawing.Size(46, 44);
+            this.buttonSaveDrs.TabIndex = 11;
+            this.buttonSaveDrs.Tag = "";
+            this.buttonSaveDrs.UseVisualStyleBackColor = true;
+            this.buttonSaveDrs.Click += new System.EventHandler(this.buttonSaveDrs_Click);
+            // 
+            // buttonUpdateSlpID
+            // 
+            this.buttonUpdateSlpID.Image = global::Aok_Patch.patcher_.MainForm.icons8_update_left_rotation_32;
+            this.buttonUpdateSlpID.Location = new System.Drawing.Point(517, 5);
+            this.buttonUpdateSlpID.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonUpdateSlpID.Name = "buttonUpdateSlpID";
+            this.buttonUpdateSlpID.Size = new System.Drawing.Size(43, 42);
+            this.buttonUpdateSlpID.TabIndex = 10;
+            this.buttonUpdateSlpID.UseVisualStyleBackColor = true;
+            this.buttonUpdateSlpID.Click += new System.EventHandler(this.buttonUpdateSlpID_Click);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(355, 17);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(56, 13);
+            this.label26.TabIndex = 9;
+            this.label26.Text = "Update id:";
+            // 
+            // textBoxUpdateSlpId
+            // 
+            this.textBoxUpdateSlpId.Location = new System.Drawing.Point(411, 14);
+            this.textBoxUpdateSlpId.Name = "textBoxUpdateSlpId";
+            this.textBoxUpdateSlpId.Size = new System.Drawing.Size(100, 20);
+            this.textBoxUpdateSlpId.TabIndex = 8;
+            // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(413, 32);
+            this.label25.Location = new System.Drawing.Point(364, 54);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(36, 13);
+            this.label25.Size = new System.Drawing.Size(47, 13);
             this.label25.TabIndex = 7;
-            this.label25.Text = "Go to:";
+            this.label25.Text = "Go to id:";
             // 
             // textBoxSearchId
             // 
-            this.textBoxSearchId.Location = new System.Drawing.Point(460, 29);
+            this.textBoxSearchId.Location = new System.Drawing.Point(411, 51);
             this.textBoxSearchId.Name = "textBoxSearchId";
             this.textBoxSearchId.Size = new System.Drawing.Size(100, 20);
             this.textBoxSearchId.TabIndex = 5;
@@ -674,7 +741,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(4, 32);
+            this.label24.Location = new System.Drawing.Point(8, 56);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(45, 13);
             this.label24.TabIndex = 4;
@@ -684,7 +751,7 @@
             // 
             this.comboBoxSelectedDataFile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSelectedDataFile.FormattingEnabled = true;
-            this.comboBoxSelectedDataFile.Location = new System.Drawing.Point(55, 29);
+            this.comboBoxSelectedDataFile.Location = new System.Drawing.Point(59, 53);
             this.comboBoxSelectedDataFile.Name = "comboBoxSelectedDataFile";
             this.comboBoxSelectedDataFile.Size = new System.Drawing.Size(121, 21);
             this.comboBoxSelectedDataFile.TabIndex = 3;
@@ -693,7 +760,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(218, 32);
+            this.label1.Location = new System.Drawing.Point(186, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 2;
@@ -707,7 +774,7 @@
             "slp",
             "way",
             "bina"});
-            this.comboBoxTypeSlp.Location = new System.Drawing.Point(259, 29);
+            this.comboBoxTypeSlp.Location = new System.Drawing.Point(226, 50);
             this.comboBoxTypeSlp.Name = "comboBoxTypeSlp";
             this.comboBoxTypeSlp.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTypeSlp.TabIndex = 1;
@@ -717,13 +784,15 @@
             // 
             this.dataGridViewSlpViewer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSlpViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSlpViewer.Location = new System.Drawing.Point(0, 56);
+            this.dataGridViewSlpViewer.Location = new System.Drawing.Point(0, 80);
             this.dataGridViewSlpViewer.Name = "dataGridViewSlpViewer";
             this.dataGridViewSlpViewer.ReadOnly = true;
-            this.dataGridViewSlpViewer.Size = new System.Drawing.Size(568, 370);
+            this.dataGridViewSlpViewer.Size = new System.Drawing.Size(568, 393);
             this.dataGridViewSlpViewer.TabIndex = 0;
             this.dataGridViewSlpViewer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSlpViewer_CellClick);
             this.dataGridViewSlpViewer.CurrentCellChanged += new System.EventHandler(this.dataGridViewSlpViewer_CurrentCellChanged);
+            this.dataGridViewSlpViewer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewSlpViewer_MouseClick);
+            this.dataGridViewSlpViewer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridViewSlpViewer_MouseDown);
             // 
             // WideScreen
             // 
@@ -736,7 +805,7 @@
             this.WideScreen.Location = new System.Drawing.Point(4, 22);
             this.WideScreen.Name = "WideScreen";
             this.WideScreen.Padding = new System.Windows.Forms.Padding(3);
-            this.WideScreen.Size = new System.Drawing.Size(568, 422);
+            this.WideScreen.Size = new System.Drawing.Size(568, 476);
             this.WideScreen.TabIndex = 1;
             this.WideScreen.Text = "WideScreen";
             this.WideScreen.UseVisualStyleBackColor = true;
@@ -778,7 +847,7 @@
             this.MiniMapColor.Controls.Add(this.btnPatchMinMapColor);
             this.MiniMapColor.Location = new System.Drawing.Point(4, 22);
             this.MiniMapColor.Name = "MiniMapColor";
-            this.MiniMapColor.Size = new System.Drawing.Size(568, 422);
+            this.MiniMapColor.Size = new System.Drawing.Size(568, 476);
             this.MiniMapColor.TabIndex = 2;
             this.MiniMapColor.Text = "Mini Map Color";
             this.MiniMapColor.UseVisualStyleBackColor = true;
@@ -842,7 +911,7 @@
             this.AokChatColor.Controls.Add(this.label3);
             this.AokChatColor.Location = new System.Drawing.Point(4, 22);
             this.AokChatColor.Name = "AokChatColor";
-            this.AokChatColor.Size = new System.Drawing.Size(568, 422);
+            this.AokChatColor.Size = new System.Drawing.Size(568, 476);
             this.AokChatColor.TabIndex = 3;
             this.AokChatColor.Text = "Aok chat color";
             this.AokChatColor.UseVisualStyleBackColor = true;
@@ -887,7 +956,7 @@
             this.AddCivOnAok20.Controls.Add(this.label5);
             this.AddCivOnAok20.Location = new System.Drawing.Point(4, 22);
             this.AddCivOnAok20.Name = "AddCivOnAok20";
-            this.AddCivOnAok20.Size = new System.Drawing.Size(568, 422);
+            this.AddCivOnAok20.Size = new System.Drawing.Size(568, 476);
             this.AddCivOnAok20.TabIndex = 4;
             this.AddCivOnAok20.Text = "Add civ on Aok 2.0";
             this.AddCivOnAok20.UseVisualStyleBackColor = true;
@@ -1037,7 +1106,7 @@
             this.Windowed.Controls.Add(this.label6);
             this.Windowed.Location = new System.Drawing.Point(4, 22);
             this.Windowed.Name = "Windowed";
-            this.Windowed.Size = new System.Drawing.Size(568, 422);
+            this.Windowed.Size = new System.Drawing.Size(568, 476);
             this.Windowed.TabIndex = 5;
             this.Windowed.Text = "Windowed";
             this.Windowed.UseVisualStyleBackColor = true;
@@ -1070,7 +1139,7 @@
             this.FixRecord.Location = new System.Drawing.Point(4, 22);
             this.FixRecord.Name = "FixRecord";
             this.FixRecord.Padding = new System.Windows.Forms.Padding(3);
-            this.FixRecord.Size = new System.Drawing.Size(568, 422);
+            this.FixRecord.Size = new System.Drawing.Size(568, 476);
             this.FixRecord.TabIndex = 0;
             this.FixRecord.Text = "Fix records";
             this.FixRecord.UseVisualStyleBackColor = true;
@@ -1085,11 +1154,49 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
+            // contextMenuStripDrsEditorOptions
+            // 
+            this.contextMenuStripDrsEditorOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.testToolStripMenuItem,
+            this.deleteFileToolStripMenuItem,
+            this.replaceFileToolStripMenuItem,
+            this.extractFileToolStripMenuItem});
+            this.contextMenuStripDrsEditorOptions.Name = "contextMenuStrip1";
+            this.contextMenuStripDrsEditorOptions.Size = new System.Drawing.Size(137, 92);
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.testToolStripMenuItem.Text = "Add File";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            // 
+            // deleteFileToolStripMenuItem
+            // 
+            this.deleteFileToolStripMenuItem.Name = "deleteFileToolStripMenuItem";
+            this.deleteFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.deleteFileToolStripMenuItem.Text = "DeleteFile";
+            this.deleteFileToolStripMenuItem.Click += new System.EventHandler(this.deleteFileToolStripMenuItem_Click);
+            // 
+            // replaceFileToolStripMenuItem
+            // 
+            this.replaceFileToolStripMenuItem.Name = "replaceFileToolStripMenuItem";
+            this.replaceFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.replaceFileToolStripMenuItem.Text = "Replace File";
+            this.replaceFileToolStripMenuItem.Click += new System.EventHandler(this.replaceFileToolStripMenuItem_Click);
+            // 
+            // extractFileToolStripMenuItem
+            // 
+            this.extractFileToolStripMenuItem.Name = "extractFileToolStripMenuItem";
+            this.extractFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.extractFileToolStripMenuItem.Text = "Extract File";
+            this.extractFileToolStripMenuItem.Click += new System.EventHandler(this.extractFileToolStripMenuItem_Click);
+            // 
             // AokPatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 564);
+            this.ClientSize = new System.Drawing.Size(616, 599);
             this.Controls.Add(this.tabControlAokPatch);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1121,6 +1228,7 @@
             this.Windowed.ResumeLayout(false);
             this.Windowed.PerformLayout();
             this.FixRecord.ResumeLayout(false);
+            this.contextMenuStripDrsEditorOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1212,5 +1320,15 @@
         private System.Windows.Forms.ComboBox comboBoxSelectedDataFile;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox textBoxSearchId;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripDrsEditorOptions;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem replaceFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem extractFileToolStripMenuItem;
+        private System.Windows.Forms.Button buttonSaveDrs;
+        private System.Windows.Forms.Button buttonUpdateSlpID;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox textBoxUpdateSlpId;
+        private System.Windows.Forms.Button buttonSaveAs;
     }
 }

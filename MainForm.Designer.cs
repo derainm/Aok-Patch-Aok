@@ -203,6 +203,46 @@ namespace Aok_Patch.patcher_ {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap icons8_save_as_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_save_as_40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_save_close_40 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_save_close_40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_save_tabs_list_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_save_tabs_list_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_update_left_rotation_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_update_left_rotation_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap miniMapColor {
             get {
                 object obj = ResourceManager.GetObject("miniMapColor", resourceCulture);

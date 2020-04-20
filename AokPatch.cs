@@ -975,11 +975,18 @@ namespace Aok_Patch.patcher_
         private void btnBrowser_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter =
+            "empires2 Age2_x1 exe (*.exe)|*.exe";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 this.gameExe = openFileDialog.FileName;
                 this.gamePath = new FileInfo(this.gameExe).Directory.FullName;
-                this.gameData = this.gamePath + "\\data";
+                this.gameData = this.gamePath.Contains("Age2_x1")? this.gamePath.Replace("Age2_x1", "data") : this.gamePath + "\\data";
+            }
+            if(!this.gameExe.ToLower().Contains("empires2")&& !this.gameExe.ToLower().Contains("age2_x1"))
+            {
+                MessageBox.Show("Browser empires2.exe or Age2_x1.exe");
+                return;
             }
             if (string.IsNullOrEmpty(this.gameExe))
                 return;
@@ -3785,11 +3792,14 @@ namespace Aok_Patch.patcher_
         private uint type = 1936486432;
         private void dataGridViewSlpViewer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+
             if (!string.IsNullOrEmpty(this.gameExe) && e.RowIndex>0)
             {               
                 var dtw = ((DataGridView)sender).Rows[e.RowIndex];
                 var id = dtw.Cells[0].Value.ToString();
-                showDrsInformation(id);
+                if(!string.IsNullOrEmpty(id))
+                    showDrsInformation(id);
 
             }
 
@@ -3943,6 +3953,298 @@ namespace Aok_Patch.patcher_
 
             }
         }
+
+        private void dataGridViewSlpViewer_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+
+                var hitTestInfo = dataGridViewSlpViewer.HitTest(e.X, e.Y);
+                // If column is first column
+                if (hitTestInfo.Type == DataGridViewHitTestType.Cell && hitTestInfo.ColumnIndex == 0)
+                    contextMenuStripDrsEditorOptions.Show(dataGridViewSlpViewer, new Point(e.X, e.Y));
+                // If column is second column
+                if (hitTestInfo.Type == DataGridViewHitTestType.Cell && hitTestInfo.ColumnIndex == 1)
+                    contextMenuStripDrsEditorOptions.Show(dataGridViewSlpViewer, new Point(e.X, e.Y));
+            }
+        }
+
+        private void replaceFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter =
+            "slp files (*.slp)|*.slp" +
+            "|way files (*.way)|*.way" +
+            "|bina files (*.bina)|*.bina";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (openFileDialog.FileName.EndsWith("."+ (string.IsNullOrEmpty(comboBoxTypeSlp.Text) ? "slp" : comboBoxTypeSlp.Text)))
+                {
+                    var data = File.ReadAllBytes(openFileDialog.FileName);
+                    var id = dataGridViewSlpViewer.SelectedCells[0].Value;
+                    lstDrsTable.Where(x => x.Type == type).First().Items.Where(w => w.Id == uint.Parse(id + "")).First().Data = data;
+                }
+                else
+                {
+                    MessageBox.Show("File format is wrong, you need " +(string.IsNullOrEmpty(comboBoxTypeSlp.Text)?"slp":comboBoxTypeSlp.Text)+ "Format");
+                }
+            }
+        }
+
+        private void dataGridViewSlpViewer_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var hti = dataGridViewSlpViewer.HitTest(e.X, e.Y);
+                dataGridViewSlpViewer.ClearSelection();
+                dataGridViewSlpViewer.Rows[hti.RowIndex].Selected = true;
+            }
+        }
+
+        private void extractFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            var folderBrowserDialog1 = new FolderBrowserDialog();
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                var id = dataGridViewSlpViewer.SelectedCells[0].Value;
+                var data = lstDrsTable.Where(x => x.Type == type).First().Items.Where(w => w.Id == uint.Parse(id + "")).First().Data;
+                File.WriteAllBytes(Path.Combine(folderBrowserDialog1.SelectedPath, id+ "." + (string.IsNullOrEmpty(comboBoxTypeSlp.Text) ? "slp" : comboBoxTypeSlp.Text)), data);
+            }
+        }
+
+        private void deleteFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var id = dataGridViewSlpViewer.SelectedCells[0].Value;
+            var item = lstDrsTable.Where(x => x.Type == type).First().Items.Where(w => w.Id == uint.Parse(id + "")).First();
+            lstDrsTable.Where(x => x.Type == type).First().Items = lstDrsTable.Where(x => x.Type == type).First().Items.Where(w => w.Id != uint.Parse(id + "")).ToList();
+            fillDataGridView(dataGridViewSlpViewer, lstDrsTable);
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            // Allow the user to select multiple Files
+            openFileDialog.Multiselect = true;
+            openFileDialog.Filter =
+            "slp files (*.slp)|*.slp" +
+            "|way files (*.way)|*.way" +
+            "|bina files (*.bina)|*.bina";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (openFileDialog.FileName.EndsWith("." + (string.IsNullOrEmpty(comboBoxTypeSlp.Text) ? "slp" : comboBoxTypeSlp.Text)))
+                {
+                    List<DrsItem> lstDrsItem = lstDrsTable.Where(x => x.Type == type).First().Items.ToList();
+                    foreach (var f in openFileDialog.FileNames)
+                    {
+                        var data = File.ReadAllBytes(f);
+                        var lastDrsItem = lstDrsItem.OrderByDescending(x => x.Id).First();
+                        //var precDrsItem = lstDrsItem.ElementAt(1);
+                        uint LastId = lastDrsItem.Id;
+                        uint lastStartPos = (uint) lastDrsItem.Start + (uint)lastDrsItem.Size;
+                        //lastStartPos += lastDrsItem.Size;
+  
+                        var drsItem = new DrsItem()
+                        {
+                            Id= (uint)LastId +1,
+                            Data = data,
+                            Size = (uint)data.Length,
+                            Start = (uint)lastStartPos
+                        };
+                        //lastStartPos += (uint)data.Length;
+                        lstDrsItem.Add(drsItem);
+                    }
+                    lstDrsTable.Where(x => x.Type == type).First().Items = lstDrsItem;
+                    fillDataGridView(dataGridViewSlpViewer, lstDrsTable);
+                }
+                else
+                {
+                    MessageBox.Show("File format is wrong, you need " + (string.IsNullOrEmpty(comboBoxTypeSlp.Text) ? "slp" : comboBoxTypeSlp.Text) + "Format");
+                }
+            }
+    
+        }
+
+        private void buttonUpdateSlpID_Click(object sender, EventArgs e)
+        {
+            uint idToUpdate ;
+            if (uint.TryParse(textBoxUpdateSlpId.Text, out idToUpdate))
+            {
+                var id = dataGridViewSlpViewer.SelectedCells[0].Value;
+
+                lstDrsTable.Where(x => x.Type == type).First().Items.Where(w => w.Id == uint.Parse(id + "")).First().Id = idToUpdate;
+                fillDataGridView(dataGridViewSlpViewer, lstDrsTable);
+            }
+            else
+            {
+                MessageBox.Show("Invalide input id to update, u need a number");
+                return;
+            }
+        }
+
+        private void buttonSaveDrs_Click(object sender, EventArgs e)
+        {
+            if(!String.IsNullOrEmpty(this.gameData))
+            { 
+                var drsFile = Path.Combine(this.gameData,comboBoxSelectedDataFile.Text);
+                var tmpDrsFile = drsFile.Replace(".drs", "Tmp.drs");
+                saveDrsFromLis(drsFile, tmpDrsFile, lstDrsTable);
+                if (File.Exists(drsFile))
+                {
+                    //update Drs file
+                    File.Copy(tmpDrsFile, drsFile, true);
+                    File.Delete(tmpDrsFile);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Browser Game Exe");
+                return;
+            }
+        }
+        //save drs as
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter =
+            "Ds file (*.drs)|*.drs";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if (!String.IsNullOrEmpty(this.gameData))
+                {
+                    var drsFile = Path.Combine(this.gameData, comboBoxSelectedDataFile.Text);
+                    var tmpDrsFile = saveFileDialog1.FileName;
+                    saveDrsFromLis(drsFile, tmpDrsFile, lstDrsTable);
+                }
+                else
+                {
+                    MessageBox.Show("Browser Game Exe");
+                    return;
+                }
+            }
+        }
+        private void saveDrsFromLis(string drsPathFile,string newDrsFile,List<DrsTable> lstDrsTable)
+        {
+
+
+            using (FileStream fileStream1 = new FileStream(drsPathFile, FileMode.Open))
+            {
+
+                BinaryReader binaryReader = new BinaryReader(fileStream1);
+                using (FileStream fileStream2 = new FileStream(newDrsFile, FileMode.Create))
+                {
+                    bool flag = false;
+                    BinaryWriter binaryWriter = new BinaryWriter(fileStream2);
+                    string res = string.Empty;
+                    while (true)
+                    {
+                        byte num = binaryReader.ReadByte();
+                        binaryWriter.Write(num);
+                        res += num;
+                        if (num == (byte)26)
+                            flag = true;
+                        else if (num > (byte)0 & flag)
+                            break;
+                    }
+                    var tb = binaryReader.ReadBytes(3);
+                    binaryWriter.Write(tb);
+                    var db = binaryReader.ReadBytes(12);
+                    binaryWriter.Write(db);
+                    //nb of type exemple :3 slp bina way
+                    uint num1 = binaryReader.ReadUInt32();
+                    binaryWriter.Write(num1);
+                    //first start position drs item
+                    uint num2 = binaryReader.ReadUInt32();
+                    binaryWriter.Write(num2);
+                    binaryReader.Close();
+                    uint num4 = num2;
+                    List<DrsTable> source = new List<DrsTable>();
+                    uint id;
+
+                    //update possitions
+                    foreach (DrsTable drsTable1 in lstDrsTable)
+                    {
+                        List<DrsItem> drsItemList = new List<DrsItem>();
+                        DrsTable drsTable2 = new DrsTable()
+                        {
+                            Start = drsTable1.Start,
+                            Type = drsTable1.Type,
+                            Items = (IEnumerable<DrsItem>)drsItemList
+                        };
+                        foreach (DrsItem drsItem1 in drsTable1.Items)
+                        {
+                            DrsItem drsItem2 = new DrsItem()
+                            {
+                                Id = drsItem1.Id,
+                                Start = num4,
+                                Data = drsItem1.Data
+                            };
+                            drsItem2.Size = (uint)drsItem2.Data.Length;
+                            num4 += drsItem2.Size;
+                            drsItemList.Add(drsItem2);
+                        }
+                        source.Add(drsTable2);
+                    }
+                    //start 100
+                    //126*1512  //126 = item cout
+                    //1512+100 =1612
+                    //224*12 =2688‬   //224 = item count
+                    //2688+1612 = 4300‬
+                    uint precStart = 0;
+                    DrsTable precDrsTable = new DrsTable();
+                    foreach (DrsTable drsTable in source)
+                    {
+                        binaryWriter.Write(drsTable.Type);
+                        if (precStart == 0)
+                        {
+                            binaryWriter.Write(drsTable.Start);
+                        }
+                        else
+                        {
+                            uint itemCount = (uint)precDrsTable.Items.Count<DrsItem>();
+                            uint result =(uint) itemCount * 12 + precStart;
+                            binaryWriter.Write(result);
+                        }
+                        binaryWriter.Write(drsTable.Items.Count<DrsItem>());
+                        precStart = drsTable.Start;
+                        precDrsTable = drsTable;
+                    }
+                    
+                    foreach (DrsTable drsTable in source)
+                    {
+                        precStart = 0;
+                        DrsItem precDrsItem = new DrsItem();
+                        foreach (DrsItem drsItem in drsTable.Items)
+                        {
+                            binaryWriter.Write(drsItem.Id);
+                            if (precStart == 0)
+                            {
+                                binaryWriter.Write(drsItem.Start);
+                            }
+                            else
+                            {
+                                uint newStart = (uint)precStart + (uint)precDrsItem.Size;
+                                binaryWriter.Write(newStart);
+                            }
+                            binaryWriter.Write(drsItem.Size);
+                            precStart = drsItem.Start;
+                            precDrsItem = drsItem;
+                        }
+                    }
+                    foreach (DrsItem drsItem in source.SelectMany<DrsTable, DrsItem>((Func<DrsTable, IEnumerable<DrsItem>>)(outTable => outTable.Items)))
+                    {
+                        binaryWriter.Write(drsItem.Data);
+                    }
+                    binaryWriter.Close();
+                    fileStream2.Close();
+                }
+                fileStream1.Close();
+            }
+        }
+
+ 
     }
     public class TextBoxListener : TraceListener
     {
