@@ -3659,7 +3659,7 @@ namespace Aok_Patch.patcher_
                 {
                     r = table.NewRow();
                     r[0] = item.Id;
-                    r[1] = comboBoxTypeSlp.Text;
+                    r[1] = (string.IsNullOrEmpty(comboBoxTypeSlp.Text) ? "slp" : comboBoxTypeSlp.Text);
                     r[2] = item.Size;
                     r[3] = "";
                     table.Rows.Add(r);
@@ -4041,7 +4041,10 @@ namespace Aok_Patch.patcher_
                     {
                         var data = File.ReadAllBytes(f);
                         var lastDrsItem = lstDrsItem.OrderByDescending(x => x.Id).First();
-                        //var precDrsItem = lstDrsItem.ElementAt(1);
+                        //var preccItem = lstDrsItem.ElementAt(lstDrsItem.Count-2);
+                        ////56616688+238= 56616926
+                        ////56616926
+                        //uint precDrsItem = preccItem.Start+ preccItem.Size;
                         uint LastId = lastDrsItem.Id;
                         uint lastStartPos = (uint) lastDrsItem.Start + (uint)lastDrsItem.Size;
                         //lastStartPos += lastDrsItem.Size;
@@ -4051,7 +4054,7 @@ namespace Aok_Patch.patcher_
                             Id= (uint)LastId +1,
                             Data = data,
                             Size = (uint)data.Length,
-                            Start = (uint)lastStartPos
+                            //Start = (uint)lastStartPos
                         };
                         //lastStartPos += (uint)data.Length;
                         lstDrsItem.Add(drsItem);
@@ -4193,6 +4196,10 @@ namespace Aok_Patch.patcher_
                     //224*12 =2688‬   //224 = item count
                     //2688+1612 = 4300‬
                     uint precStart = 0;
+                    uint result = 0;
+                    uint itemCount = 0;
+                    uint countallItem = 0;
+                    uint firstStart = 0;
                     DrsTable precDrsTable = new DrsTable();
                     foreach (DrsTable drsTable in source)
                     {
@@ -4200,28 +4207,44 @@ namespace Aok_Patch.patcher_
                         if (precStart == 0)
                         {
                             binaryWriter.Write(drsTable.Start);
+                            firstStart = drsTable.Start;
                         }
                         else
                         {
-                            uint itemCount = (uint)precDrsTable.Items.Count<DrsItem>();
-                            uint result =(uint) itemCount * 12 + precStart;
+                            itemCount = (uint)precDrsTable.Items.Count<DrsItem>();
+                            result =(uint) itemCount * 12 + precStart;
                             binaryWriter.Write(result);
                         }
-                        binaryWriter.Write(drsTable.Items.Count<DrsItem>());
+                        uint count = (uint) drsTable.Items.Count<DrsItem>();
+                        binaryWriter.Write(count);
+                        countallItem += count;
                         precStart = drsTable.Start;
                         precDrsTable = drsTable;
                     }
-                    
+                    precStart = 0;
+                    uint num_ = num2;
+                    //4264 221
+                    //4864
+                    //+3 SLP+> 4900
+                    //4888
+                    //4900 -4888 + 12
+                    //conclusion num2 = 12*(126+223+50) = 4 788‬ +100
+
+                    num_ = (uint) 12 * countallItem + firstStart;
                     foreach (DrsTable drsTable in source)
                     {
-                        precStart = 0;
+
                         DrsItem precDrsItem = new DrsItem();
                         foreach (DrsItem drsItem in drsTable.Items)
                         {
+                            //611477
+                            //611501
                             binaryWriter.Write(drsItem.Id);
+                            //binaryWriter.Write(drsItem.Start);
                             if (precStart == 0)
                             {
-                                binaryWriter.Write(drsItem.Start);
+                                binaryWriter.Write(num_);//result);//
+                                drsItem.Start = num_;
                             }
                             else
                             {
