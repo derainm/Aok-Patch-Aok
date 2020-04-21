@@ -4128,6 +4128,36 @@ namespace Aok_Patch.patcher_
                 }
             }
         }
+        private uint getfirstStartDrs(List<DrsTable> lstDrsTable)
+        {
+            uint res = 0;
+            uint precStart = 0;
+            uint result = 0;
+            uint itemCount = 0;
+            uint countallItem = 0;
+            uint firstStart = 0;
+            DrsTable precDrsTable = new DrsTable();
+            foreach (DrsTable drsTable in lstDrsTable)
+            {
+
+                if (precStart == 0)
+                {
+                    firstStart = drsTable.Start;
+                }
+                else
+                {
+                    itemCount = (uint)precDrsTable.Items.Count<DrsItem>();
+                    result = (uint)itemCount * 12 + precStart;
+
+                }
+                uint count = (uint)drsTable.Items.Count<DrsItem>();
+                countallItem += count;
+                precStart = drsTable.Start;
+                precDrsTable = drsTable;
+            }
+            res = (uint)12 * countallItem + firstStart;
+            return res;
+        }
         private void saveDrsFromLis(string drsPathFile,string newDrsFile,List<DrsTable> lstDrsTable)
         {
 
@@ -4160,9 +4190,12 @@ namespace Aok_Patch.patcher_
                     binaryWriter.Write(num1);
                     //first start position drs item
                     uint num2 = binaryReader.ReadUInt32();
-                    binaryWriter.Write(num2);
+                    uint nume2_ = getfirstStartDrs(lstDrsTable);
+                    binaryWriter.Write(nume2_);
+                    //binaryWriter.Write(num2);
                     binaryReader.Close();
-                    uint num4 = num2;
+                    uint num4 = nume2_;
+                    //uint num4 = num2;
                     List<DrsTable> source = new List<DrsTable>();
                     uint id;
 
