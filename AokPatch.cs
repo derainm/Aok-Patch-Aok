@@ -128,7 +128,7 @@ namespace Aok_Patch.patcher_
         {
             try
             {
-  
+
                 //string currentDirector = Directory.GetCurrentDirectory();
                 //radioButton__20.Checked = true;
                 //this.gameExe = @"C:\Users\Beleive\Documents\Age of Empires II\empires2.exe";
@@ -233,9 +233,10 @@ namespace Aok_Patch.patcher_
                         string fileAoe = string.Empty;
                         if (version == "2.0" || version == "2.0a" || version == "2.0b")
                             fileAoe = array.Where(x=>Path.GetFileName(x).ToLower()== "Empires2.exe".ToLower()).First();
-                        if (version == "1.0" || version == "1.0c" || version == "1.0e")
+                        if (version == "1.0" || version == "1.0c" || version == "1.0C" || version == "1.0e")
                             fileAoe = array.Where(x => Path.GetFileName(x).ToLower() == "age2_x1.exe".ToLower()).First();
-                        File.Copy(fileAoe, this.gamePath +@"\"+ originalGameName,true);
+                        if(fileAoe.Contains("Empires2.exe".ToLower())|| fileAoe.Contains("age2_x1.exe".ToLower()))
+                            File.Copy(fileAoe, this.gamePath +@"\"+ originalGameName,true);
                     }
                     string str2 = ((IEnumerable<string>)Directory.GetFiles(@"Data", "*.drs", SearchOption.AllDirectories)).Where<string>((Func<string, bool>)(x => !x.Contains("interfac.drs"))).FirstOrDefault<string>().Replace("Data\\", "");
 
@@ -584,6 +585,7 @@ namespace Aok_Patch.patcher_
 
             int result1 = 0;
             int result2 = 0;
+            string currentExeToPatch = string.Empty;
             if (args.Length <= 2 || args.Length == 0)
             {
                 if (args.Length >= 2)
@@ -603,7 +605,8 @@ namespace Aok_Patch.patcher_
                         //current exe empire or age2_x1
                         current = enumerator.Current;
                         if (current.ToLower().Contains("empires2.exe") || current.ToLower().Contains("age2_x1.exe"))
-                        { 
+                        {
+                            currentExeToPatch = current;
                             FindResAndPatchExecutable(result1, result2, current, patchVersion);
                         }
                     }
@@ -613,6 +616,7 @@ namespace Aok_Patch.patcher_
             else
             {
                 string current = string.Empty;
+
                 using (IEnumerator<string> enumerator = ((IEnumerable<string>)FindFiles("executables", "*.exe", new long?(), (string)null)).Where<string>((Func<string, bool>)(exe => new FileInfo(exe).Length > 2000000L)).GetEnumerator())
                 {
                     while (enumerator.MoveNext())
@@ -621,7 +625,8 @@ namespace Aok_Patch.patcher_
                         current = enumerator.Current;
                         if (current.ToLower().Contains("empires2.exe") || current.ToLower().Contains("age2_x1.exe"))
                         {
-                            FindResAndPatchExecutable(result1, result2, current, patchVersion);
+                            //FindResAndPatchExecutable(result1, result2, current, patchVersion);
+                            currentExeToPatch = current;
                         }
                     }
                 }
@@ -662,7 +667,7 @@ namespace Aok_Patch.patcher_
                         throw new FatalError(string.Format("Cannot find drs file '{0}' in the game folder", (object)_orgDrsPath));
                     UserFeedback.Info("Trying to find a patch file for all executables > 2MiB in size");
 
-                    FindResAndPatchExecutable(result1, result2, current, patchVersion, dictHeigth, dictWidth);
+                    FindResAndPatchExecutable(result1, result2, currentExeToPatch, patchVersion, dictHeigth, dictWidth);
                 //}
 
             }
@@ -1712,7 +1717,7 @@ namespace Aok_Patch.patcher_
                 binaryReader.Close();
                 #endregion
                 #region aok slp interface liste
-                
+
                 //1024x768 interface
                 idToPick.AddRange(
                     new List<uint> {
@@ -1801,8 +1806,8 @@ namespace Aok_Patch.patcher_
             var lstColor = GetAokPaletteColor().ToArray();
             foreach (var item in idToPick)
             {
- 
-                var fil = ListSlp.Where(z => z.Name == item  + ".slp").First();
+
+                var fil = ListSlp.Where(z => z.Name == item + ".slp").First();
                 SlpFileName = fil.FullName;
                 name = Path.GetFileName(SlpFileName).Replace(".slp", "");
                 id = uint.Parse(name);
@@ -1815,7 +1820,7 @@ namespace Aok_Patch.patcher_
                     workingDir += "\\";
 
 
-                if(!ConverteBmpToMosaic(bmp, SlpFileName, fileName, id, lstColor))
+                if (!ConverteBmpToMosaic(bmp, SlpFileName, fileName, id, lstColor))
                 {
                     continue;
                 }
@@ -1827,18 +1832,18 @@ namespace Aok_Patch.patcher_
                 var data = File.ReadAllBytes(outputname);
                 drsTableArray.Where(z => z.Type == 1936486432).First().Items.Where(z => z.Id == id).First().Data = data;
                 drsTableArray.Where(z => z.Type == 1936486432).First().Items.Where(z => z.Id == id).First().Size = (uint)data.Length;
-               
+
             }
 
-            
+
             ////update interface.drs tmp file
 
-             
-            using (FileStream fileStream1 = new FileStream(_orgDrsPath, FileMode.Open, FileSystemRights.ReadData, FileShare.Read, 1048576, FileOptions.SequentialScan))
+
+            using (FileStream fileStream1 = new FileStream(_orgDrsPath, FileMode.Open))//, FileSystemRights.ReadData, FileShare.Read, 1048576, FileOptions.SequentialScan))
             {
-                
+
                 BinaryReader binaryReader = new BinaryReader(fileStream1);
-                using (FileStream fileStream2 = new FileStream(newDrsName, FileMode.Create, FileSystemRights.Write, FileShare.None, 1048576, FileOptions.SequentialScan))
+                using (FileStream fileStream2 = new FileStream(newDrsName, FileMode.Create))//, FileSystemRights.Write, FileShare.None, 1048576, FileOptions.SequentialScan))
                 {
                     bool flag = false;
                     BinaryWriter binaryWriter = new BinaryWriter(fileStream2);
@@ -1898,7 +1903,7 @@ namespace Aok_Patch.patcher_
                             binaryWriter.Write(drsItem.Start);
                             binaryWriter.Write(drsItem.Size);
                         }
-                    } 
+                    }
                     foreach (DrsItem drsItem in source.SelectMany<DrsTable, DrsItem>((Func<DrsTable, IEnumerable<DrsItem>>)(outTable => outTable.Items)))
                     {
                         binaryWriter.Write(drsItem.Data);
@@ -1909,8 +1914,16 @@ namespace Aok_Patch.patcher_
                 fileStream1.Close();
             }
 
-            File.Copy(newDrsName, GameDirectory + file,true);
-            Directory.Delete(@"SlpImport\",true);
+            
+            try
+            {
+                File.Copy(newDrsName, Path.Combine(this.gameData ,file), true);
+                Directory.Delete(@"SlpImport\", true);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
         // TODO: Use some quantizer
 
