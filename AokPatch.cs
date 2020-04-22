@@ -3670,57 +3670,59 @@ namespace Aok_Patch.patcher_
         private List<DrsTable> LoadDrsInList(string drsPathFile)
         {
             //List<DrsItem> lstitems = new List<DrsItem>();
-            DrsTable[] drsTableArray;
+            DrsTable[] drsTableArray =new DrsTable[0];
             List<DrsItem> lstItem = new List<DrsItem>();
-
-            using (FileStream fileStream1 = new FileStream(drsPathFile, FileMode.Open))//, FileSystemRights.ReadData, FileShare.Read, 1048576, FileOptions.SequentialScan))
+            if (File.Exists(drsPathFile))
             {
-                BinaryReader binaryReader = new BinaryReader(fileStream1);
-                bool flag = false;
-                while (true)
+                using (FileStream fileStream1 = new FileStream(drsPathFile, FileMode.Open))//, FileSystemRights.ReadData, FileShare.Read, 1048576, FileOptions.SequentialScan))
                 {
-                    byte num = binaryReader.ReadByte();
-                    if (num == (byte)26)
-                        flag = true;
-                    else if (num > (byte)0 & flag)
-                        break;
-                }
-                binaryReader.ReadBytes(3);
-                binaryReader.ReadBytes(12);
-                uint num1 = binaryReader.ReadUInt32();
-                uint num2 = binaryReader.ReadUInt32();
-
-                drsTableArray = new DrsTable[(int)num1];
-                for (int index = 0; (long)index < (long)num1; ++index)
-                    drsTableArray[index] = new DrsTable();
-                foreach (DrsTable drsTable in drsTableArray)
-                {
-                    drsTable.Type = binaryReader.ReadUInt32();
-                    drsTable.Start = binaryReader.ReadUInt32();
-                    uint num3 = binaryReader.ReadUInt32();
-                    DrsItem[] drsItemArray = new DrsItem[(int)num3];
-                    for (int index = 0; (long)index < (long)num3; ++index)
-                        drsItemArray[index] = new DrsItem();
-                    drsTable.Items = (IEnumerable<DrsItem>)drsItemArray;
-                }
-                foreach (DrsTable drsTable in drsTableArray)
-                {
-                    //Trace.Assert(fileStream1.Position == (long)drsTable.Start);
-                    foreach (DrsItem drsItem in drsTable.Items)
+                    BinaryReader binaryReader = new BinaryReader(fileStream1);
+                    bool flag = false;
+                    while (true)
                     {
-                        drsItem.Id = binaryReader.ReadUInt32();
-                        drsItem.Start = binaryReader.ReadUInt32();
-                        drsItem.Size = binaryReader.ReadUInt32();
+                        byte num = binaryReader.ReadByte();
+                        if (num == (byte)26)
+                            flag = true;
+                        else if (num > (byte)0 & flag)
+                            break;
                     }
+                    binaryReader.ReadBytes(3);
+                    binaryReader.ReadBytes(12);
+                    uint num1 = binaryReader.ReadUInt32();
+                    uint num2 = binaryReader.ReadUInt32();
+
+                    drsTableArray = new DrsTable[(int)num1];
+                    for (int index = 0; (long)index < (long)num1; ++index)
+                        drsTableArray[index] = new DrsTable();
+                    foreach (DrsTable drsTable in drsTableArray)
+                    {
+                        drsTable.Type = binaryReader.ReadUInt32();
+                        drsTable.Start = binaryReader.ReadUInt32();
+                        uint num3 = binaryReader.ReadUInt32();
+                        DrsItem[] drsItemArray = new DrsItem[(int)num3];
+                        for (int index = 0; (long)index < (long)num3; ++index)
+                            drsItemArray[index] = new DrsItem();
+                        drsTable.Items = (IEnumerable<DrsItem>)drsItemArray;
+                    }
+                    foreach (DrsTable drsTable in drsTableArray)
+                    {
+                        //Trace.Assert(fileStream1.Position == (long)drsTable.Start);
+                        foreach (DrsItem drsItem in drsTable.Items)
+                        {
+                            drsItem.Id = binaryReader.ReadUInt32();
+                            drsItem.Start = binaryReader.ReadUInt32();
+                            drsItem.Size = binaryReader.ReadUInt32();
+                        }
+                    }
+                    foreach (DrsItem drsItem in ((IEnumerable<DrsTable>)drsTableArray).SelectMany<DrsTable, DrsItem>((Func<DrsTable, IEnumerable<DrsItem>>)(table => table.Items)))
+                    {
+                        //Trace.Assert(fileStream1.Position == (long)drsItem.Start);
+                        drsItem.Data = binaryReader.ReadBytes((int)drsItem.Size);
+                    }
+                    //where type is slp not .way or .bina
+                    //lstItem = drsTableArray.Where(w => w.Type == 1936486432).First().Items.ToList();
+                    binaryReader.Close();
                 }
-                foreach (DrsItem drsItem in ((IEnumerable<DrsTable>)drsTableArray).SelectMany<DrsTable, DrsItem>((Func<DrsTable, IEnumerable<DrsItem>>)(table => table.Items)))
-                {
-                    //Trace.Assert(fileStream1.Position == (long)drsItem.Start);
-                    drsItem.Data = binaryReader.ReadBytes((int)drsItem.Size);
-                }
-                //where type is slp not .way or .bina
-                //lstItem = drsTableArray.Where(w => w.Type == 1936486432).First().Items.ToList();
-                binaryReader.Close();
             }
             return drsTableArray.ToList();
 
@@ -4137,6 +4139,7 @@ namespace Aok_Patch.patcher_
             uint countallItem = 0;
             uint firstStart = 0;
             DrsTable precDrsTable = new DrsTable();
+
             foreach (DrsTable drsTable in lstDrsTable)
             {
 
@@ -4193,15 +4196,18 @@ namespace Aok_Patch.patcher_
                     uint nume2_ = getfirstStartDrs(lstDrsTable);
                     binaryWriter.Write(nume2_);
                     //binaryWriter.Write(num2);
-                    binaryReader.Close();
+                    
                     uint num4 = nume2_;
                     //uint num4 = num2;
-                    List<DrsTable> source = new List<DrsTable>();
+                    List<DrsTable> source =  new List<DrsTable>();
                     uint id;
-
+                    //need update number of item
+                    //uint num3 = 0;
+                   
                     //update possitions
-                    foreach (DrsTable drsTable1 in lstDrsTable)
+                   foreach (DrsTable drsTable1 in lstDrsTable)
                     {
+
                         List<DrsItem> drsItemList = new List<DrsItem>();
                         DrsTable drsTable2 = new DrsTable()
                         {
@@ -4223,6 +4229,8 @@ namespace Aok_Patch.patcher_
                         }
                         source.Add(drsTable2);
                     }
+                    //binaryWriter.Write(num3);
+                    binaryReader.Close();
                     //start 100
                     //126*1512  //126 = item cout
                     //1512+100 =1612
@@ -4266,27 +4274,11 @@ namespace Aok_Patch.patcher_
                     num_ = (uint) 12 * countallItem + firstStart;
                     foreach (DrsTable drsTable in source)
                     {
-
-                        DrsItem precDrsItem = new DrsItem();
                         foreach (DrsItem drsItem in drsTable.Items)
                         {
-                            //611477
-                            //611501
                             binaryWriter.Write(drsItem.Id);
-                            //binaryWriter.Write(drsItem.Start);
-                            if (precStart == 0)
-                            {
-                                binaryWriter.Write(num_);//result);//
-                                drsItem.Start = num_;
-                            }
-                            else
-                            {
-                                uint newStart = (uint)precStart + (uint)precDrsItem.Size;
-                                binaryWriter.Write(newStart);
-                            }
+                            binaryWriter.Write(drsItem.Start);
                             binaryWriter.Write(drsItem.Size);
-                            precStart = drsItem.Start;
-                            precDrsItem = drsItem;
                         }
                     }
                     foreach (DrsItem drsItem in source.SelectMany<DrsTable, DrsItem>((Func<DrsTable, IEnumerable<DrsItem>>)(outTable => outTable.Items)))

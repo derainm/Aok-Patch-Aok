@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aokWideScreen(for aofset.pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlpLib", "SlpLib\SlpLib.csproj", "{91039798-D94E-4782-BA35-6D4C1EDFFACB}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupAokPatch", "..\SetupAokPatch\SetupAokPatch.vdproj", "{08FCB78E-029F-4FC0-BF42-61765A5E02C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,8 @@ Global
 		{91039798-D94E-4782-BA35-6D4C1EDFFACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91039798-D94E-4782-BA35-6D4C1EDFFACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91039798-D94E-4782-BA35-6D4C1EDFFACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08FCB78E-029F-4FC0-BF42-61765A5E02C6}.Debug|Any CPU.ActiveCfg = Debug
+		{08FCB78E-029F-4FC0-BF42-61765A5E02C6}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
