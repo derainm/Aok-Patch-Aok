@@ -4308,12 +4308,23 @@ namespace Aok_Patch.patcher_
 
         private void dataGridViewSlpViewer_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData ==Keys.Down || e.KeyData ==  Keys.Up)
+            DataGridViewRow dtw = null;
+            if (dataGridViewSlpViewer.SelectedCells[0].RowIndex > 0 && dataGridViewSlpViewer.SelectedCells[0].RowIndex < dataGridViewSlpViewer.RowCount-1)
             {
-                var dtw = dataGridViewSlpViewer.Rows[dataGridViewSlpViewer.SelectedCells[0].RowIndex];
-                var id = dtw.Cells[0].Value.ToString();
-                if (!string.IsNullOrEmpty(id))
-                    showDrsInformation(id);
+                if (e.KeyData == Keys.Down)
+                {
+                    dtw = dataGridViewSlpViewer.Rows[dataGridViewSlpViewer.SelectedCells[0].RowIndex + 1];
+                }
+                if (e.KeyData == Keys.Up)
+                {
+                    dtw = dataGridViewSlpViewer.Rows[dataGridViewSlpViewer.SelectedCells[0].RowIndex - 1];
+                }
+                if (e.KeyData == Keys.Down || e.KeyData == Keys.Up)
+                {
+                    var id = dtw.Cells[0].Value.ToString();
+                    if (!string.IsNullOrEmpty(id))
+                        showDrsInformation(id);
+                }
             }
         }
     }
