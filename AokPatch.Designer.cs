@@ -273,7 +273,6 @@
             // labelImageres
             // 
             this.labelImageres.AutoSize = true;
-            this.labelImageres.Image = global::Aok_Patch.patcher_.MainForm.res;
             this.labelImageres.Location = new System.Drawing.Point(6, 14);
             this.labelImageres.MinimumSize = new System.Drawing.Size(200, 150);
             this.labelImageres.Name = "labelImageres";
@@ -389,7 +388,6 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Image = global::Aok_Patch.patcher_.MainForm.back1;
             this.buttonBack.Location = new System.Drawing.Point(383, 840);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(158, 76);
@@ -399,7 +397,6 @@
             // 
             // buttonAddMod
             // 
-            this.buttonAddMod.Image = global::Aok_Patch.patcher_.MainForm.save;
             this.buttonAddMod.Location = new System.Drawing.Point(0, 840);
             this.buttonAddMod.Name = "buttonAddMod";
             this.buttonAddMod.Size = new System.Drawing.Size(158, 76);
@@ -431,7 +428,6 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Image = global::Aok_Patch.patcher_.MainForm.Real_Terrain;
             this.label17.Location = new System.Drawing.Point(284, 605);
             this.label17.MinimumSize = new System.Drawing.Size(150, 100);
             this.label17.Name = "label17";
@@ -452,7 +448,6 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Image = global::Aok_Patch.patcher_.MainForm.farms;
             this.label14.Location = new System.Drawing.Point(284, 479);
             this.label14.MinimumSize = new System.Drawing.Size(150, 100);
             this.label14.Name = "label14";
@@ -505,7 +500,6 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Image = global::Aok_Patch.patcher_.MainForm.GridTerrain;
             this.label15.Location = new System.Drawing.Point(284, 361);
             this.label15.MinimumSize = new System.Drawing.Size(150, 100);
             this.label15.Name = "label15";
@@ -565,7 +559,6 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Image = global::Aok_Patch.patcher_.MainForm.hdclif;
             this.label11.Location = new System.Drawing.Point(284, 10);
             this.label11.MinimumSize = new System.Drawing.Size(150, 100);
             this.label11.Name = "label11";
@@ -625,7 +618,6 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Image = global::Aok_Patch.patcher_.MainForm.Hdmine;
             this.label8.Location = new System.Drawing.Point(5, 126);
             this.label8.MinimumSize = new System.Drawing.Size(150, 100);
             this.label8.Name = "label8";
@@ -645,7 +637,6 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Image = global::Aok_Patch.patcher_.MainForm.smallWall;
             this.label7.Location = new System.Drawing.Point(5, 10);
             this.label7.MinimumSize = new System.Drawing.Size(150, 100);
             this.label7.Name = "label7";
@@ -696,7 +687,6 @@
             // 
             // buttonUpdateSlpID
             // 
-            this.buttonUpdateSlpID.Image = global::Aok_Patch.patcher_.MainForm.icons8_update_left_rotation_32;
             this.buttonUpdateSlpID.Location = new System.Drawing.Point(517, 5);
             this.buttonUpdateSlpID.Margin = new System.Windows.Forms.Padding(0);
             this.buttonUpdateSlpID.Name = "buttonUpdateSlpID";
@@ -791,6 +781,7 @@
             this.dataGridViewSlpViewer.TabIndex = 0;
             this.dataGridViewSlpViewer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSlpViewer_CellClick);
             this.dataGridViewSlpViewer.CurrentCellChanged += new System.EventHandler(this.dataGridViewSlpViewer_CurrentCellChanged);
+            this.dataGridViewSlpViewer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewSlpViewer_KeyDown);
             this.dataGridViewSlpViewer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewSlpViewer_MouseClick);
             this.dataGridViewSlpViewer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridViewSlpViewer_MouseDown);
             // 
@@ -866,7 +857,6 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Image = global::Aok_Patch.patcher_.MainForm.miniMapColor;
             this.label2.Location = new System.Drawing.Point(67, 0);
             this.label2.MinimumSize = new System.Drawing.Size(400, 250);
             this.label2.Name = "label2";
@@ -1093,7 +1083,6 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Image = global::Aok_Patch.patcher_.MainForm.Add_civ;
             this.label5.Location = new System.Drawing.Point(217, 0);
             this.label5.MinimumSize = new System.Drawing.Size(400, 500);
             this.label5.Name = "label5";

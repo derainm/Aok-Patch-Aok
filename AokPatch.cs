@@ -3949,6 +3949,7 @@ namespace Aok_Patch.patcher_
                 {
                    dataGridViewSlpViewer.Rows[rowIndex].Selected = true;
                    showDrsInformation(dataGridViewSlpViewer.Rows[rowIndex].Cells[0].Value.ToString());
+                   dataGridViewSlpViewer.CurrentCell = dataGridViewSlpViewer.Rows[rowIndex].Cells[0];
                 }
             }
         }
@@ -4305,7 +4306,16 @@ namespace Aok_Patch.patcher_
             }
         }
 
- 
+        private void dataGridViewSlpViewer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData ==Keys.Down || e.KeyData ==  Keys.Up)
+            {
+                var dtw = dataGridViewSlpViewer.Rows[dataGridViewSlpViewer.SelectedCells[0].RowIndex];
+                var id = dtw.Cells[0].Value.ToString();
+                if (!string.IsNullOrEmpty(id))
+                    showDrsInformation(id);
+            }
+        }
     }
     public class TextBoxListener : TraceListener
     {
