@@ -235,7 +235,7 @@ namespace Aok_Patch.patcher_
                             fileAoe = array.Where(x=>Path.GetFileName(x).ToLower()== "Empires2.exe".ToLower()).First();
                         if (version == "1.0" || version == "1.0c" || version == "1.0C" || version == "1.0e")
                             fileAoe = array.Where(x => Path.GetFileName(x).ToLower() == "age2_x1.exe".ToLower()).First();
-                        if(fileAoe.Contains("Empires2.exe".ToLower())|| fileAoe.Contains("age2_x1.exe".ToLower()))
+                        if(fileAoe.ToLower().Contains("Empires2.exe".ToLower())|| fileAoe.ToLower().Contains("age2_x1.exe".ToLower()))
                             File.Copy(fileAoe, this.gamePath +@"\"+ originalGameName,true);
                     }
                     string str2 = ((IEnumerable<string>)Directory.GetFiles(@"Data", "*.drs", SearchOption.AllDirectories)).Where<string>((Func<string, bool>)(x => !x.Contains("interfac.drs"))).FirstOrDefault<string>().Replace("Data\\", "");
