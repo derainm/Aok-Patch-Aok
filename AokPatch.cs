@@ -1000,10 +1000,14 @@ namespace Aok_Patch.patcher_
             List<string> lstDrsFile = Directory.GetFiles(this.gameData).Select(x => Path.GetFileName(x)).ToList();
             foreach (var item in lstDrsFile.Where(x => x.EndsWith(".drs")).ToList())
             {
-                comboBoxSelectedDataFile.Items.Add(item);
+                if (!comboBoxSelectedDataFile.Items.Contains(item))
+                {
+                    comboBoxSelectedDataFile.Items.Add(item);
+                }
             }
             if(lstDrsFile.Where(x => x.EndsWith(".drs")).ToList().Count>0)
-            comboBoxSelectedDataFile.SelectedIndex = 0;
+                comboBoxSelectedDataFile.SelectedIndex = 0;
+
         }
        
         private void values(out int[] Ar, int v, int Size)
@@ -3809,7 +3813,7 @@ namespace Aok_Patch.patcher_
         {
 
 
-            if (!string.IsNullOrEmpty(this.gameExe) && e.RowIndex>0)
+            if (!string.IsNullOrEmpty(this.gameExe) && e.RowIndex>=0)
             {               
                 var dtw = ((DataGridView)sender).Rows[e.RowIndex];
                 var id = dtw.Cells[0].Value.ToString();
@@ -3893,7 +3897,7 @@ namespace Aok_Patch.patcher_
                     //var dtw = ((DataGridView)sender).Rows[e.RowIndex];
                     //var id = dtw.Cells[0].Value.ToString();
                     var id = index;
-                    var buffer = lstDrsTable.Where(x => x.Type == type).First().Items.Where(w => w.Id == uint.Parse(id)).First().Data;
+                    //var buffer = lstDrsTable.Where(x => x.Type == type).First().Items.Where(w => w.Id == uint.Parse(id)).First().Data;
                     if (!slpView.IsDisposed)
                     {
                         slpView.Close();
@@ -3901,11 +3905,11 @@ namespace Aok_Patch.patcher_
                     var disposed = binaViewer.IsDisposed;
                     if (disposed)
                     {
-                        binaViewer = new BinaViewer(Encoding.UTF8.GetString(buffer, 0, buffer.Length));
+                        binaViewer = new BinaViewer(lstDrsTable,id, 1651076705);
                     }
                     else
                     {
-                        binaViewer.setText(Encoding.UTF8.GetString(buffer, 0, buffer.Length));
+                        binaViewer.setText(lstDrsTable, id, 1651076705);
                     }
                     binaViewer.Show();
 

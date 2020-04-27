@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Aok_Patch.patcher_
 {
-  internal class DrsTable
+   public class DrsTable
   {
     public uint Type;
     public uint Start;

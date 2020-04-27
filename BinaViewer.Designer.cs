@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btn_BinaSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -38,15 +39,26 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Location = new System.Drawing.Point(30, 29);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(426, 346);
+            this.richTextBox1.Size = new System.Drawing.Size(563, 402);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
+            // 
+            // btn_BinaSave
+            // 
+            this.btn_BinaSave.Image = global::Aok_Patch.patcher_.MainForm.save;
+            this.btn_BinaSave.Location = new System.Drawing.Point(441, 466);
+            this.btn_BinaSave.Name = "btn_BinaSave";
+            this.btn_BinaSave.Size = new System.Drawing.Size(126, 67);
+            this.btn_BinaSave.TabIndex = 1;
+            this.btn_BinaSave.UseVisualStyleBackColor = true;
+            this.btn_BinaSave.Click += new System.EventHandler(this.btn_BinaSave_Click);
             // 
             // BinaViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 411);
+            this.ClientSize = new System.Drawing.Size(621, 545);
+            this.Controls.Add(this.btn_BinaSave);
             this.Controls.Add(this.richTextBox1);
             this.MinimumSize = new System.Drawing.Size(500, 450);
             this.Name = "BinaViewer";
@@ -58,5 +70,6 @@
         #endregion
 
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button btn_BinaSave;
     }
 }

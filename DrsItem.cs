@@ -6,7 +6,7 @@
 
 namespace Aok_Patch.patcher_
 {
-  internal class DrsItem
+  public class DrsItem
   {
     public uint Id;
     public uint Start;
