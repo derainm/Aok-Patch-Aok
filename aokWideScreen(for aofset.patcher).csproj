@@ -991,7 +991,9 @@
     <None Include="Resources\icons8-save-close-40.png" />
     <None Include="Resources\icons8-save-as-40.png" />
     <None Include="Resources\icons8-save-tabs-list-32.png" />
-    <Content Include="Ressource hack\ResourceHacker.exe" />
+    <Content Include="Resource_hack\ResourceHacker.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Stream\Berbers.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

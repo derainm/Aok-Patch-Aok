@@ -4350,7 +4350,7 @@ namespace Aok_Patch.patcher_
             byte[] data;
             uint newMapId = 10000;
             int cpt = 10874;
-            string result = string.Empty;
+            string result = "STRINGTABLE" + Environment.NewLine;
             var lstf =Directory.GetFiles("Random map").Select(x=>x.Replace(@"Random map\","").Split('.').First()).ToList();
             var lstfile = Directory.GetFiles("Random map");
             int i = cpt- lstf.Count;
@@ -4382,6 +4382,9 @@ namespace Aok_Patch.patcher_
             File.WriteAllBytes(this.gameExe, exe);
             #endregion Add map on empires2.exe
 
+            //todo allow user to change language
+            result += "LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US" + Environment.NewLine;
+            result += "{" + Environment.NewLine;
             if (File.Exists(fileGamedataDrs))
             {
                 lstDrsGameData = LoadDrsInList(fileGamedataDrs);
@@ -4402,9 +4405,21 @@ namespace Aok_Patch.patcher_
                     i++;
                     string item = f.Replace( @"Random map\", "").Split('.').First();
                     result += "  " + i + ",     " + "\"" + item + "\"" + Environment.NewLine;
-                    //ResourceHacker.exe -open language.dll -save language1.dll -action addoverwrite -res StringTable680.rc -mask STRINGTABLE,LANGUAGE  , StringTable680 -log CONSOLE
+
+                    //ResourceHacker.exe  -open StringTable680.rc -save StringTable680.res -action compile
+                    //ResourceHacker.exe -open language.dll -save language1.dll -action addoverwrite -res StringTable680.res -mask STRINGTABLE,,
 
                 }
+                  //10875, 	"Arabia"
+                  //10876, 	"Archipelago"
+                  //10877, 	"Baltic"
+                  //10878, 	"Black Forest"
+                  //10879, 	"Coastal"
+                result += "}";
+                File.WriteAllText("StringTable680.rc", result);
+                Process.Start(@"Resource_hack\ResourceHacker.exe", "-open StringTable680.rc -save StringTable680.res -action compile");
+                string languagedll = Path.Combine(this.gamePath, "language.dll");
+                Process.Start(@"Resource_hack\ResourceHacker.exe", "-open \"" + languagedll + "\" -save \"" + languagedll + "\" -action addoverwrite -res StringTable680.res -mask STRINGTABLE,,");
                 lstDrsGameData.Where(x => x.Type == 1651076705).First().Items = itemList;
                 saveDrsFromLis(fileGamedataDrs, tmpDrsFile, lstDrsGameData);
                 if (File.Exists(fileGamedataDrs))
