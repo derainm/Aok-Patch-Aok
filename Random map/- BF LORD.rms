@@ -1,0 +1,277 @@
+/* ***********************PrysmaXT**************************** */
+<PLAYER_SETUP>
+ random_placement   
+/* ***********************PrysmaXT**************************** */
+start_random
+  percent_chance 50
+  #define GRASS_MAP
+  percent_chance 50
+  #define TROPICAL_MAP
+end_random
+
+<LAND_GENERATION>
+base_terrain FOREST
+
+create_player_lands 
+{            
+  terrain_type                    GRASS
+  land_percent                     36
+  base_size                        13
+  other_zone_avoidance_distance    21
+}
+
+/* ***********************PrysmaXT**************************** */
+<OBJECTS_GENERATION>
+create_object TOWN_CENTER
+{
+	set_place_for_every_player
+	group_placement_radius			30
+	min_distance_to_players			0
+	max_distance_to_players			0
+}
+create_object VILLAGER
+{
+  set_place_for_every_player
+  min_distance_to_players       6
+  max_distance_to_players       6
+}
+create_object SCOUT
+{
+   set_place_for_every_player
+   number_of_objects             1
+   min_distance_to_players       7
+   max_distance_to_players       9
+ }
+create_object PINETREE
+{
+  number_of_objects  2
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players       4
+  max_distance_to_players       4
+  min_distance_group_placement  5
+}
+if TROPICAL_MAP
+create_object TURKEY
+{
+   number_of_objects 4
+   set_loose_grouping
+   set_gaia_object_only
+   set_place_for_every_player
+   min_distance_to_players    10
+   max_distance_to_players    10
+}
+create_object TURKEY
+{
+   number_of_objects 2
+   number_of_groups  2
+   set_loose_grouping
+   set_gaia_object_only
+   set_place_for_every_player
+   min_distance_to_players    14
+   max_distance_to_players    14
+}
+else
+create_object SHEEP
+{
+   number_of_objects 4
+   set_loose_grouping
+   set_gaia_object_only
+   set_place_for_every_player
+   min_distance_to_players    10
+   max_distance_to_players    10
+} 
+create_object SHEEP
+{
+   number_of_objects 2
+   number_of_groups 2
+   set_loose_grouping
+   set_gaia_object_only
+   set_place_for_every_player
+   min_distance_to_players    14
+   max_distance_to_players    14
+}
+endif
+
+/* ***********************PrysmaXT**************************** */
+create_object DEER
+{
+	number_of_objects	4
+	group_placement_radius	3
+	set_loose_grouping
+	set_gaia_object_only
+	set_place_for_every_player
+	min_distance_to_players		19
+	max_distance_to_players		19
+	min_distance_group_placement	9
+}
+create_object FORAGE
+{
+  number_of_objects          6
+  group_placement_radius     3
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    10
+  max_distance_to_players    10
+  min_distance_group_placement  6
+}
+create_object BOAR
+{
+  number_of_objects          1
+  set_loose_grouping  
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    16
+  max_distance_to_players    22
+}
+create_object BOAR
+{
+  number_of_objects          1
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    16
+  max_distance_to_players    22
+}  
+/* ***********************PrysmaXT**************************** */
+create_object GOLD
+{ 
+  set_place_for_every_player
+  number_of_objects          7
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    10
+  max_distance_to_players    10
+}
+create_object GOLD
+{ 
+  set_place_for_every_player
+  number_of_objects          4
+  number_of_groups           2
+  group_placement_radius     10
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    17
+  max_distance_to_players    17
+  min_distance_group_placement  14
+  max_distance_to_other_zones   15
+}
+/* ***********************PrysmaXT**************************** */
+create_object STONE
+{
+  set_place_for_every_player
+  number_of_objects          5
+  group_placement_radius     10
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    19
+  max_distance_to_players    19
+  min_distance_group_placement  14
+  max_distance_to_other_zones   15
+}
+create_object STONE
+{
+  set_place_for_every_player
+  number_of_objects          5
+  group_placement_radius     10
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    17
+  max_distance_to_players    17
+  min_distance_group_placement  14
+  max_distance_to_other_zones   15
+}
+/* ***********************PrysmaXT**************************** */
+create_object RELIC
+{
+   group_placement_radius     	15 
+   number_of_objects 1
+   set_loose_grouping
+   set_gaia_object_only
+   set_place_for_every_player
+   min_distance_to_players    20
+   max_distance_to_players    23
+}
+/* ***********************PrysmaXT**************************** */
+<OBJECTS_GENERATION>
+create_object GOLD
+{
+  set_place_for_every_player
+  number_of_objects          4
+  number_of_groups           2
+  group_placement_radius     10
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    19
+  max_distance_to_players    19
+  min_distance_group_placement  14
+  max_distance_to_other_zones   15
+}
+create_object HAWK
+{
+	number_of_objects				20
+	set_scaling_to_map_size
+}
+/* ***********************PrysmaXT**************************** */
+<CONNECTION_GENERATION>
+
+create_connect_all_players_land LEAVES
+{
+  replace_terrain GRASS         GRASS
+  replace_terrain GRASS2        GRASS
+  replace_terrain GRASS3        GRASS
+  replace_terrain FOREST        GRASS 
+  terrain_cost    FOREST        7
+  terrain_cost    GRASS         3
+  terrain_size    FOREST        4       1  
+  terrain_size    GRASS         2       1
+}
+
+create_connect_teams_lands
+{
+  replace_terrain GRASS         ROAD2
+  replace_terrain GRASS3        ROAD2
+  replace_terrain GRASS2        ROAD2
+  replace_terrain LEAVES        ROAD2
+  replace_terrain JUNGLE        ROAD2 
+  replace_terrain FOREST        ROAD2 
+  terrain_cost    JUNGLE        7
+  terrain_cost    FOREST        7
+  terrain_cost    GRASS         2
+  terrain_cost    GRASS2        2
+  terrain_cost    GRASS3        2
+  terrain_cost    LEAVES        2
+  terrain_cost    ROAD2         1       1
+  terrain_size    GRASS2        1       0
+  terrain_size    GRASS3        1       0
+  terrain_size    LEAVES        1       0
+  terrain_size    JUNGLE        1       0
+  terrain_size    FOREST        1       0
+  terrain_size    ROAD2         0       0
+}
+/* ***********************PrysmaXT**************************** */
+/* *****************Derechos reservados*********************** */
+<TERRAIN_GENERATION>
+
+create_terrain LEAVES
+{
+  base_terrain                   GRASS
+  spacing_to_other_terrain_types 1
+  land_percent                   3
+  number_of_clumps               20
+}
+create_terrain GRASS2
+{
+	base_terrain					GRASS
+	spacing_to_other_terrain_types	5
+	land_percent					3
+	number_of_clumps				2
+	clumping_factor					30
+	set_avoid_player_start_areas
+	set_scale_by_groups
+}

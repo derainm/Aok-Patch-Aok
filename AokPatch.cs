@@ -4331,6 +4331,93 @@ namespace Aok_Patch.patcher_
                 }
             }
         }
+
+        private void buttonAddRMS_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(this.gameExe))
+            {
+                MessageBox.Show("Browser Game Exe !!");
+                return;
+            }
+            if (!isVersionChosed())
+            {
+                MessageBox.Show("Chose a version!!");
+                return;
+            }
+
+            List<DrsTable> lstDrsGameData = new List<DrsTable>();
+            DrsItem newDrsItem = null;
+            byte[] data;
+            uint newMapId = 10000;
+            int cpt = 10874;
+            string result = string.Empty;
+            var lstf =Directory.GetFiles("Random map").Select(x=>x.Replace(@"Random map\","").Split('.').First()).ToList();
+            var lstfile = Directory.GetFiles("Random map");
+            int i = cpt- lstf.Count;
+            string currentDir = Directory.GetCurrentDirectory();
+            string fileGamedataDrs = Path.Combine(this.gameData, "gamedata.drs");
+            var tmpDrsFile = fileGamedataDrs.Replace(".drs", "Tmp.drs");
+
+            #region Add map on empires2.exe
+            exe = File.ReadAllBytes(this.gameExe);
+            //004FD743    -E9 AA362E00         JMP empires2.007E0DF2
+            Injection(0x004FD743, "E9AA362E0090");
+
+            //007E0E00 
+            Injection(0x2CFDF2, "C705002A780005000000909090908B8EF40A00006A18688A2A0000E82E1BCDFF909090909090A3F0297800890DE02978008915D0297800C705102A780018000000C705202A78007B2A00008B15002A7800A1102A78008B0D202A780083C00149A3102A7800890D202A780050518B8EF40A00004A8915002A7800E8CF1ACDFF833D002A78000075C3E9D6C8D1FF90");
+
+
+            int nbToAdd = lstfile.Count();
+            string MapAdd = nbToAdd.ToString("X").PadLeft(2, '0');
+
+            Injection(0x2CFDF2, "C705002A7800"+ MapAdd + "000000");
+
+            //00599724    -E9 D7772400    JMP empires2.007E0F00
+            Injection(0x0599724, "E9D7772400");
+            //push map 007E0F00
+            //Injection(0x2CFF00, "C705002A780023000000A3F0297800890DE02978008915D0297800B91027000083C0F003C88BF1688CF90200E9F887DBFF90");
+            Injection(0x2CFF00, "C705002A78000E000000A3F0297800890DE02978008915D0297800B910270000030D002A780083E80F2BC88BF1688CF90200E9F287DBFF90");
+            Injection(0x2CFF00, "C705002A7800"+ MapAdd+ "000000");
+
+            File.WriteAllBytes(this.gameExe, exe);
+            #endregion Add map on empires2.exe
+
+            if (File.Exists(fileGamedataDrs))
+            {
+                lstDrsGameData = LoadDrsInList(fileGamedataDrs);
+                var lastItem = lstDrsGameData.Where(x => x.Type == 1651076705).First().Items.Last();
+                List<DrsItem> itemList = lstDrsGameData.Where(x => x.Type == 1651076705).First().Items.ToList();
+                //Add map in game data drs
+                foreach (var f in lstfile)
+                {
+                    data = File.ReadAllBytes(f);
+                    newDrsItem = new DrsItem()
+                    {
+                        Id = newMapId,
+                        //Start = lastItem.Start+ lastItem.Size,
+                        Data = data
+                    };
+                    itemList.Add(newDrsItem);
+                    newMapId++;
+                    i++;
+                    string item = f.Replace( @"Random map\", "").Split('.').First();
+                    result += "  " + i + ",     " + "\"" + item + "\"" + Environment.NewLine;
+                    //ResourceHacker.exe -open language.dll -save language1.dll -action addoverwrite -res StringTable680.rc -mask STRINGTABLE,LANGUAGE  , StringTable680 -log CONSOLE
+
+                }
+                lstDrsGameData.Where(x => x.Type == 1651076705).First().Items = itemList;
+                saveDrsFromLis(fileGamedataDrs, tmpDrsFile, lstDrsGameData);
+                if (File.Exists(fileGamedataDrs))
+                {
+                    //update Drs file
+                    File.Copy(tmpDrsFile, fileGamedataDrs, true);
+                    File.Delete(tmpDrsFile);
+                }
+
+            }
+            else
+                MessageBox.Show("gamedata.drs doesn't existe in data folder");
+        }
     }
     public class TextBoxListener : TraceListener
     {

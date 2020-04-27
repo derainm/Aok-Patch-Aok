@@ -924,6 +924,42 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="Random map\!! G  A voobly.rms">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Random map\- BF LORD.rms">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Random map\ARENA.bina">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Random map\AV_Black Forest.rms">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Random map\Dry  Arabia.rms">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Random map\Green Arabia.rms">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Random map\MIDEAST.bina">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Random map\MONGOLIA.bina">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Random map\Nomad.bina">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Random map\NORSE LANDS.bina">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Random map\SCANDINAVIA.bina">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Random map\YUCATAN.bina">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\Add civ.PNG" />
     <None Include="Resources\Canyonscenter.webp" />
     <None Include="Resources\Thumbnail.gif" />
@@ -955,6 +991,7 @@
     <None Include="Resources\icons8-save-close-40.png" />
     <None Include="Resources\icons8-save-as-40.png" />
     <None Include="Resources\icons8-save-tabs-list-32.png" />
+    <Content Include="Ressource hack\ResourceHacker.exe" />
     <Content Include="Stream\Berbers.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
