@@ -4414,10 +4414,15 @@ namespace Aok_Patch.patcher_
             
             //extract ressources from language dll to know exactly the name of language table
             Process.Start(@"Resource_hack\ResourceHacker.exe", "-open \"" + languagedll + "\"  -save resource.rc  -action extract -mask STRINGTABLE,,");
-            
+            int compter = 0;
             do
             {
                 Thread.Sleep(200);
+                compter++;
+                if(compter ==20)
+                {
+                    break;
+                }
             }
             while (!File.Exists("resource.rc"));
             var fileResContent = File.ReadAllLines("resource.rc");
