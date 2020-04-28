@@ -4398,7 +4398,18 @@ namespace Aok_Patch.patcher_
 
             File.WriteAllBytes(this.gameExe, exe);
             #endregion Add map on empires2.exe
-
+            if(File.Exists("StringTable680.rc"))
+            {
+                File.Delete("StringTable680.rc");
+            }
+            if (File.Exists("resource.rc"))
+            {
+                File.Delete("resource.rc");
+            }
+            if (File.Exists("StringTable680.res"))
+            {
+                File.Delete("StringTable680.res");
+            }
             string languagedll = Path.Combine(this.gamePath, "language.dll");
             //extract ressources from language dll to know exactly the name of language table
             Process.Start(@"Resource_hack\ResourceHacker.exe", "-open \"" + languagedll + "\"  -save resource.rc  -action extract -mask STRINGTABLE,,");
