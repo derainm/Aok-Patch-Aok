@@ -73,6 +73,16 @@ namespace Aok_Patch.patcher_ {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap AokAddMap {
+            get {
+                object obj = ResourceManager.GetObject("AokAddMap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap AokChatColor {
             get {
                 object obj = ResourceManager.GetObject("AokChatColor", resourceCulture);
@@ -246,6 +256,16 @@ namespace Aok_Patch.patcher_ {
         public static System.Drawing.Bitmap miniMapColor {
             get {
                 object obj = ResourceManager.GetObject("miniMapColor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap NewMap_rules {
+            get {
+                object obj = ResourceManager.GetObject("NewMap rules", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

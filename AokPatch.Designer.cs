@@ -118,6 +118,16 @@
             this.Windowed = new System.Windows.Forms.TabPage();
             this.buttonWindowed = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.tabPageAddRMS = new System.Windows.Forms.TabPage();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.buttonAddRMS = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.FixRecord = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.contextMenuStripDrsEditorOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -125,9 +135,8 @@
             this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extractFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonAddRMS = new System.Windows.Forms.Button();
-            this.tabPageAddRMS = new System.Windows.Forms.TabPage();
-            this.label27 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.GB_ManualRes.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControlAokPatch.SuspendLayout();
@@ -141,9 +150,9 @@
             this.AddCivOnAok20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_nb_2_add)).BeginInit();
             this.Windowed.SuspendLayout();
+            this.tabPageAddRMS.SuspendLayout();
             this.FixRecord.SuspendLayout();
             this.contextMenuStripDrsEditorOptions.SuspendLayout();
-            this.tabPageAddRMS.SuspendLayout();
             this.SuspendLayout();
             // 
             // radioButton__20
@@ -277,6 +286,7 @@
             // labelImageres
             // 
             this.labelImageres.AutoSize = true;
+            this.labelImageres.Image = global::Aok_Patch.patcher_.MainForm.res;
             this.labelImageres.Location = new System.Drawing.Point(6, 14);
             this.labelImageres.MinimumSize = new System.Drawing.Size(200, 150);
             this.labelImageres.Name = "labelImageres";
@@ -393,6 +403,7 @@
             // 
             // buttonBack
             // 
+            this.buttonBack.Image = global::Aok_Patch.patcher_.MainForm.back1;
             this.buttonBack.Location = new System.Drawing.Point(383, 840);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(158, 76);
@@ -402,6 +413,7 @@
             // 
             // buttonAddMod
             // 
+            this.buttonAddMod.Image = global::Aok_Patch.patcher_.MainForm.save;
             this.buttonAddMod.Location = new System.Drawing.Point(0, 840);
             this.buttonAddMod.Name = "buttonAddMod";
             this.buttonAddMod.Size = new System.Drawing.Size(158, 76);
@@ -433,6 +445,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
+            this.label17.Image = global::Aok_Patch.patcher_.MainForm.Real_Terrain;
             this.label17.Location = new System.Drawing.Point(284, 605);
             this.label17.MinimumSize = new System.Drawing.Size(150, 100);
             this.label17.Name = "label17";
@@ -453,6 +466,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.Image = global::Aok_Patch.patcher_.MainForm.farms;
             this.label14.Location = new System.Drawing.Point(284, 479);
             this.label14.MinimumSize = new System.Drawing.Size(150, 100);
             this.label14.Name = "label14";
@@ -505,6 +519,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.Image = global::Aok_Patch.patcher_.MainForm.GridTerrain;
             this.label15.Location = new System.Drawing.Point(284, 361);
             this.label15.MinimumSize = new System.Drawing.Size(150, 100);
             this.label15.Name = "label15";
@@ -564,6 +579,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Image = global::Aok_Patch.patcher_.MainForm.hdclif;
             this.label11.Location = new System.Drawing.Point(284, 10);
             this.label11.MinimumSize = new System.Drawing.Size(150, 100);
             this.label11.Name = "label11";
@@ -623,6 +639,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Image = global::Aok_Patch.patcher_.MainForm.Hdmine;
             this.label8.Location = new System.Drawing.Point(5, 126);
             this.label8.MinimumSize = new System.Drawing.Size(150, 100);
             this.label8.Name = "label8";
@@ -642,6 +659,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Image = global::Aok_Patch.patcher_.MainForm.smallWall;
             this.label7.Location = new System.Drawing.Point(5, 10);
             this.label7.MinimumSize = new System.Drawing.Size(150, 100);
             this.label7.Name = "label7";
@@ -692,6 +710,7 @@
             // 
             // buttonUpdateSlpID
             // 
+            this.buttonUpdateSlpID.Image = global::Aok_Patch.patcher_.MainForm.icons8_update_left_rotation_32;
             this.buttonUpdateSlpID.Location = new System.Drawing.Point(517, 5);
             this.buttonUpdateSlpID.Margin = new System.Windows.Forms.Padding(0);
             this.buttonUpdateSlpID.Name = "buttonUpdateSlpID";
@@ -862,6 +881,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
+            this.label2.Image = global::Aok_Patch.patcher_.MainForm.miniMapColor;
             this.label2.Location = new System.Drawing.Point(67, 0);
             this.label2.MinimumSize = new System.Drawing.Size(400, 250);
             this.label2.Name = "label2";
@@ -1088,6 +1108,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
+            this.label5.Image = global::Aok_Patch.patcher_.MainForm.Add_civ;
             this.label5.Location = new System.Drawing.Point(217, 0);
             this.label5.MinimumSize = new System.Drawing.Size(400, 500);
             this.label5.Name = "label5";
@@ -1126,6 +1147,115 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(450, 350);
             this.label6.TabIndex = 63;
+            // 
+            // tabPageAddRMS
+            // 
+            this.tabPageAddRMS.Controls.Add(this.label36);
+            this.tabPageAddRMS.Controls.Add(this.label35);
+            this.tabPageAddRMS.Controls.Add(this.label34);
+            this.tabPageAddRMS.Controls.Add(this.label33);
+            this.tabPageAddRMS.Controls.Add(this.label32);
+            this.tabPageAddRMS.Controls.Add(this.label31);
+            this.tabPageAddRMS.Controls.Add(this.label30);
+            this.tabPageAddRMS.Controls.Add(this.label29);
+            this.tabPageAddRMS.Controls.Add(this.buttonAddRMS);
+            this.tabPageAddRMS.Controls.Add(this.label27);
+            this.tabPageAddRMS.Controls.Add(this.label28);
+            this.tabPageAddRMS.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAddRMS.Name = "tabPageAddRMS";
+            this.tabPageAddRMS.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAddRMS.Size = new System.Drawing.Size(568, 476);
+            this.tabPageAddRMS.TabIndex = 8;
+            this.tabPageAddRMS.Text = "Add RMS";
+            this.tabPageAddRMS.UseVisualStyleBackColor = true;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Image = global::Aok_Patch.patcher_.MainForm.NewMap_rules;
+            this.label34.Location = new System.Drawing.Point(17, 101);
+            this.label34.MinimumSize = new System.Drawing.Size(230, 150);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(230, 150);
+            this.label34.TabIndex = 77;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.ForeColor = System.Drawing.Color.Red;
+            this.label33.Location = new System.Drawing.Point(3, 27);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(214, 13);
+            this.label33.TabIndex = 76;
+            this.label33.Text = "when playing new map, if play old map work";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(3, 83);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(241, 13);
+            this.label32.TabIndex = 75;
+            this.label32.Text = "player need to have the same order name number";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(3, 70);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(163, 13);
+            this.label31.TabIndex = 74;
+            this.label31.Text = "put the number postion 1 2 3 4 ...";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(3, 57);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(96, 13);
+            this.label30.TabIndex = 73;
+            this.label30.Text = "Random map foler.";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(3, 44);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(245, 13);
+            this.label29.TabIndex = 72;
+            this.label29.Text = "If you want to add new map you can, just put it on ";
+            // 
+            // buttonAddRMS
+            // 
+            this.buttonAddRMS.Location = new System.Drawing.Point(6, 273);
+            this.buttonAddRMS.Name = "buttonAddRMS";
+            this.buttonAddRMS.Size = new System.Drawing.Size(260, 87);
+            this.buttonAddRMS.TabIndex = 0;
+            this.buttonAddRMS.Text = "Add Random Map on aok 2.0";
+            this.buttonAddRMS.UseVisualStyleBackColor = true;
+            this.buttonAddRMS.Click += new System.EventHandler(this.buttonAddRMS_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.ForeColor = System.Drawing.Color.Red;
+            this.label27.Location = new System.Drawing.Point(3, 14);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(282, 13);
+            this.label27.TabIndex = 70;
+            this.label27.Text = "Outsynchronisation if all player don\'t have you version map";
+            // 
+            // label28
+            // 
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label28.AutoSize = true;
+            this.label28.Image = global::Aok_Patch.patcher_.MainForm.AokAddMap;
+            this.label28.Location = new System.Drawing.Point(231, -17);
+            this.label28.MinimumSize = new System.Drawing.Size(400, 500);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(400, 500);
+            this.label28.TabIndex = 71;
             // 
             // FixRecord
             // 
@@ -1186,37 +1316,23 @@
             this.extractFileToolStripMenuItem.Text = "Extract File";
             this.extractFileToolStripMenuItem.Click += new System.EventHandler(this.extractFileToolStripMenuItem_Click);
             // 
-            // buttonAddRMS
+            // label35
             // 
-            this.buttonAddRMS.Location = new System.Drawing.Point(12, 254);
-            this.buttonAddRMS.Name = "buttonAddRMS";
-            this.buttonAddRMS.Size = new System.Drawing.Size(260, 87);
-            this.buttonAddRMS.TabIndex = 0;
-            this.buttonAddRMS.Text = "Add Random Map on aok 2.0";
-            this.buttonAddRMS.UseVisualStyleBackColor = true;
-            this.buttonAddRMS.Click += new System.EventHandler(this.buttonAddRMS_Click);
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(45, 205);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(84, 13);
+            this.label35.TabIndex = 78;
+            this.label35.Text = "5 Your new map";
             // 
-            // tabPageAddRMS
+            // label36
             // 
-            this.tabPageAddRMS.Controls.Add(this.label27);
-            this.tabPageAddRMS.Controls.Add(this.buttonAddRMS);
-            this.tabPageAddRMS.Location = new System.Drawing.Point(4, 22);
-            this.tabPageAddRMS.Name = "tabPageAddRMS";
-            this.tabPageAddRMS.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddRMS.Size = new System.Drawing.Size(568, 476);
-            this.tabPageAddRMS.TabIndex = 8;
-            this.tabPageAddRMS.Text = "Add RMS";
-            this.tabPageAddRMS.UseVisualStyleBackColor = true;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.ForeColor = System.Drawing.Color.Red;
-            this.label27.Location = new System.Drawing.Point(13, 14);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(259, 13);
-            this.label27.TabIndex = 70;
-            this.label27.Text = "Outsynchronisation if all player don\'t have you version";
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(71, 228);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(19, 13);
+            this.label36.TabIndex = 79;
+            this.label36.Text = "....";
             // 
             // AokPatch
             // 
@@ -1253,10 +1369,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_nb_2_add)).EndInit();
             this.Windowed.ResumeLayout(false);
             this.Windowed.PerformLayout();
-            this.FixRecord.ResumeLayout(false);
-            this.contextMenuStripDrsEditorOptions.ResumeLayout(false);
             this.tabPageAddRMS.ResumeLayout(false);
             this.tabPageAddRMS.PerformLayout();
+            this.FixRecord.ResumeLayout(false);
+            this.contextMenuStripDrsEditorOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1361,5 +1477,14 @@
         private System.Windows.Forms.TabPage tabPageAddRMS;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button buttonAddRMS;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
     }
 }

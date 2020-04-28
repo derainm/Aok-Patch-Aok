@@ -924,40 +924,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-    <None Include="Random map\!! G  A voobly.rms">
+    <None Include="Random map\1 !! G  A voobly.rms">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Random map\- BF LORD.rms">
+    <None Include="Random map\2 ARENA.bina">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Random map\ARENA.bina">
+    <None Include="Random map\3 Green Arabia.rms">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Random map\AV_Black Forest.rms">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Random map\Dry  Arabia.rms">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Random map\Green Arabia.rms">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Random map\MIDEAST.bina">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Random map\MONGOLIA.bina">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Random map\Nomad.bina">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Random map\NORSE LANDS.bina">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Random map\SCANDINAVIA.bina">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Random map\YUCATAN.bina">
+    <None Include="Random map\4 Nomad.bina">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\Add civ.PNG" />
@@ -991,6 +967,8 @@
     <None Include="Resources\icons8-save-close-40.png" />
     <None Include="Resources\icons8-save-as-40.png" />
     <None Include="Resources\icons8-save-tabs-list-32.png" />
+    <None Include="Resources\AokAddMap.PNG" />
+    <None Include="Resources\NewMap rules.PNG" />
     <Content Include="Resource_hack\ResourceHacker.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
