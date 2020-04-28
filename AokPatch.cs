@@ -3108,6 +3108,7 @@ namespace Aok_Patch.patcher_
             tabhelper.HidePage(tabControlAokPatch.TabPages["AokChatColor"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["AddCivOnAok20"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["Windowed"]);
+            tabhelper.HidePage(tabControlAokPatch.TabPages["tabPageAddRMS"]);
         }
 
         private void radioButton__20_CheckedChanged(object sender, EventArgs e)
@@ -3126,6 +3127,7 @@ namespace Aok_Patch.patcher_
             tabhelper.HidePage(tabControlAokPatch.TabPages["AokChatColor"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["AddCivOnAok20"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["Windowed"]);
+            tabhelper.HidePage(tabControlAokPatch.TabPages["tabPageAddRMS"]);
         }
 
         private void radioButton_10_CheckedChanged(object sender, EventArgs e)
@@ -3135,6 +3137,7 @@ namespace Aok_Patch.patcher_
             tabhelper.HidePage(tabControlAokPatch.TabPages["MiniMapColor"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["AokChatColor"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["AddCivOnAok20"]);
+            tabhelper.HidePage(tabControlAokPatch.TabPages["tabPageAddRMS"]);
             //tabhelper.HidePage(tabControlAokPatch.TabPages["Windowed"]);
         }
 
@@ -3145,6 +3148,7 @@ namespace Aok_Patch.patcher_
             //tabhelper.HidePage(tabControlAokPatch.TabPages["MiniMapColor"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["AokChatColor"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["AddCivOnAok20"]);
+            tabhelper.HidePage(tabControlAokPatch.TabPages["tabPageAddRMS"]);
             //tabhelper.HidePage(tabControlAokPatch.TabPages["Windowed"]);
             labelDescSIgnal.Visible = false;
             numericUpDownSizeOfX.Visible = false;
@@ -3157,6 +3161,7 @@ namespace Aok_Patch.patcher_
             tabhelper.HidePage(tabControlAokPatch.TabPages["MiniMapColor"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["AokChatColor"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["AddCivOnAok20"]);
+            tabhelper.HidePage(tabControlAokPatch.TabPages["tabPageAddRMS"]);
             //tabhelper.HidePage(tabControlAokPatch.TabPages["Windowed"]);
         }
 

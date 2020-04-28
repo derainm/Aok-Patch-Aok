@@ -118,8 +118,6 @@
             this.Windowed = new System.Windows.Forms.TabPage();
             this.buttonWindowed = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.tabPageAddRMS = new System.Windows.Forms.TabPage();
-            this.buttonAddRMS = new System.Windows.Forms.Button();
             this.FixRecord = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.contextMenuStripDrsEditorOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -127,7 +125,8 @@
             this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extractFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
+            this.buttonAddRMS = new System.Windows.Forms.Button();
+            this.tabPageAddRMS = new System.Windows.Forms.TabPage();
             this.label27 = new System.Windows.Forms.Label();
             this.GB_ManualRes.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -142,9 +141,9 @@
             this.AddCivOnAok20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_nb_2_add)).BeginInit();
             this.Windowed.SuspendLayout();
-            this.tabPageAddRMS.SuspendLayout();
             this.FixRecord.SuspendLayout();
             this.contextMenuStripDrsEditorOptions.SuspendLayout();
+            this.tabPageAddRMS.SuspendLayout();
             this.SuspendLayout();
             // 
             // radioButton__20
@@ -1128,29 +1127,6 @@
             this.label6.Size = new System.Drawing.Size(450, 350);
             this.label6.TabIndex = 63;
             // 
-            // tabPageAddRMS
-            // 
-            this.tabPageAddRMS.Controls.Add(this.label27);
-            this.tabPageAddRMS.Controls.Add(this.comboBoxLanguage);
-            this.tabPageAddRMS.Controls.Add(this.buttonAddRMS);
-            this.tabPageAddRMS.Location = new System.Drawing.Point(4, 22);
-            this.tabPageAddRMS.Name = "tabPageAddRMS";
-            this.tabPageAddRMS.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddRMS.Size = new System.Drawing.Size(568, 476);
-            this.tabPageAddRMS.TabIndex = 8;
-            this.tabPageAddRMS.Text = "Add RMS";
-            this.tabPageAddRMS.UseVisualStyleBackColor = true;
-            // 
-            // buttonAddRMS
-            // 
-            this.buttonAddRMS.Location = new System.Drawing.Point(16, 371);
-            this.buttonAddRMS.Name = "buttonAddRMS";
-            this.buttonAddRMS.Size = new System.Drawing.Size(138, 57);
-            this.buttonAddRMS.TabIndex = 0;
-            this.buttonAddRMS.Text = "Add Random Map";
-            this.buttonAddRMS.UseVisualStyleBackColor = true;
-            this.buttonAddRMS.Click += new System.EventHandler(this.buttonAddRMS_Click);
-            // 
             // FixRecord
             // 
             this.FixRecord.Controls.Add(this.button2);
@@ -1210,22 +1186,37 @@
             this.extractFileToolStripMenuItem.Text = "Extract File";
             this.extractFileToolStripMenuItem.Click += new System.EventHandler(this.extractFileToolStripMenuItem_Click);
             // 
-            // comboBoxLanguage
+            // buttonAddRMS
             // 
-            this.comboBoxLanguage.FormattingEnabled = true;
-            this.comboBoxLanguage.Location = new System.Drawing.Point(16, 344);
-            this.comboBoxLanguage.Name = "comboBoxLanguage";
-            this.comboBoxLanguage.Size = new System.Drawing.Size(132, 21);
-            this.comboBoxLanguage.TabIndex = 1;
+            this.buttonAddRMS.Location = new System.Drawing.Point(12, 254);
+            this.buttonAddRMS.Name = "buttonAddRMS";
+            this.buttonAddRMS.Size = new System.Drawing.Size(260, 87);
+            this.buttonAddRMS.TabIndex = 0;
+            this.buttonAddRMS.Text = "Add Random Map on aok 2.0";
+            this.buttonAddRMS.UseVisualStyleBackColor = true;
+            this.buttonAddRMS.Click += new System.EventHandler(this.buttonAddRMS_Click);
+            // 
+            // tabPageAddRMS
+            // 
+            this.tabPageAddRMS.Controls.Add(this.label27);
+            this.tabPageAddRMS.Controls.Add(this.buttonAddRMS);
+            this.tabPageAddRMS.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAddRMS.Name = "tabPageAddRMS";
+            this.tabPageAddRMS.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAddRMS.Size = new System.Drawing.Size(568, 476);
+            this.tabPageAddRMS.TabIndex = 8;
+            this.tabPageAddRMS.Text = "Add RMS";
+            this.tabPageAddRMS.UseVisualStyleBackColor = true;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(19, 319);
+            this.label27.ForeColor = System.Drawing.Color.Red;
+            this.label27.Location = new System.Drawing.Point(13, 14);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(105, 13);
-            this.label27.TabIndex = 2;
-            this.label27.Text = "Chose the language:";
+            this.label27.Size = new System.Drawing.Size(259, 13);
+            this.label27.TabIndex = 70;
+            this.label27.Text = "Outsynchronisation if all player don\'t have you version";
             // 
             // AokPatch
             // 
@@ -1262,10 +1253,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_nb_2_add)).EndInit();
             this.Windowed.ResumeLayout(false);
             this.Windowed.PerformLayout();
-            this.tabPageAddRMS.ResumeLayout(false);
-            this.tabPageAddRMS.PerformLayout();
             this.FixRecord.ResumeLayout(false);
             this.contextMenuStripDrsEditorOptions.ResumeLayout(false);
+            this.tabPageAddRMS.ResumeLayout(false);
+            this.tabPageAddRMS.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1368,8 +1359,7 @@
         private System.Windows.Forms.TextBox textBoxUpdateSlpId;
         private System.Windows.Forms.Button buttonSaveAs;
         private System.Windows.Forms.TabPage tabPageAddRMS;
-        private System.Windows.Forms.Button buttonAddRMS;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox comboBoxLanguage;
+        private System.Windows.Forms.Button buttonAddRMS;
     }
 }
