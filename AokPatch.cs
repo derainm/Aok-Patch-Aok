@@ -4411,9 +4411,15 @@ namespace Aok_Patch.patcher_
                 File.Delete("StringTable680.res");
             }
             string languagedll = Path.Combine(this.gamePath, "language.dll");
+            
             //extract ressources from language dll to know exactly the name of language table
             Process.Start(@"Resource_hack\ResourceHacker.exe", "-open \"" + languagedll + "\"  -save resource.rc  -action extract -mask STRINGTABLE,,");
-
+            
+            do
+            {
+                Thread.Sleep(200);
+            }
+            while (!File.Exists("resource.rc"));
             var fileResContent = File.ReadAllLines("resource.rc");
             string languageTable = fileResContent.ElementAt(1);
             //todo allow user to change language
