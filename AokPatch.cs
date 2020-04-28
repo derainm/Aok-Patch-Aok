@@ -4398,8 +4398,10 @@ namespace Aok_Patch.patcher_
 
             File.WriteAllBytes(this.gameExe, exe);
             #endregion Add map on empires2.exe
+
+            string languagedll = Path.Combine(this.gamePath, "language.dll");
             //extract ressources from language dll to know exactly the name of language table
-            Process.Start(@"Resource_hack\ResourceHacker.exe", "-open language.dll -save resource.rc  -action extract -mask STRINGTABLE,,");
+            Process.Start(@"Resource_hack\ResourceHacker.exe", "-open \"" + languagedll + "\"  -save resource.rc  -action extract -mask STRINGTABLE,,");
 
             var fileResContent = File.ReadAllLines("resource.rc");
             string languageTable = fileResContent.ElementAt(1);
@@ -4441,7 +4443,7 @@ namespace Aok_Patch.patcher_
                 File.WriteAllText("StringTable680.rc", result);
                 //compile the new combobox Random map items names
                 Process.Start(@"Resource_hack\ResourceHacker.exe", "-open StringTable680.rc -save StringTable680.res -action compile");
-                string languagedll = Path.Combine(this.gamePath, "language.dll");
+
                 //add ressources to language.dll
                 Process.Start(@"Resource_hack\ResourceHacker.exe", "-open \"" + languagedll + "\" -save \"" + languagedll + "\" -action addoverwrite -res StringTable680.res -mask STRINGTABLE,,");
                 lstDrsGameData.Where(x => x.Type == 1651076705).First().Items = itemList;
@@ -4452,10 +4454,11 @@ namespace Aok_Patch.patcher_
                     File.Copy(tmpDrsFile, fileGamedataDrs, true);
                     File.Delete(tmpDrsFile);
                 }
-
+                MessageBox.Show("Done.");
             }
             else
                 MessageBox.Show("gamedata.drs doesn't existe in data folder");
+
         }
     }
     public class TextBoxListener : TraceListener
