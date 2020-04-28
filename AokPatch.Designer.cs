@@ -127,6 +127,8 @@
             this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extractFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.GB_ManualRes.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControlAokPatch.SuspendLayout();
@@ -1128,6 +1130,8 @@
             // 
             // tabPageAddRMS
             // 
+            this.tabPageAddRMS.Controls.Add(this.label27);
+            this.tabPageAddRMS.Controls.Add(this.comboBoxLanguage);
             this.tabPageAddRMS.Controls.Add(this.buttonAddRMS);
             this.tabPageAddRMS.Location = new System.Drawing.Point(4, 22);
             this.tabPageAddRMS.Name = "tabPageAddRMS";
@@ -1139,9 +1143,9 @@
             // 
             // buttonAddRMS
             // 
-            this.buttonAddRMS.Location = new System.Drawing.Point(22, 412);
+            this.buttonAddRMS.Location = new System.Drawing.Point(16, 371);
             this.buttonAddRMS.Name = "buttonAddRMS";
-            this.buttonAddRMS.Size = new System.Drawing.Size(106, 49);
+            this.buttonAddRMS.Size = new System.Drawing.Size(138, 57);
             this.buttonAddRMS.TabIndex = 0;
             this.buttonAddRMS.Text = "Add Random Map";
             this.buttonAddRMS.UseVisualStyleBackColor = true;
@@ -1206,6 +1210,23 @@
             this.extractFileToolStripMenuItem.Text = "Extract File";
             this.extractFileToolStripMenuItem.Click += new System.EventHandler(this.extractFileToolStripMenuItem_Click);
             // 
+            // comboBoxLanguage
+            // 
+            this.comboBoxLanguage.FormattingEnabled = true;
+            this.comboBoxLanguage.Location = new System.Drawing.Point(16, 344);
+            this.comboBoxLanguage.Name = "comboBoxLanguage";
+            this.comboBoxLanguage.Size = new System.Drawing.Size(132, 21);
+            this.comboBoxLanguage.TabIndex = 1;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(19, 319);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(105, 13);
+            this.label27.TabIndex = 2;
+            this.label27.Text = "Chose the language:";
+            // 
             // AokPatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1242,6 +1263,7 @@
             this.Windowed.ResumeLayout(false);
             this.Windowed.PerformLayout();
             this.tabPageAddRMS.ResumeLayout(false);
+            this.tabPageAddRMS.PerformLayout();
             this.FixRecord.ResumeLayout(false);
             this.contextMenuStripDrsEditorOptions.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1347,5 +1369,7 @@
         private System.Windows.Forms.Button buttonSaveAs;
         private System.Windows.Forms.TabPage tabPageAddRMS;
         private System.Windows.Forms.Button buttonAddRMS;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.ComboBox comboBoxLanguage;
     }
 }

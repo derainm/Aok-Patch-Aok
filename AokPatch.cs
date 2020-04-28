@@ -1458,6 +1458,15 @@ namespace Aok_Patch.patcher_
 
             //slpView.Hide();
             //tabhelper.HidePage(tabControlAokPatch.TabPages["DrsEditor"]);
+
+            //comboBoxLanguage.Items.Add("LANG_ENGLISH, SUBLANG_ENGLISH_US");
+            //comboBoxLanguage.Items.Add("LANG_FRENCH, SUBLANG_FRENCH");
+            //comboBoxLanguage.Items.Add("LANG_GERMAN, SUBLANG_GERMAN");
+            //comboBoxLanguage.Items.Add("LANG_NEUTRAL, SUBLANG_NEUTRAL");
+            ////comboBoxLanguage.Items.Add(" LANG_NEUTRAL, SUBLANG_NEUTRAL");
+            //comboBoxLanguage.Items.Add("LANG_ITALIAN, SUBLANG_ITALIAN");
+            //comboBoxLanguage.Items.Add("LANG_JAPANESE, 0x1");
+            //comboBoxLanguage.Items.Add("LANG_JAPANESE, 0x1");
         }
         public int[] frameDataOffsets;
         public int[] frameOutlineOffset;
@@ -4373,17 +4382,24 @@ namespace Aok_Patch.patcher_
             Injection(0x2CFDF2, "C705002A7800"+ MapAdd + "000000");
 
             //00599724    -E9 D7772400    JMP empires2.007E0F00
-            Injection(0x0599724, "E9D7772400");
+            Injection(0x0599724,"688CF90200");
+            Injection(0x05996AD, "E98E78240090909090");
+            //Injection(0x0599724, "E9D7772400");
             //push map 007E0F00
             //Injection(0x2CFF00, "C705002A780023000000A3F0297800890DE02978008915D0297800B91027000083C0F003C88BF1688CF90200E9F887DBFF90");
             Injection(0x2CFF00, "C705002A78000E000000A3F0297800890DE02978008915D0297800B910270000030D002A780083E80F2BC88BF1688CF90200E9F287DBFF90");
             Injection(0x2CFF00, "C705002A7800"+ MapAdd+ "000000");
+            Injection(0x2CFF40, "77BE3EFF2485D8975900");
 
             File.WriteAllBytes(this.gameExe, exe);
             #endregion Add map on empires2.exe
+            //extract ressources from language dll to know exactly the name of language table
+            Process.Start(@"Resource_hack\ResourceHacker.exe", "-open language.dll -save resource.rc  -action extract -mask STRINGTABLE,,");
 
+            var fileResContent = File.ReadAllLines("resource.rc");
+            string languageTable = fileResContent.ElementAt(1);
             //todo allow user to change language
-            result += "LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US" + Environment.NewLine;
+            result += languageTable + Environment.NewLine;// "LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US" + Environment.NewLine;
             result += "{" + Environment.NewLine;
             if (File.Exists(fileGamedataDrs))
             {
@@ -4410,15 +4426,18 @@ namespace Aok_Patch.patcher_
                     //ResourceHacker.exe -open language.dll -save language1.dll -action addoverwrite -res StringTable680.res -mask STRINGTABLE,,
 
                 }
-                  //10875, 	"Arabia"
-                  //10876, 	"Archipelago"
-                  //10877, 	"Baltic"
-                  //10878, 	"Black Forest"
-                  //10879, 	"Coastal"
+                result += "10875, 	\"Arabia\"" + Environment.NewLine;
+                result += "10876, 	\"Archipelago\"" + Environment.NewLine;
+                result += "10877, 	\"Baltic\"" + Environment.NewLine;
+                result += "10878, 	\"Black Forest\"" + Environment.NewLine;
+                result += "10879, 	\"Coastal\"" + Environment.NewLine;
+
                 result += "}";
                 File.WriteAllText("StringTable680.rc", result);
+                //compile the new combobox Random map items names
                 Process.Start(@"Resource_hack\ResourceHacker.exe", "-open StringTable680.rc -save StringTable680.res -action compile");
                 string languagedll = Path.Combine(this.gamePath, "language.dll");
+                //add ressources to language.dll
                 Process.Start(@"Resource_hack\ResourceHacker.exe", "-open \"" + languagedll + "\" -save \"" + languagedll + "\" -action addoverwrite -res StringTable680.res -mask STRINGTABLE,,");
                 lstDrsGameData.Where(x => x.Type == 1651076705).First().Items = itemList;
                 saveDrsFromLis(fileGamedataDrs, tmpDrsFile, lstDrsGameData);
