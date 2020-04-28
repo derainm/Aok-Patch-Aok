@@ -4374,6 +4374,13 @@ namespace Aok_Patch.patcher_
 
             #region Add map on empires2.exe
             exe = File.ReadAllBytes(this.gameExe);
+
+            //.pdata .patch
+            Injection(0x100, "504500004C010900");
+            Injection(0x150, "00F03E00");
+            Injection(0x310, "2E7064617461000000100000002038000010000000102700000000000000000000000000E00000E02E7061746368000000C006000030380000C0060000202700000000000000000000000000E00000E0");
+
+
             //004FD743    -E9 AA362E00         JMP empires2.007E0DF2
             Injection(0x004FD743, "E9AA362E0090");
 
