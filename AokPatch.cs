@@ -4403,6 +4403,14 @@ namespace Aok_Patch.patcher_
             Injection(0x2CFF00, "C705002A7800"+ MapAdd+ "000000");
             Injection(0x2CFF40, "77BE3EFF2485D8975900");
 
+            //scenario combobox
+            //unlock map for scenario editor => this is is a solution to generate map as scn to send to people who don't have patch
+            //00506878    -E9 75A72D00    JMP empires2.007E0FF2
+            Injection(0x506878, "E975A72D00");
+            //007E1000
+            Injection(0x2CFFF2, "C705002A78000400000090909090E83B19CDFFA3F0297800890DE02978008915D0297800C705102A780017000000C705202A78007B2A00008B15002A7800A1102A78008B0D202A780083C00149A3102A7800890D202A780050518B0E4A8915002A7800E8E618CDFF833D002A78000075C7E91558D2FF");
+            Injection(0x2CFFF2, "C705002A7800"+ MapAdd);
+
             File.WriteAllBytes(this.gameExe, exe);
             #endregion Add map on empires2.exe
             if(File.Exists("StringTable680.rc"))
