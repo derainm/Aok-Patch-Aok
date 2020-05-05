@@ -1553,7 +1553,7 @@ Import your civ interface in Age of Empires II\Data\graphics.drs
 You can add 40 civ interface:
 (5401..5431) 800x600
 (5441..5472) 1024x768
-(5481..5512) your trsolution</value>
+(5481..5512) your resolution</value>
   </data>
   <metadata name="contextMenuStripDrsEditorOptions.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

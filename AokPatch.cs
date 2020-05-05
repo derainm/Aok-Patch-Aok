@@ -3168,6 +3168,7 @@ namespace Aok_Patch.patcher_
             tabhelper.HidePage(tabControlAokPatch.TabPages["AddCivOnAok20"]);
             //tabhelper.HidePage(tabControlAokPatch.TabPages["Windowed"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["tabPageAddRMS"]);
+            tabhelper.HidePage(tabControlAokPatch.TabPages["tabFixLag"]);
         }
 
         private void radioButton__20_CheckedChanged(object sender, EventArgs e)
@@ -3187,6 +3188,7 @@ namespace Aok_Patch.patcher_
             tabhelper.HidePage(tabControlAokPatch.TabPages["AddCivOnAok20"]);
             //tabhelper.HidePage(tabControlAokPatch.TabPages["Windowed"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["tabPageAddRMS"]);
+            tabhelper.HidePage(tabControlAokPatch.TabPages["tabFixLag"]);
         }
 
         private void radioButton_10_CheckedChanged(object sender, EventArgs e)
@@ -3198,6 +3200,7 @@ namespace Aok_Patch.patcher_
             tabhelper.HidePage(tabControlAokPatch.TabPages["AddCivOnAok20"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["tabPageAddRMS"]);
             //tabhelper.HidePage(tabControlAokPatch.TabPages["Windowed"]);
+            tabhelper.HidePage(tabControlAokPatch.TabPages["tabFixLag"]);
         }
 
         private void radioButton_10c_CheckedChanged(object sender, EventArgs e)
@@ -3209,6 +3212,7 @@ namespace Aok_Patch.patcher_
             tabhelper.HidePage(tabControlAokPatch.TabPages["AddCivOnAok20"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["tabPageAddRMS"]);
             //tabhelper.HidePage(tabControlAokPatch.TabPages["Windowed"]);
+            tabhelper.HidePage(tabControlAokPatch.TabPages["tabFixLag"]);
             labelDescSIgnal.Visible = false;
             numericUpDownSizeOfX.Visible = false;
         }
@@ -3222,6 +3226,7 @@ namespace Aok_Patch.patcher_
             tabhelper.HidePage(tabControlAokPatch.TabPages["AddCivOnAok20"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["tabPageAddRMS"]);
             //tabhelper.HidePage(tabControlAokPatch.TabPages["Windowed"]);
+            tabhelper.HidePage(tabControlAokPatch.TabPages["tabFixLag"]);
         }
 
 
@@ -4559,6 +4564,16 @@ namespace Aok_Patch.patcher_
 
         private void buttonFixLag_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(this.gameExe))
+            {
+                MessageBox.Show("Browser Game Exe !!");
+                return;
+            }
+            if (!isVersionChosed())
+            {
+                MessageBox.Show("Chose a version!!");
+                return;
+            }
             exe = File.ReadAllBytes(this.gameExe);
 
             //.pdata .patch
@@ -4610,6 +4625,7 @@ namespace Aok_Patch.patcher_
             */
             #endregion  Fix multiplayer network bugs
             File.WriteAllBytes(this.gameExe, exe);
+            MessageBox.Show("Done.");
         }
     }
     public class TextBoxListener : TraceListener
