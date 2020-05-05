@@ -4556,6 +4556,61 @@ namespace Aok_Patch.patcher_
                 MessageBox.Show("gamedata.drs doesn't existe in data folder");
 
         }
+
+        private void buttonFixLag_Click(object sender, EventArgs e)
+        {
+            exe = File.ReadAllBytes(this.gameExe);
+
+            //.pdata .patch
+            Injection(0x100, "504500004C010900");
+            Injection(0x150, "00F03E00");
+            Injection(0x310, "2E7064617461000000100000002038000010000000102700000000000000000000000000E00000E02E7061746368000000C006000030380000C0060000202700000000000000000000000000E00000E0");
+
+            // Fix multiplayer mouse lag
+            #region Fix multiplayer mouse lag
+            //0048B054  |. 83F8 22        CMP EAX,22
+            Injection(0x48B054, "83F80C");
+            //0042060F     EB 0D          JMP SHORT empires2.0042061E
+            Injection(0x42060F, "EB0D");
+            //0048B2D6  |. 75 16          JNZ SHORT empires2.0048B2EE
+            Injection(0x48B2D6, "6690");
+            #endregion Fix multiplayer mouse lag
+            // Fix wndproc loop delay bug
+            #region wndproc loop delay bug
+            //0041CFB6     3C 02          CMP AL,2
+            Injection(0x41CFB6, "3C0274062C043C017713");
+            #endregion wndproc loop delay bug
+            // Fix action lag crash bug
+            #region Fix action lag crash bug
+            //0043C7F1  |. E8 2ADC1A00    CALL empires2.005EA420
+            //jmp 007E8000
+            //0043C7F1    -E9 0AB83A00    JMP empires2.007E8000
+
+            Injection(0x43C7F1, "E90AB83A00");
+            Injection(0x2D7000, "E81B24E0FF85C00F84A448C5FFE9E447C5FF");
+            //0043C8B1  |. 5E             POP ESI
+
+            //0043C8D1  |. E8 4ADB1A00    CALL empires2.005EA420
+            //jmp 007E8020
+            Injection(0x43C8D1, "E94AB73A00");
+            Injection(0x2D7020, "E8FB23E0FF85C00F846F49C5FFE9A448C5FF");
+            #endregion Fix action lag crash bug
+            // Fix multiplayer network bugs
+            #region  Fix multiplayer network bugs
+            /* //00428738     8B4C24 38      MOV ECX,DWORD PTR SS:[ESP+38]
+            Injection(0x428738, "8B4C2438");
+            //0043801B     81E6 24FAFFFF  AND ESI,FFFFFA24
+            Injection(0x43801B, "81E624FAFFFF");
+            //00438032     81C6 D0070000  ADD ESI,7D0
+            Injection(0x438032, "81C6D0070000");
+            //0045C010     36:8B56 6C     MOV EDX,DWORD PTR SS:[ESI+6C]
+            Injection(0x45C010, "8B566C");
+            //
+            Injection(0x45C010, "8B566C");
+            */
+            #endregion  Fix multiplayer network bugs
+            File.WriteAllBytes(this.gameExe, exe);
+        }
     }
     public class TextBoxListener : TraceListener
     {
