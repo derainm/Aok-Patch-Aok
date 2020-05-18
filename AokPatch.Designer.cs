@@ -47,10 +47,37 @@
             this.cb_SetManuelReso = new System.Windows.Forms.CheckBox();
             this.tabControlAokPatch = new System.Windows.Forms.TabControl();
             this.Mods = new System.Windows.Forms.TabPage();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.checkBoxAlternativeWater = new System.Windows.Forms.CheckBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.checkBoxEnhancedIceAndSnow = new System.Windows.Forms.CheckBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.checkBoxHDSmallTreesV3 = new System.Windows.Forms.CheckBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.buttonAddMod = new System.Windows.Forms.Button();
+            this.checkBoxRiseFarms = new System.Windows.Forms.CheckBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.checkBoxBetaShallows = new System.Windows.Forms.CheckBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.checkBoxCartoonAge = new System.Windows.Forms.CheckBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.buttonBack = new System.Windows.Forms.Button();
+            this.checkBoxAgeofCube = new System.Windows.Forms.CheckBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.checkBoxshorterhouses = new System.Windows.Forms.CheckBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.checkBoxAdvancedIdlePointer = new System.Windows.Forms.CheckBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.comboBoxAlphawaterInt = new System.Windows.Forms.ComboBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.checkBoxAlternativeTrees = new System.Windows.Forms.CheckBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.checkBoxNewVegetableFarm = new System.Windows.Forms.CheckBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.checkBoxAlphaWater = new System.Windows.Forms.CheckBox();
             this.checkBoxBlueBerrys = new System.Windows.Forms.CheckBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.buttonBack = new System.Windows.Forms.Button();
-            this.buttonAddMod = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.checkBoxTerrainV2 = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -89,10 +116,15 @@
             this.comboBoxTypeSlp = new System.Windows.Forms.ComboBox();
             this.dataGridViewSlpViewer = new System.Windows.Forms.DataGridView();
             this.WideScreen = new System.Windows.Forms.TabPage();
+            this.checkBoxTechTreeInterface = new System.Windows.Forms.CheckBox();
+            this.label46 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.labelWideScreen = new System.Windows.Forms.Label();
             this.tabFixLag = new System.Windows.Forms.TabPage();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
             this.buttonFixLag = new System.Windows.Forms.Button();
             this.MiniMapColor = new System.Windows.Forms.TabPage();
             this.labelDescSIgnal = new System.Windows.Forms.Label();
@@ -139,9 +171,6 @@
             this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extractFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
             this.GB_ManualRes.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControlAokPatch.SuspendLayout();
@@ -229,7 +258,7 @@
             // 
             // btn_Patch
             // 
-            this.btn_Patch.Location = new System.Drawing.Point(97, 235);
+            this.btn_Patch.Location = new System.Drawing.Point(26, 524);
             this.btn_Patch.Name = "btn_Patch";
             this.btn_Patch.Size = new System.Drawing.Size(287, 46);
             this.btn_Patch.TabIndex = 6;
@@ -241,7 +270,7 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(394, 19);
+            this.button1.Location = new System.Drawing.Point(473, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(166, 60);
             this.button1.TabIndex = 7;
@@ -255,7 +284,7 @@
             this.GB_ManualRes.Controls.Add(this.comboBox1024);
             this.GB_ManualRes.Controls.Add(this.comboBox800);
             this.GB_ManualRes.Controls.Add(this.labelImageres);
-            this.GB_ManualRes.Location = new System.Drawing.Point(88, 38);
+            this.GB_ManualRes.Location = new System.Drawing.Point(17, 327);
             this.GB_ManualRes.Name = "GB_ManualRes";
             this.GB_ManualRes.Size = new System.Drawing.Size(296, 165);
             this.GB_ManualRes.TabIndex = 11;
@@ -310,9 +339,9 @@
             this.groupBox2.Controls.Add(this.radioButton_10e);
             this.groupBox2.Controls.Add(this.radioButton_10);
             this.groupBox2.Controls.Add(this.radioButton_20b);
-            this.groupBox2.Location = new System.Drawing.Point(34, 501);
+            this.groupBox2.Location = new System.Drawing.Point(34, 674);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(568, 96);
+            this.groupBox2.Size = new System.Drawing.Size(647, 96);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chose your version";
@@ -320,7 +349,7 @@
             // cb_SetManuelReso
             // 
             this.cb_SetManuelReso.AutoSize = true;
-            this.cb_SetManuelReso.Location = new System.Drawing.Point(88, 15);
+            this.cb_SetManuelReso.Location = new System.Drawing.Point(17, 304);
             this.cb_SetManuelReso.Name = "cb_SetManuelReso";
             this.cb_SetManuelReso.Size = new System.Drawing.Size(168, 17);
             this.cb_SetManuelReso.TabIndex = 13;
@@ -346,17 +375,44 @@
             this.tabControlAokPatch.Location = new System.Drawing.Point(30, 12);
             this.tabControlAokPatch.Name = "tabControlAokPatch";
             this.tabControlAokPatch.SelectedIndex = 0;
-            this.tabControlAokPatch.Size = new System.Drawing.Size(576, 502);
+            this.tabControlAokPatch.Size = new System.Drawing.Size(655, 675);
             this.tabControlAokPatch.TabIndex = 14;
             this.tabControlAokPatch.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControlAokPatch_Selecting);
             // 
             // Mods
             // 
             this.Mods.AutoScroll = true;
+            this.Mods.Controls.Add(this.label55);
+            this.Mods.Controls.Add(this.label54);
+            this.Mods.Controls.Add(this.checkBoxAlternativeWater);
+            this.Mods.Controls.Add(this.label53);
+            this.Mods.Controls.Add(this.checkBoxEnhancedIceAndSnow);
+            this.Mods.Controls.Add(this.label52);
+            this.Mods.Controls.Add(this.checkBoxHDSmallTreesV3);
+            this.Mods.Controls.Add(this.label51);
+            this.Mods.Controls.Add(this.buttonAddMod);
+            this.Mods.Controls.Add(this.checkBoxRiseFarms);
+            this.Mods.Controls.Add(this.label50);
+            this.Mods.Controls.Add(this.checkBoxBetaShallows);
+            this.Mods.Controls.Add(this.label49);
+            this.Mods.Controls.Add(this.checkBoxCartoonAge);
+            this.Mods.Controls.Add(this.label48);
+            this.Mods.Controls.Add(this.buttonBack);
+            this.Mods.Controls.Add(this.checkBoxAgeofCube);
+            this.Mods.Controls.Add(this.label45);
+            this.Mods.Controls.Add(this.checkBoxshorterhouses);
+            this.Mods.Controls.Add(this.label44);
+            this.Mods.Controls.Add(this.checkBoxAdvancedIdlePointer);
+            this.Mods.Controls.Add(this.label43);
+            this.Mods.Controls.Add(this.comboBoxAlphawaterInt);
+            this.Mods.Controls.Add(this.label41);
+            this.Mods.Controls.Add(this.checkBoxAlternativeTrees);
+            this.Mods.Controls.Add(this.label42);
+            this.Mods.Controls.Add(this.checkBoxNewVegetableFarm);
+            this.Mods.Controls.Add(this.label40);
+            this.Mods.Controls.Add(this.checkBoxAlphaWater);
             this.Mods.Controls.Add(this.checkBoxBlueBerrys);
             this.Mods.Controls.Add(this.label23);
-            this.Mods.Controls.Add(this.buttonBack);
-            this.Mods.Controls.Add(this.buttonAddMod);
             this.Mods.Controls.Add(this.label18);
             this.Mods.Controls.Add(this.checkBoxTerrainV2);
             this.Mods.Controls.Add(this.label17);
@@ -383,15 +439,302 @@
             this.Mods.Controls.Add(this.label7);
             this.Mods.Location = new System.Drawing.Point(4, 22);
             this.Mods.Name = "Mods";
-            this.Mods.Size = new System.Drawing.Size(568, 476);
+            this.Mods.Size = new System.Drawing.Size(647, 649);
             this.Mods.TabIndex = 6;
             this.Mods.Text = "Mods";
             this.Mods.UseVisualStyleBackColor = true;
             // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(186, 920);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(35, 13);
+            this.label55.TabIndex = 71;
+            this.label55.Text = "Farms";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Image = global::Aok_Patch.patcher_.MainForm.Alternative_water;
+            this.label54.Location = new System.Drawing.Point(4, 1427);
+            this.label54.MinimumSize = new System.Drawing.Size(150, 100);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(150, 100);
+            this.label54.TabIndex = 69;
+            // 
+            // checkBoxAlternativeWater
+            // 
+            this.checkBoxAlternativeWater.AutoSize = true;
+            this.checkBoxAlternativeWater.Location = new System.Drawing.Point(161, 1507);
+            this.checkBoxAlternativeWater.Name = "checkBoxAlternativeWater";
+            this.checkBoxAlternativeWater.Size = new System.Drawing.Size(108, 17);
+            this.checkBoxAlternativeWater.TabIndex = 70;
+            this.checkBoxAlternativeWater.Text = "Alternative Water";
+            this.checkBoxAlternativeWater.UseVisualStyleBackColor = true;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Image = global::Aok_Patch.patcher_.MainForm.Enhanced_Ice_And_Snow;
+            this.label53.Location = new System.Drawing.Point(283, 1310);
+            this.label53.MinimumSize = new System.Drawing.Size(150, 100);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(150, 100);
+            this.label53.TabIndex = 67;
+            // 
+            // checkBoxEnhancedIceAndSnow
+            // 
+            this.checkBoxEnhancedIceAndSnow.AutoSize = true;
+            this.checkBoxEnhancedIceAndSnow.Location = new System.Drawing.Point(440, 1393);
+            this.checkBoxEnhancedIceAndSnow.Name = "checkBoxEnhancedIceAndSnow";
+            this.checkBoxEnhancedIceAndSnow.Size = new System.Drawing.Size(145, 17);
+            this.checkBoxEnhancedIceAndSnow.TabIndex = 68;
+            this.checkBoxEnhancedIceAndSnow.Text = "Enhanced Ice And Snow";
+            this.checkBoxEnhancedIceAndSnow.UseVisualStyleBackColor = true;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Image = global::Aok_Patch.patcher_.MainForm.hdsmalltreev3;
+            this.label52.Location = new System.Drawing.Point(5, 1310);
+            this.label52.MinimumSize = new System.Drawing.Size(150, 100);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(150, 100);
+            this.label52.TabIndex = 65;
+            // 
+            // checkBoxHDSmallTreesV3
+            // 
+            this.checkBoxHDSmallTreesV3.AutoSize = true;
+            this.checkBoxHDSmallTreesV3.Location = new System.Drawing.Point(161, 1376);
+            this.checkBoxHDSmallTreesV3.Name = "checkBoxHDSmallTreesV3";
+            this.checkBoxHDSmallTreesV3.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxHDSmallTreesV3.TabIndex = 66;
+            this.checkBoxHDSmallTreesV3.Text = "HD Small Trees V3";
+            this.checkBoxHDSmallTreesV3.UseVisualStyleBackColor = true;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Image = global::Aok_Patch.patcher_.MainForm.RiseFarms;
+            this.label51.Location = new System.Drawing.Point(284, 1192);
+            this.label51.MinimumSize = new System.Drawing.Size(150, 100);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(150, 100);
+            this.label51.TabIndex = 63;
+            // 
+            // buttonAddMod
+            // 
+            this.buttonAddMod.Image = global::Aok_Patch.patcher_.MainForm.save;
+            this.buttonAddMod.Location = new System.Drawing.Point(20, 1636);
+            this.buttonAddMod.Name = "buttonAddMod";
+            this.buttonAddMod.Size = new System.Drawing.Size(158, 76);
+            this.buttonAddMod.TabIndex = 39;
+            this.buttonAddMod.UseVisualStyleBackColor = true;
+            this.buttonAddMod.Click += new System.EventHandler(this.buttonAddMod_Click);
+            // 
+            // checkBoxRiseFarms
+            // 
+            this.checkBoxRiseFarms.AutoSize = true;
+            this.checkBoxRiseFarms.Location = new System.Drawing.Point(440, 1275);
+            this.checkBoxRiseFarms.Name = "checkBoxRiseFarms";
+            this.checkBoxRiseFarms.Size = new System.Drawing.Size(78, 17);
+            this.checkBoxRiseFarms.TabIndex = 64;
+            this.checkBoxRiseFarms.Text = "Rise Farms";
+            this.checkBoxRiseFarms.UseVisualStyleBackColor = true;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Image = global::Aok_Patch.patcher_.MainForm.beta_shallows;
+            this.label50.Location = new System.Drawing.Point(5, 1196);
+            this.label50.MinimumSize = new System.Drawing.Size(150, 100);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(150, 100);
+            this.label50.TabIndex = 61;
+            // 
+            // checkBoxBetaShallows
+            // 
+            this.checkBoxBetaShallows.AutoSize = true;
+            this.checkBoxBetaShallows.Location = new System.Drawing.Point(161, 1275);
+            this.checkBoxBetaShallows.Name = "checkBoxBetaShallows";
+            this.checkBoxBetaShallows.Size = new System.Drawing.Size(93, 17);
+            this.checkBoxBetaShallows.TabIndex = 62;
+            this.checkBoxBetaShallows.Text = "Beta Shallows";
+            this.checkBoxBetaShallows.UseVisualStyleBackColor = true;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Image = global::Aok_Patch.patcher_.MainForm.carton_age;
+            this.label49.Location = new System.Drawing.Point(284, 1071);
+            this.label49.MinimumSize = new System.Drawing.Size(150, 100);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(150, 100);
+            this.label49.TabIndex = 59;
+            // 
+            // checkBoxCartoonAge
+            // 
+            this.checkBoxCartoonAge.AutoSize = true;
+            this.checkBoxCartoonAge.Location = new System.Drawing.Point(440, 1154);
+            this.checkBoxCartoonAge.Name = "checkBoxCartoonAge";
+            this.checkBoxCartoonAge.Size = new System.Drawing.Size(85, 17);
+            this.checkBoxCartoonAge.TabIndex = 60;
+            this.checkBoxCartoonAge.Text = "Cartoon Age";
+            this.checkBoxCartoonAge.UseVisualStyleBackColor = true;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Image = global::Aok_Patch.patcher_.MainForm.age_of_cube;
+            this.label48.Location = new System.Drawing.Point(5, 1071);
+            this.label48.MinimumSize = new System.Drawing.Size(150, 100);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(150, 100);
+            this.label48.TabIndex = 57;
+            // 
+            // buttonBack
+            // 
+            this.buttonBack.Image = global::Aok_Patch.patcher_.MainForm.back1;
+            this.buttonBack.Location = new System.Drawing.Point(427, 1633);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(158, 76);
+            this.buttonBack.TabIndex = 40;
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
+            // checkBoxAgeofCube
+            // 
+            this.checkBoxAgeofCube.AutoSize = true;
+            this.checkBoxAgeofCube.Location = new System.Drawing.Point(161, 1154);
+            this.checkBoxAgeofCube.Name = "checkBoxAgeofCube";
+            this.checkBoxAgeofCube.Size = new System.Drawing.Size(85, 17);
+            this.checkBoxAgeofCube.TabIndex = 58;
+            this.checkBoxAgeofCube.Text = "Age of Cube\t";
+            this.checkBoxAgeofCube.UseVisualStyleBackColor = true;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Image = global::Aok_Patch.patcher_.MainForm.house;
+            this.label45.Location = new System.Drawing.Point(284, 952);
+            this.label45.MinimumSize = new System.Drawing.Size(150, 100);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(150, 100);
+            this.label45.TabIndex = 55;
+            // 
+            // checkBoxshorterhouses
+            // 
+            this.checkBoxshorterhouses.AutoSize = true;
+            this.checkBoxshorterhouses.Location = new System.Drawing.Point(440, 1018);
+            this.checkBoxshorterhouses.Name = "checkBoxshorterhouses";
+            this.checkBoxshorterhouses.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxshorterhouses.TabIndex = 56;
+            this.checkBoxshorterhouses.Text = "shorter houses";
+            this.checkBoxshorterhouses.UseVisualStyleBackColor = true;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Image = global::Aok_Patch.patcher_.MainForm.Advanced_idle_p;
+            this.label44.Location = new System.Drawing.Point(5, 952);
+            this.label44.MinimumSize = new System.Drawing.Size(150, 100);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(150, 100);
+            this.label44.TabIndex = 53;
+            // 
+            // checkBoxAdvancedIdlePointer
+            // 
+            this.checkBoxAdvancedIdlePointer.AutoSize = true;
+            this.checkBoxAdvancedIdlePointer.Location = new System.Drawing.Point(161, 1032);
+            this.checkBoxAdvancedIdlePointer.Name = "checkBoxAdvancedIdlePointer";
+            this.checkBoxAdvancedIdlePointer.Size = new System.Drawing.Size(131, 17);
+            this.checkBoxAdvancedIdlePointer.TabIndex = 54;
+            this.checkBoxAdvancedIdlePointer.Text = "Advanced Idle Pointer\t";
+            this.checkBoxAdvancedIdlePointer.UseVisualStyleBackColor = true;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(437, 758);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(84, 13);
+            this.label43.TabIndex = 15;
+            this.label43.Text = "Chose interface ";
+            // 
+            // comboBoxAlphawaterInt
+            // 
+            this.comboBoxAlphawaterInt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAlphawaterInt.FormattingEnabled = true;
+            this.comboBoxAlphawaterInt.Location = new System.Drawing.Point(440, 774);
+            this.comboBoxAlphawaterInt.Name = "comboBoxAlphawaterInt";
+            this.comboBoxAlphawaterInt.Size = new System.Drawing.Size(97, 21);
+            this.comboBoxAlphawaterInt.TabIndex = 52;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Image = global::Aok_Patch.patcher_.MainForm.Alternative_Trees;
+            this.label41.Location = new System.Drawing.Point(284, 835);
+            this.label41.MinimumSize = new System.Drawing.Size(150, 100);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(150, 100);
+            this.label41.TabIndex = 50;
+            // 
+            // checkBoxAlternativeTrees
+            // 
+            this.checkBoxAlternativeTrees.AutoSize = true;
+            this.checkBoxAlternativeTrees.Location = new System.Drawing.Point(440, 918);
+            this.checkBoxAlternativeTrees.Name = "checkBoxAlternativeTrees";
+            this.checkBoxAlternativeTrees.Size = new System.Drawing.Size(106, 17);
+            this.checkBoxAlternativeTrees.TabIndex = 51;
+            this.checkBoxAlternativeTrees.Text = "Alternative Trees";
+            this.checkBoxAlternativeTrees.UseVisualStyleBackColor = true;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Image = global::Aok_Patch.patcher_.MainForm.new_vegetal_farms;
+            this.label42.Location = new System.Drawing.Point(5, 835);
+            this.label42.MinimumSize = new System.Drawing.Size(150, 100);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(150, 100);
+            this.label42.TabIndex = 48;
+            // 
+            // checkBoxNewVegetableFarm
+            // 
+            this.checkBoxNewVegetableFarm.AutoSize = true;
+            this.checkBoxNewVegetableFarm.Location = new System.Drawing.Point(170, 900);
+            this.checkBoxNewVegetableFarm.Name = "checkBoxNewVegetableFarm";
+            this.checkBoxNewVegetableFarm.Size = new System.Drawing.Size(99, 17);
+            this.checkBoxNewVegetableFarm.TabIndex = 49;
+            this.checkBoxNewVegetableFarm.Text = "New Vegetable";
+            this.checkBoxNewVegetableFarm.UseVisualStyleBackColor = true;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Image = global::Aok_Patch.patcher_.MainForm.alpha_water;
+            this.label40.Location = new System.Drawing.Point(284, 721);
+            this.label40.MinimumSize = new System.Drawing.Size(150, 100);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(150, 100);
+            this.label40.TabIndex = 44;
+            // 
+            // checkBoxAlphaWater
+            // 
+            this.checkBoxAlphaWater.AutoSize = true;
+            this.checkBoxAlphaWater.Location = new System.Drawing.Point(440, 801);
+            this.checkBoxAlphaWater.Name = "checkBoxAlphaWater";
+            this.checkBoxAlphaWater.Size = new System.Drawing.Size(85, 17);
+            this.checkBoxAlphaWater.TabIndex = 45;
+            this.checkBoxAlphaWater.Text = "Alpha Water";
+            this.checkBoxAlphaWater.UseVisualStyleBackColor = true;
+            // 
             // checkBoxBlueBerrys
             // 
             this.checkBoxBlueBerrys.AutoSize = true;
-            this.checkBoxBlueBerrys.Location = new System.Drawing.Point(178, 793);
+            this.checkBoxBlueBerrys.Location = new System.Drawing.Point(161, 804);
             this.checkBoxBlueBerrys.Name = "checkBoxBlueBerrys";
             this.checkBoxBlueBerrys.Size = new System.Drawing.Size(78, 17);
             this.checkBoxBlueBerrys.TabIndex = 43;
@@ -408,26 +751,6 @@
             this.label23.Size = new System.Drawing.Size(150, 100);
             this.label23.TabIndex = 41;
             // 
-            // buttonBack
-            // 
-            this.buttonBack.Image = global::Aok_Patch.patcher_.MainForm.back1;
-            this.buttonBack.Location = new System.Drawing.Point(383, 840);
-            this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(158, 76);
-            this.buttonBack.TabIndex = 40;
-            this.buttonBack.UseVisualStyleBackColor = true;
-            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
-            // 
-            // buttonAddMod
-            // 
-            this.buttonAddMod.Image = global::Aok_Patch.patcher_.MainForm.save;
-            this.buttonAddMod.Location = new System.Drawing.Point(0, 840);
-            this.buttonAddMod.Name = "buttonAddMod";
-            this.buttonAddMod.Size = new System.Drawing.Size(158, 76);
-            this.buttonAddMod.TabIndex = 39;
-            this.buttonAddMod.UseVisualStyleBackColor = true;
-            this.buttonAddMod.Click += new System.EventHandler(this.buttonAddMod_Click);
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -441,7 +764,7 @@
             // checkBoxTerrainV2
             // 
             this.checkBoxTerrainV2.AutoSize = true;
-            this.checkBoxTerrainV2.Location = new System.Drawing.Point(178, 685);
+            this.checkBoxTerrainV2.Location = new System.Drawing.Point(161, 685);
             this.checkBoxTerrainV2.Name = "checkBoxTerrainV2";
             this.checkBoxTerrainV2.Size = new System.Drawing.Size(75, 17);
             this.checkBoxTerrainV2.TabIndex = 38;
@@ -462,7 +785,7 @@
             // checkBoxRealTerrain
             // 
             this.checkBoxRealTerrain.AutoSize = true;
-            this.checkBoxRealTerrain.Location = new System.Drawing.Point(457, 685);
+            this.checkBoxRealTerrain.Location = new System.Drawing.Point(440, 688);
             this.checkBoxRealTerrain.Name = "checkBoxRealTerrain";
             this.checkBoxRealTerrain.Size = new System.Drawing.Size(84, 17);
             this.checkBoxRealTerrain.TabIndex = 36;
@@ -483,7 +806,7 @@
             // checkBoxEnchantedFarms
             // 
             this.checkBoxEnchantedFarms.AutoSize = true;
-            this.checkBoxEnchantedFarms.Location = new System.Drawing.Point(178, 559);
+            this.checkBoxEnchantedFarms.Location = new System.Drawing.Point(161, 559);
             this.checkBoxEnchantedFarms.Name = "checkBoxEnchantedFarms";
             this.checkBoxEnchantedFarms.Size = new System.Drawing.Size(109, 17);
             this.checkBoxEnchantedFarms.TabIndex = 34;
@@ -494,7 +817,7 @@
             // checkBoxFarms
             // 
             this.checkBoxFarms.AutoSize = true;
-            this.checkBoxFarms.Location = new System.Drawing.Point(457, 559);
+            this.checkBoxFarms.Location = new System.Drawing.Point(440, 559);
             this.checkBoxFarms.Name = "checkBoxFarms";
             this.checkBoxFarms.Size = new System.Drawing.Size(54, 17);
             this.checkBoxFarms.TabIndex = 32;
@@ -515,7 +838,7 @@
             // checkBoxGridTerrains
             // 
             this.checkBoxGridTerrains.AutoSize = true;
-            this.checkBoxGridTerrains.Location = new System.Drawing.Point(457, 440);
+            this.checkBoxGridTerrains.Location = new System.Drawing.Point(440, 440);
             this.checkBoxGridTerrains.Name = "checkBoxGridTerrains";
             this.checkBoxGridTerrains.Size = new System.Drawing.Size(82, 17);
             this.checkBoxGridTerrains.TabIndex = 30;
@@ -536,7 +859,7 @@
             // checkBoxEnhancedBlood
             // 
             this.checkBoxEnhancedBlood.AutoSize = true;
-            this.checkBoxEnhancedBlood.Location = new System.Drawing.Point(457, 326);
+            this.checkBoxEnhancedBlood.Location = new System.Drawing.Point(440, 326);
             this.checkBoxEnhancedBlood.Name = "checkBoxEnhancedBlood";
             this.checkBoxEnhancedBlood.Size = new System.Drawing.Size(104, 17);
             this.checkBoxEnhancedBlood.TabIndex = 28;
@@ -556,7 +879,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(457, 209);
+            this.checkBox1.Location = new System.Drawing.Point(440, 209);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(97, 17);
             this.checkBox1.TabIndex = 26;
@@ -576,7 +899,7 @@
             // checkBoxhdCliffs
             // 
             this.checkBoxhdCliffs.AutoSize = true;
-            this.checkBoxhdCliffs.Location = new System.Drawing.Point(457, 93);
+            this.checkBoxhdCliffs.Location = new System.Drawing.Point(440, 93);
             this.checkBoxhdCliffs.Name = "checkBoxhdCliffs";
             this.checkBoxhdCliffs.Size = new System.Drawing.Size(62, 17);
             this.checkBoxhdCliffs.TabIndex = 24;
@@ -596,7 +919,7 @@
             // checkBoxSmallTree
             // 
             this.checkBoxSmallTree.AutoSize = true;
-            this.checkBoxSmallTree.Location = new System.Drawing.Point(178, 440);
+            this.checkBoxSmallTree.Location = new System.Drawing.Point(161, 440);
             this.checkBoxSmallTree.Name = "checkBoxSmallTree";
             this.checkBoxSmallTree.Size = new System.Drawing.Size(76, 17);
             this.checkBoxSmallTree.TabIndex = 23;
@@ -616,7 +939,7 @@
             // checkBoxHdFire
             // 
             this.checkBoxHdFire.AutoSize = true;
-            this.checkBoxHdFire.Location = new System.Drawing.Point(178, 326);
+            this.checkBoxHdFire.Location = new System.Drawing.Point(161, 326);
             this.checkBoxHdFire.Name = "checkBoxHdFire";
             this.checkBoxHdFire.Size = new System.Drawing.Size(60, 17);
             this.checkBoxHdFire.TabIndex = 21;
@@ -636,7 +959,7 @@
             // checkBoxHdmines
             // 
             this.checkBoxHdmines.AutoSize = true;
-            this.checkBoxHdmines.Location = new System.Drawing.Point(178, 209);
+            this.checkBoxHdmines.Location = new System.Drawing.Point(161, 209);
             this.checkBoxHdmines.Name = "checkBoxHdmines";
             this.checkBoxHdmines.Size = new System.Drawing.Size(70, 17);
             this.checkBoxHdmines.TabIndex = 19;
@@ -656,7 +979,7 @@
             // checkBoxSmallWall
             // 
             this.checkBoxSmallWall.AutoSize = true;
-            this.checkBoxSmallWall.Location = new System.Drawing.Point(178, 93);
+            this.checkBoxSmallWall.Location = new System.Drawing.Point(161, 93);
             this.checkBoxSmallWall.Name = "checkBoxSmallWall";
             this.checkBoxSmallWall.Size = new System.Drawing.Size(75, 17);
             this.checkBoxSmallWall.TabIndex = 15;
@@ -689,7 +1012,7 @@
             this.DrsEditor.Controls.Add(this.dataGridViewSlpViewer);
             this.DrsEditor.Location = new System.Drawing.Point(4, 22);
             this.DrsEditor.Name = "DrsEditor";
-            this.DrsEditor.Size = new System.Drawing.Size(568, 476);
+            this.DrsEditor.Size = new System.Drawing.Size(647, 649);
             this.DrsEditor.TabIndex = 7;
             this.DrsEditor.Text = "DrsEditor";
             this.DrsEditor.UseVisualStyleBackColor = true;
@@ -717,6 +1040,7 @@
             // 
             // buttonUpdateSlpID
             // 
+            this.buttonUpdateSlpID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonUpdateSlpID.Image = global::Aok_Patch.patcher_.MainForm.icons8_update_left_rotation_32;
             this.buttonUpdateSlpID.Location = new System.Drawing.Point(517, 5);
             this.buttonUpdateSlpID.Margin = new System.Windows.Forms.Padding(0);
@@ -728,6 +1052,7 @@
             // 
             // label26
             // 
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(355, 17);
             this.label26.Name = "label26";
@@ -737,6 +1062,7 @@
             // 
             // textBoxUpdateSlpId
             // 
+            this.textBoxUpdateSlpId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxUpdateSlpId.Location = new System.Drawing.Point(411, 14);
             this.textBoxUpdateSlpId.Name = "textBoxUpdateSlpId";
             this.textBoxUpdateSlpId.Size = new System.Drawing.Size(100, 20);
@@ -744,6 +1070,7 @@
             // 
             // label25
             // 
+            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(364, 54);
             this.label25.Name = "label25";
@@ -753,6 +1080,7 @@
             // 
             // textBoxSearchId
             // 
+            this.textBoxSearchId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSearchId.Location = new System.Drawing.Point(411, 51);
             this.textBoxSearchId.Name = "textBoxSearchId";
             this.textBoxSearchId.Size = new System.Drawing.Size(100, 20);
@@ -780,6 +1108,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(186, 53);
             this.label1.Name = "label1";
@@ -789,6 +1118,7 @@
             // 
             // comboBoxTypeSlp
             // 
+            this.comboBoxTypeSlp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxTypeSlp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTypeSlp.FormattingEnabled = true;
             this.comboBoxTypeSlp.Items.AddRange(new object[] {
@@ -803,12 +1133,15 @@
             // 
             // dataGridViewSlpViewer
             // 
+            this.dataGridViewSlpViewer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewSlpViewer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSlpViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSlpViewer.Location = new System.Drawing.Point(0, 80);
             this.dataGridViewSlpViewer.Name = "dataGridViewSlpViewer";
             this.dataGridViewSlpViewer.ReadOnly = true;
-            this.dataGridViewSlpViewer.Size = new System.Drawing.Size(568, 393);
+            this.dataGridViewSlpViewer.Size = new System.Drawing.Size(647, 566);
             this.dataGridViewSlpViewer.TabIndex = 0;
             this.dataGridViewSlpViewer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSlpViewer_CellClick);
             this.dataGridViewSlpViewer.CurrentCellChanged += new System.EventHandler(this.dataGridViewSlpViewer_CurrentCellChanged);
@@ -818,6 +1151,8 @@
             // 
             // WideScreen
             // 
+            this.WideScreen.Controls.Add(this.checkBoxTechTreeInterface);
+            this.WideScreen.Controls.Add(this.label46);
             this.WideScreen.Controls.Add(this.label19);
             this.WideScreen.Controls.Add(this.linkLabel1);
             this.WideScreen.Controls.Add(this.labelWideScreen);
@@ -827,15 +1162,35 @@
             this.WideScreen.Location = new System.Drawing.Point(4, 22);
             this.WideScreen.Name = "WideScreen";
             this.WideScreen.Padding = new System.Windows.Forms.Padding(3);
-            this.WideScreen.Size = new System.Drawing.Size(568, 476);
+            this.WideScreen.Size = new System.Drawing.Size(647, 649);
             this.WideScreen.TabIndex = 1;
             this.WideScreen.Text = "WideScreen";
             this.WideScreen.UseVisualStyleBackColor = true;
             // 
+            // checkBoxTechTreeInterface
+            // 
+            this.checkBoxTechTreeInterface.AutoSize = true;
+            this.checkBoxTechTreeInterface.Location = new System.Drawing.Point(17, 65);
+            this.checkBoxTechTreeInterface.Name = "checkBoxTechTreeInterface";
+            this.checkBoxTechTreeInterface.Size = new System.Drawing.Size(121, 17);
+            this.checkBoxTechTreeInterface.TabIndex = 19;
+            this.checkBoxTechTreeInterface.Text = "Tech Tree Interface";
+            this.checkBoxTechTreeInterface.UseVisualStyleBackColor = true;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Image = global::Aok_Patch.patcher_.MainForm.TT_Interface;
+            this.label46.Location = new System.Drawing.Point(26, 99);
+            this.label46.MinimumSize = new System.Drawing.Size(200, 150);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(200, 150);
+            this.label46.TabIndex = 18;
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(97, 284);
+            this.label19.Location = new System.Drawing.Point(26, 573);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(251, 13);
             this.label19.TabIndex = 17;
@@ -845,7 +1200,7 @@
             // 
             this.linkLabel1.AccessibleName = "https://bit.ly/2K86dY9";
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(97, 307);
+            this.linkLabel1.Location = new System.Drawing.Point(26, 586);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(113, 13);
             this.linkLabel1.TabIndex = 15;
@@ -856,7 +1211,7 @@
             // labelWideScreen
             // 
             this.labelWideScreen.AutoSize = true;
-            this.labelWideScreen.Location = new System.Drawing.Point(104, 326);
+            this.labelWideScreen.Location = new System.Drawing.Point(33, 615);
             this.labelWideScreen.Name = "labelWideScreen";
             this.labelWideScreen.Size = new System.Drawing.Size(0, 13);
             this.labelWideScreen.TabIndex = 14;
@@ -869,10 +1224,37 @@
             this.tabFixLag.Controls.Add(this.buttonFixLag);
             this.tabFixLag.Location = new System.Drawing.Point(4, 22);
             this.tabFixLag.Name = "tabFixLag";
-            this.tabFixLag.Size = new System.Drawing.Size(568, 476);
+            this.tabFixLag.Size = new System.Drawing.Size(647, 649);
             this.tabFixLag.TabIndex = 9;
             this.tabFixLag.Text = "Fix Lag";
             this.tabFixLag.UseVisualStyleBackColor = true;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(85, 297);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(123, 13);
+            this.label39.TabIndex = 3;
+            this.label39.Text = "Fix multiplayer mouse lag";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(85, 310);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(120, 13);
+            this.label38.TabIndex = 2;
+            this.label38.Text = "wndproc loop delay bug";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(85, 323);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(119, 13);
+            this.label37.TabIndex = 1;
+            this.label37.Text = "Fix action lag crash bug";
             // 
             // buttonFixLag
             // 
@@ -892,7 +1274,7 @@
             this.MiniMapColor.Controls.Add(this.btnPatchMinMapColor);
             this.MiniMapColor.Location = new System.Drawing.Point(4, 22);
             this.MiniMapColor.Name = "MiniMapColor";
-            this.MiniMapColor.Size = new System.Drawing.Size(568, 476);
+            this.MiniMapColor.Size = new System.Drawing.Size(647, 649);
             this.MiniMapColor.TabIndex = 2;
             this.MiniMapColor.Text = "Mini Map Color";
             this.MiniMapColor.UseVisualStyleBackColor = true;
@@ -956,7 +1338,7 @@
             this.AokChatColor.Controls.Add(this.label3);
             this.AokChatColor.Location = new System.Drawing.Point(4, 22);
             this.AokChatColor.Name = "AokChatColor";
-            this.AokChatColor.Size = new System.Drawing.Size(568, 476);
+            this.AokChatColor.Size = new System.Drawing.Size(647, 649);
             this.AokChatColor.TabIndex = 3;
             this.AokChatColor.Text = "Aok chat color";
             this.AokChatColor.UseVisualStyleBackColor = true;
@@ -1001,7 +1383,7 @@
             this.AddCivOnAok20.Controls.Add(this.label5);
             this.AddCivOnAok20.Location = new System.Drawing.Point(4, 22);
             this.AddCivOnAok20.Name = "AddCivOnAok20";
-            this.AddCivOnAok20.Size = new System.Drawing.Size(568, 476);
+            this.AddCivOnAok20.Size = new System.Drawing.Size(647, 649);
             this.AddCivOnAok20.TabIndex = 4;
             this.AddCivOnAok20.Text = "Add civ on Aok 2.0";
             this.AddCivOnAok20.UseVisualStyleBackColor = true;
@@ -1151,7 +1533,7 @@
             this.Windowed.Controls.Add(this.label6);
             this.Windowed.Location = new System.Drawing.Point(4, 22);
             this.Windowed.Name = "Windowed";
-            this.Windowed.Size = new System.Drawing.Size(568, 476);
+            this.Windowed.Size = new System.Drawing.Size(647, 649);
             this.Windowed.TabIndex = 5;
             this.Windowed.Text = "Windowed";
             this.Windowed.UseVisualStyleBackColor = true;
@@ -1194,7 +1576,7 @@
             this.tabPageAddRMS.Location = new System.Drawing.Point(4, 22);
             this.tabPageAddRMS.Name = "tabPageAddRMS";
             this.tabPageAddRMS.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddRMS.Size = new System.Drawing.Size(568, 476);
+            this.tabPageAddRMS.Size = new System.Drawing.Size(647, 649);
             this.tabPageAddRMS.TabIndex = 8;
             this.tabPageAddRMS.Text = "Add RMS";
             this.tabPageAddRMS.UseVisualStyleBackColor = true;
@@ -1220,7 +1602,6 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Image = global::Aok_Patch.patcher_.MainForm.NewMap_rules;
             this.label34.Location = new System.Drawing.Point(17, 101);
             this.label34.MinimumSize = new System.Drawing.Size(230, 150);
             this.label34.Name = "label34";
@@ -1311,7 +1692,7 @@
             this.FixRecord.Location = new System.Drawing.Point(4, 22);
             this.FixRecord.Name = "FixRecord";
             this.FixRecord.Padding = new System.Windows.Forms.Padding(3);
-            this.FixRecord.Size = new System.Drawing.Size(568, 476);
+            this.FixRecord.Size = new System.Drawing.Size(647, 649);
             this.FixRecord.TabIndex = 0;
             this.FixRecord.Text = "Fix records";
             this.FixRecord.UseVisualStyleBackColor = true;
@@ -1364,38 +1745,11 @@
             this.extractFileToolStripMenuItem.Text = "Extract File";
             this.extractFileToolStripMenuItem.Click += new System.EventHandler(this.extractFileToolStripMenuItem_Click);
             // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(85, 323);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(119, 13);
-            this.label37.TabIndex = 1;
-            this.label37.Text = "Fix action lag crash bug";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(85, 310);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(120, 13);
-            this.label38.TabIndex = 2;
-            this.label38.Text = "wndproc loop delay bug";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(85, 297);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(123, 13);
-            this.label39.TabIndex = 3;
-            this.label39.Text = "Fix multiplayer mouse lag";
-            // 
             // AokPatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 599);
+            this.ClientSize = new System.Drawing.Size(695, 772);
             this.Controls.Add(this.tabControlAokPatch);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1550,5 +1904,34 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.CheckBox checkBoxAlphaWater;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.CheckBox checkBoxAlternativeTrees;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.CheckBox checkBoxNewVegetableFarm;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.ComboBox comboBoxAlphawaterInt;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.CheckBox checkBoxshorterhouses;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.CheckBox checkBoxAdvancedIdlePointer;
+        private System.Windows.Forms.CheckBox checkBoxTechTreeInterface;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.CheckBox checkBoxAgeofCube;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.CheckBox checkBoxCartoonAge;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.CheckBox checkBoxBetaShallows;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.CheckBox checkBoxRiseFarms;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.CheckBox checkBoxHDSmallTreesV3;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.CheckBox checkBoxEnhancedIceAndSnow;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.CheckBox checkBoxAlternativeWater;
+        private System.Windows.Forms.Label label55;
     }
 }

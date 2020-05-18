@@ -129,6 +129,8 @@ namespace Aok_Patch.patcher_
             try
             {
 
+
+                   
                 //string currentDirector = Directory.GetCurrentDirectory();
                 //radioButton__20.Checked = true;
                 //this.gameExe = @"C:\Users\Beleive\Documents\Age of Empires II\empires2.exe";
@@ -144,6 +146,13 @@ namespace Aok_Patch.patcher_
                 }
                 Cursor.Current = Cursors.WaitCursor;
                 labelWideScreen.Text = "Please wait this can take some time ...";
+                if (checkBoxTechTreeInterface.Checked)
+                {
+                    if (this.radioButton_10.Checked || this.radioButton_10c.Checked || this.radioButton_10e.Checked)
+                        TechTreeInterface(this.gameData.Replace("Age2_x1", "") + "\\" + "interfac.drs");
+                    else
+                        TechTreeInterface(this.gameData + "\\" + "interfac.drs");
+                }
 
                 if (!string.IsNullOrEmpty(this.gameExe) && (this.radioButton__20.Checked || this.radioButton_20a.Checked || (this.radioButton_20b.Checked || this.radioButton_10.Checked) || this.radioButton_10c.Checked || this.radioButton_10e.Checked))
                 {
@@ -244,10 +253,15 @@ namespace Aok_Patch.patcher_
                     if (File.Exists(this.gameData + "\\" + str2))
                         File.Delete(this.gameData + "\\" + str2);
 
-                    if ((this.radioButton__20.Checked || this.radioButton_20a.Checked || this.radioButton_20b.Checked) && (str2 != null ))
-                        File.Copy("Data\\" + str2, this.gameData + "\\" + str2,true);
+                    if ((this.radioButton__20.Checked || this.radioButton_20a.Checked || this.radioButton_20b.Checked) && (str2 != null))
+                    {
+                        File.Copy("Data\\" + str2, this.gameData + "\\" + str2, true);
+
+                    }
                     if ((this.radioButton_10.Checked || this.radioButton_10c.Checked || this.radioButton_10e.Checked) && (str2 != null && !File.Exists(this.gameData + "\\" + str2)))
-                        File.Copy("Data\\" + str2, this.gameData.Replace("Age2_x1", "") + "\\" + str2,true);
+                    {
+                        File.Copy("Data\\" + str2, this.gameData.Replace("Age2_x1", "") + "\\" + str2, true);
+                    }
                     this.UpdateLanguageDll(this.gamePath);
                     try
                     {
@@ -264,6 +278,7 @@ namespace Aok_Patch.patcher_
                     int num = (int)MessageBox.Show("Choose version! ");
                     return;
                 }
+
                 ResizeDrsInt_Click(null, null);
                 // Set cursor as default arrow
                 Cursor.Current = Cursors.Default;
@@ -282,7 +297,99 @@ namespace Aok_Patch.patcher_
                     File.Copy(exe, gameExe);
             }
         }
+        private void TechTreeInterface(string str2)
+        {
+            List<uint> idToPick = new List<uint> {
+                        #region 1024x768
+                        51121,
+                        51122,
+                        51123,
+                        51124,
+                        51125,
+                        51126,
+                        51127,
+                        51128,
+                        51129,
+                        51130,
+                        51131,
+                        51132,
+                        51133,
+                        51134,
+                        51135,
+                        51136,
+                        51137,
+                        51138,
+                        #endregion 1024x768
+                        #region 1280x1024
+                        51141,
+                        51142,
+                        51143,
+                        51144,
+                        51145,
+                        51146,
+                        51147,
+                        51148,
+                        51149,
+                        51150,
+                        51151,
+                        51152,
+                        51153,
+                        51154,
+                        51157,
+                        51158,
+                        51159,
+                        51160,
+                        #endregion
+                        };
+            string workingDir = @"Mods\TechTreeInterface\";
+            var lstColor = GetAokPaletteColor().ToArray();
+            var lstIntWithFullPath =new List<string>();
+            foreach (var item in idToPick)
+            {
+                Bitmap bmp = (Bitmap)Bitmap.FromFile(Path.Combine(workingDir, "int" + item + ".bmp"));
+                Color myTransparentColor = Color.FromArgb(180, 255, 180);
+                var getDontMakeBlackTransparent = Color.FromArgb(0, 0, 0);
+                Bitmap image = new Bitmap(bmp);
+                ReplaceColor(image, getDontMakeBlackTransparent, Color.FromArgb(9, 9, 14));
+                ReplaceColor(image, myTransparentColor, Color.Black);
+                ReplaceColor(image, Color.FromArgb(29, 0, 29, 50), Color.Black);
+                ////tempBitmap.MakeTransparent(myTransparentColor);
+                image.Save(Path.Combine(workingDir, "inttmp" + item + ".bmp"), ImageFormat.Bmp);
+                var b = image.ConvertPixelFormat(PixelFormat.Format8bppIndexed, lstColor, Color.FromArgb(180, 255, 180), 255);// Color backColor = default, byte alphaThreshold = 128
+                b.Save(Path.Combine(workingDir, "inttmp" + item + ".bmp"), ImageFormat.Bmp);
+                SlpWriteTechTreeInterface(workingDir, item.ToString(), "int" + item + ".slp");
+                lstIntWithFullPath.Add(Path.Combine(workingDir, "int" +item+".slp"));
+            }
+            string intFileName = str2;
+            if (lstIntWithFullPath.Count>0)
+            {
+                string newfile = Path.Combine(gameData, @"interfacTmp.drs");
+                UpdateSlpInDrsFile(lstIntWithFullPath, intFileName, newfile, "int");
+                File.Copy(newfile,intFileName, true);
+                File.Delete(gameData + @"\interfacTmp.drs");
+            }
 
+        }
+        private void SlpWriteTechTreeInterface(string workingDir, string fileName, string fil)
+        {
+            bool transmask = true;
+            bool outline1 = false;
+            bool outline2 = false;
+            bool plcolor = false;
+            bool shadowpix = false;
+            #region write slp
+            slpWriter slpw = new slpWriter();
+            slpw.maskfile = Path.GetDirectoryName(fileName) + "mask.bmp";
+            int numframes = 1;
+            byte b;
+            int i;
+            String outputname = workingDir + fil;
+            slpw.initframes(numframes);
+            slpw.getframe(0, workingDir, "inttmp" + fileName + ".bmp", transmask, outline1, outline2, plcolor, shadowpix);
+            slpw.compress();
+            slpw.Write(outputname);
+            #endregion
+        }
         static void ExecuteCommand(string command)
         {
             int exitCode;
@@ -1003,7 +1110,14 @@ namespace Aok_Patch.patcher_
                 if (!comboBoxSelectedDataFile.Items.Contains(item))
                 {
                     comboBoxSelectedDataFile.Items.Add(item);
+                }                
+                if (!comboBoxAlphawaterInt.Items.Contains(item) && item.Contains(".drs") && !item.Contains("graphics.drs") 
+                    && !item.Contains("terrain.drs") && !item.Contains("gamedata.drs") && !item.Contains("gamedata_x1.drs") && !item.Contains("gamedata_x1_p1.drs") 
+                    && !item.Contains("sounds.drs") && !item.Contains("sounds_x1.drs"))
+                {
+                    comboBoxAlphawaterInt.Items.Add(item);
                 }
+
             }
             if(lstDrsFile.Where(x => x.EndsWith(".drs")).ToList().Count>0)
                 comboBoxSelectedDataFile.SelectedIndex = 0;
@@ -3385,7 +3499,55 @@ namespace Aok_Patch.patcher_
                 {
                     listSelectedMods.Add("terrain-v2");
                 }
-
+                if (checkBoxAlphaWater.Checked)
+                {
+                    listSelectedMods.Add("alpha-water");
+                    listSelectedMods.Add("alpha-waterBina");
+                }
+                if (checkBoxNewVegetableFarm.Checked)
+                {
+                    listSelectedMods.Add("New-Vegetable-Farm");
+                }
+                if (checkBoxAlternativeTrees.Checked)
+                {
+                    listSelectedMods.Add("Alternative-Trees");
+                }                
+                if (checkBoxAdvancedIdlePointer.Checked)
+                {
+                    listSelectedMods.Add("Advanced-Idle-Pointer");
+                }                
+                if (checkBoxshorterhouses.Checked)
+                {
+                    listSelectedMods.Add("shorter-houses");
+                }                
+                if (checkBoxAgeofCube.Checked)
+                {
+                    listSelectedMods.Add("Age-of-Cube");
+                }
+                if (checkBoxCartoonAge.Checked)
+                {
+                    listSelectedMods.Add("Cartoon-Age");
+                }
+                if (checkBoxBetaShallows.Checked)
+                {
+                    listSelectedMods.Add("Beta-Shallows");
+                }
+                if (checkBoxRiseFarms.Checked)
+                {
+                    listSelectedMods.Add("Rice-farms");
+                }
+                if (checkBoxHDSmallTreesV3.Checked)
+                {
+                    listSelectedMods.Add("HD-Small-Trees-V3");
+                }                
+                if (checkBoxEnhancedIceAndSnow.Checked)
+                {
+                    listSelectedMods.Add("Enhanced-Ice-And-Snow");
+                }
+                if (checkBoxAlternativeWater.Checked)
+                {
+                    listSelectedMods.Add("Alternative-Water");
+                }
                 List<string> lstFile = new List<string>();
                 foreach (var d in listSelectedMods)
                 {
@@ -3401,11 +3563,15 @@ namespace Aok_Patch.patcher_
                 //extract slp to save if player want roollback ,he can
                 ExtractSlpFromDrs(lstTer, gameData_ + @"\terrain.drs", @"SlpTerrainRecord\");
                 ExtractSlpFromDrs(lstGra, gameData_ + @"\Graphics.drs", @"SlpGraphicRecord\");
+                string intFileName =  string.IsNullOrEmpty(comboBoxAlphawaterInt.Text) ? @"\interfac.drs" : @"\" +comboBoxAlphawaterInt.Text;
+                ExtractSlpFromDrs(lstGra, gameData_ + intFileName, @"SlpinterfacRecord\");
 
                 //update slp from selected mod
                 var currentDir = Directory.GetCurrentDirectory();
-                var lstTerWithFullPath = lstFile.Where(x => x.Contains("ter")).Select(x => string.Format(@"{0}\{1}", currentDir, x)).ToList();
-                var lstGraWithFullPath = lstFile.Where(x => x.Contains("gra")).Select(x => string.Format(@"{0}\{1}", currentDir, x)).ToList();
+                var lstTerWithFullPath = lstFile.Where(x => Path.GetFileNameWithoutExtension(x).Contains("ter")).Select(x => string.Format(@"{0}\{1}", currentDir, x)).ToList();
+                var lstGraWithFullPath = lstFile.Where(x => Path.GetFileNameWithoutExtension(x).Contains("gra")).Select(x => string.Format(@"{0}\{1}", currentDir, x)).ToList();
+                var lstbinaWithFullPath = lstFile.Where(x => Path.GetFileNameWithoutExtension(x).Contains("bina")).Select(x => string.Format(@"{0}\{1}", currentDir, x)).ToList();
+                
                 if (lstTerWithFullPath.Count > 0)
                 {
                     UpdateSlpInDrsFile(lstTerWithFullPath, gameData_ + @"\terrain.drs", gameData_ + @"\terrainTmp.drs", "ter");
@@ -3417,7 +3583,14 @@ namespace Aok_Patch.patcher_
                     UpdateSlpInDrsFile(lstGraWithFullPath, gameData_ + @"\Graphics.drs", gameData_ + @"\GraphicsTmp.drs", "gra");
                     File.Copy(gameData_ + @"\GraphicsTmp.drs", gameData_ + @"\Graphics.drs", true);
                     File.Delete(gameData_ + @"\GraphicsTmp.drs");
+                }                
+                if (lstbinaWithFullPath.Count > 0)
+                {
+                    UpdateSlpInDrsFile(lstbinaWithFullPath, gameData_ + intFileName, gameData_ + @"\interfacTmp.drs", "bina");
+                    File.Copy(gameData_ + @"\interfacTmp.drs", gameData_ + intFileName, true);
+                    File.Delete(gameData_ + @"\interfacTmp.drs");
                 }
+
                 Cursor.Current = Cursors.Default;
                 MessageBox.Show("Done.");
             }
@@ -3519,8 +3692,12 @@ namespace Aok_Patch.patcher_
                     {
                         var data = File.ReadAllBytes(s);
                         id = uint.Parse(Path.GetFileNameWithoutExtension(s).Replace(FilePrefix, ""));
-                        //update only slp typenot .way or .bina
-                        drsTableArray.Where(z => z.Type == 1936486432).First().Items.Where(z => z.Id == id).First().Data = data;
+                        //.slp
+                        if(FilePrefix =="gra" || FilePrefix == "ter" || FilePrefix == "int")
+                            drsTableArray.Where(z => z.Type == 1936486432).First().Items.Where(z => z.Id == id).First().Data = data;
+                        //.bina
+                        if (FilePrefix == "bina")
+                            drsTableArray.Where(z => z.Type == 1651076705).First().Items.Where(z => z.Id == id).First().Data = data;
                     }
                     //update possitions
                     foreach (DrsTable drsTable1 in drsTableArray)
@@ -4660,7 +4837,7 @@ namespace Aok_Patch.patcher_
             //Injection(0x1d7ea4, "E9C50000000F1F4400000F1F4400008D542424");
             //Injection(0x1d7f6e, "8B8D3C13000041807C24383E898D3C130000752A8B4C24188B85E01000006AFF6A00668B51018B4C244852");
 
-
+            /*
 
             //00428738     8B4C24 38      MOV ECX,DWORD PTR SS:[ESP+38]
             Injection(0x428738, "8B4C2438");
@@ -4703,22 +4880,31 @@ namespace Aok_Patch.patcher_
             //0042AFB0     56             PUSH ESI
             Injection(0x42AFB0, "568B81E41000005785C075055F5EC218008B4424208BF948C1E0108B97DC1D00008D0C408B44240C8B44240C03D18BF025FF1F00005353C1E0038D1C408B44241C03DA8B54242089430C8B4424188953108BC889730489430885C0743F8B53143BC27E248B0B5021C9740951E8EF4E1E0083C404E8F54E1E0083C4048B4B08890385C07417894B148B3B8B7424148BD1C1E902F3A58BCA83E103F3A45B5F5EC218008B74241C8BD18BF8C1E902F3A58B4424208BCA83E103F3A48B7424108945088B8EDC1D00008B5424185D5F895419048B86E01D00008B4C241C894C180C8B96E01D00008B4424205E89441A10B8010000005B59C21400");
             //KO no heap free
-            ////creat new small func
-            ////0060FF10     6A 01          PUSH 1
-            ////0060FF1E     FF7424 04      PUSH DWORD PTR SS:[ESP+4]
-            //Injection(0x60FF10, "6A01FF742408E81A0F00005959C3FF742404E8ED01000059C3000000568B74240885F6742456E8053F00005985C056740A50E8243F000059595EC36A00FF354C317900FF15103078005EC3");
+            //creat new small func
+            //0060FF10     6A 01          PUSH 1
+            //0060FF1E     FF7424 04      PUSH DWORD PTR SS:[ESP+4]
+            Injection(0x60FF10, "6A01FF742408E81A0F00005959C3FF742404E8ED01000059C36666908935202078008B3548C16100830510207800108B3520207800568B74240885F6741B56740A50E89C79000059595EC36A00FF354C317900FF15102078005EC3");
 
-            //// .data add heap free libreary
-            ////00782700   0070 1A          ADD BYTE PTR DS:[EAX+1A],DH
-            //// 782700 -783010 
+            // .data add heap free libreary
+            //00782700   0070 1A          ADD BYTE PTR DS:[EAX+1A],DH
+            // 782700 - 782010 = ‬6F0‬
             //Injection(0x271700, "701AD375");
-
-
+            //27 1010‬
+            Injection(0x271010, "701AD375");//heap free library on .pdata
+            */
+            
             #endregion  Fix multiplayer network bugs
             File.WriteAllBytes(this.gameExe, exe);
             MessageBox.Show("Done.");
         }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (checkBoxTechTreeInterface.Checked)
+                TechTreeInterface("");
+        }
     }
+
     public class TextBoxListener : TraceListener
     {
         RichTextBox _box;

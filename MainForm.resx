@@ -124,8 +124,17 @@
   <data name="previewressolution" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\previewressolution.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="res" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\res.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AokChatColor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\AokChatColor.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shorterHouse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\shorter.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hdsmalltreev3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\screen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\back.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,8 +145,8 @@
   <data name="icons8_save_tabs_list_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\icons8-save-tabs-list-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Enchanted Farms" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\000_ter15004.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="new_vegetal_farms" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\new vegetal farms.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="smalltree" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\213189j.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,11 +154,20 @@
   <data name="fireArrowHd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\fireArrowHd.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="beta_shallows" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\beta shallows.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Enhanced_Ice_And_Snow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Enhanced Ice And Snow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="enchantedBlood" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\enchantedBlood.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="enchanted_farms2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\enchanted farms.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alpha_water" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\alpha water.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="windowed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\windowed.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -162,6 +180,9 @@
   </data>
   <data name="TerrainV2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\TerrainV2.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RiseFarms" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\RiseFarms.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -548,6 +569,12 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
+  <data name="Add_civ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Add civ.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TT_Interface" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\TT Interface.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8_update_left_rotation_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\icons8-update-left-rotation-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -556,9 +583,6 @@
   </data>
   <data name="Hdmine" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\screen.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8_save_close_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\icons8-save-close-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="smallWall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Thumbnail.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -569,11 +593,17 @@
   <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\save.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Alternative Trees" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\FmPihum.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Real Terrain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\scaledimage.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hdclif" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\hdclif.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="age_of_cube" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\age of cube.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GridTerrain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\GridTerrain.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -581,16 +611,31 @@
   <data name="AokAddMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\AokAddMap.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Add_civ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Add civ.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_save_close_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icons8-save-close-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="res" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\res.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Enchanted Farms" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\000_ter15004.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="carton_age" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\carton age.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="miniMapColor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\miniMapColor.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Alternative_water" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Alternative water.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="NewMap rules" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\NewMap rules.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Advanced Idle Pointer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Advanced Idle Pointer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Advanced_idle_p" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Advanced idle p.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="house" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\house.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

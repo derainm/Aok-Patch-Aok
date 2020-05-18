@@ -73,6 +73,66 @@ namespace Aok_Patch.patcher_ {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Advanced_idle_p {
+            get {
+                object obj = ResourceManager.GetObject("Advanced_idle_p", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Advanced_Idle_Pointer {
+            get {
+                object obj = ResourceManager.GetObject("Advanced Idle Pointer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap age_of_cube {
+            get {
+                object obj = ResourceManager.GetObject("age_of_cube", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap alpha_water {
+            get {
+                object obj = ResourceManager.GetObject("alpha_water", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Alternative_Trees {
+            get {
+                object obj = ResourceManager.GetObject("Alternative Trees", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Alternative_water {
+            get {
+                object obj = ResourceManager.GetObject("Alternative_water", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap AokAddMap {
             get {
                 object obj = ResourceManager.GetObject("AokAddMap", resourceCulture);
@@ -113,9 +173,29 @@ namespace Aok_Patch.patcher_ {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap beta_shallows {
+            get {
+                object obj = ResourceManager.GetObject("beta_shallows", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Blue_Berry {
             get {
                 object obj = ResourceManager.GetObject("Blue_Berry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap carton_age {
+            get {
+                object obj = ResourceManager.GetObject("carton_age", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +226,16 @@ namespace Aok_Patch.patcher_ {
         public static System.Drawing.Bitmap enchantedBlood {
             get {
                 object obj = ResourceManager.GetObject("enchantedBlood", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Enhanced_Ice_And_Snow {
+            get {
+                object obj = ResourceManager.GetObject("Enhanced_Ice_And_Snow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,6 +303,26 @@ namespace Aok_Patch.patcher_ {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap hdsmalltreev3 {
+            get {
+                object obj = ResourceManager.GetObject("hdsmalltreev3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap house {
+            get {
+                object obj = ResourceManager.GetObject("house", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap icons8_save_as_40 {
             get {
                 object obj = ResourceManager.GetObject("icons8_save_as_40", resourceCulture);
@@ -263,6 +373,16 @@ namespace Aok_Patch.patcher_ {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap new_vegetal_farms {
+            get {
+                object obj = ResourceManager.GetObject("new_vegetal_farms", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap NewMap_rules {
             get {
                 object obj = ResourceManager.GetObject("NewMap rules", resourceCulture);
@@ -303,9 +423,29 @@ namespace Aok_Patch.patcher_ {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap RiseFarms {
+            get {
+                object obj = ResourceManager.GetObject("RiseFarms", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap save {
             get {
                 object obj = ResourceManager.GetObject("save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap shorterHouse {
+            get {
+                object obj = ResourceManager.GetObject("shorterHouse", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -336,6 +476,16 @@ namespace Aok_Patch.patcher_ {
         public static System.Drawing.Bitmap TerrainV2 {
             get {
                 object obj = ResourceManager.GetObject("TerrainV2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap TT_Interface {
+            get {
+                object obj = ResourceManager.GetObject("TT_Interface", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
