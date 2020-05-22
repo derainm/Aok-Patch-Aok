@@ -171,6 +171,7 @@
             this.deleteFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extractFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.GB_ManualRes.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControlAokPatch.SuspendLayout();
@@ -1602,6 +1603,7 @@
             // label34
             // 
             this.label34.AutoSize = true;
+            this.label34.Image = global::Aok_Patch.patcher_.MainForm.NewMap_rules;
             this.label34.Location = new System.Drawing.Point(17, 101);
             this.label34.MinimumSize = new System.Drawing.Size(230, 150);
             this.label34.Name = "label34";
@@ -1688,18 +1690,19 @@
             // 
             // FixRecord
             // 
+            this.FixRecord.Controls.Add(this.webBrowser1);
             this.FixRecord.Controls.Add(this.button2);
             this.FixRecord.Location = new System.Drawing.Point(4, 22);
             this.FixRecord.Name = "FixRecord";
             this.FixRecord.Padding = new System.Windows.Forms.Padding(3);
             this.FixRecord.Size = new System.Drawing.Size(647, 649);
             this.FixRecord.TabIndex = 0;
-            this.FixRecord.Text = "Fix records";
+            this.FixRecord.Text = "Records";
             this.FixRecord.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(28, 304);
+            this.button2.Location = new System.Drawing.Point(37, 562);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(500, 72);
             this.button2.TabIndex = 0;
@@ -1744,6 +1747,18 @@
             this.extractFileToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.extractFileToolStripMenuItem.Text = "Extract File";
             this.extractFileToolStripMenuItem.Click += new System.EventHandler(this.extractFileToolStripMenuItem_Click);
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.webBrowser1.Location = new System.Drawing.Point(6, 6);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.ScriptErrorsSuppressed = true;
+            this.webBrowser1.Size = new System.Drawing.Size(621, 530);
+            this.webBrowser1.TabIndex = 1;
+            this.webBrowser1.Url = new System.Uri("http://idlebeaver.ninja/recanalyst/", System.UriKind.Absolute);
             // 
             // AokPatch
             // 
@@ -1933,5 +1948,6 @@
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.CheckBox checkBoxAlternativeWater;
         private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
