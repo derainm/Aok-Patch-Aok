@@ -2676,6 +2676,62 @@ namespace Aok_Patch.patcher_
                 MessageBox.Show("Done.");
                 #endregion mini-map color 2.0
             }
+            if(radioButton_20a.Checked || radioButton_20b.Checked)
+            {
+                exe = File.ReadAllBytes(this.gameExe);
+                //mini map
+                //0058DF80 |. 8B4C24 10 | MOV ECX,DWORD PTR SS:[ESP + 10]
+                //0058DF84 |. 8B51 04 | MOV EDX,DWORD PTR DS:[ECX + 4]
+                Injection(0x058DF80, "E98B0F08009090");
+                //0060EF10 
+                Injection(0x60EF10, "8A4D1C884F308B4C24108B5104E965F0F7FF");
+
+                //005C5224   . 74 09          JE SHORT Empires2.005C522F
+                //0060EF24     
+                //005C5222     84C0           TEST AL,AL
+                Injection(0x5C5222, "84C00F84FA9C0400C1E80884C07405A07ECD6500D9473C6A06");
+                //0060EF24     0FBE4F 30      MOVSX ECX,BYTE PTR DS:[EDI+30]
+                Injection(0x60EF24, "0FBE4F308B86F80000008B404C8B0C888B91580100008B4210E9F462FBFF");
+                //005C522D.EB 07          JMP SHORT Empires2.005C5236
+                //005C522F > 33C0 XOR EAX,EAX
+
+
+                //007D0143   0FBE4F 30        MOVSX ECX, BYTE PTR DS:[EDI+30]
+                //007D0147   8B86 F8000000    MOV EAX, DWORD PTR DS:[ESI+F8]
+                //007D014D   8B40 4C MOV EAX,DWORD PTR DS:[EAX+4C]
+                //007D0150   8B0C88 MOV ECX,DWORD PTR DS:[EAX+ECX*4]
+                //007D0153   8B91 58010000    MOV EDX, DWORD PTR DS:[ECX+158]
+                //007D0159   8B42 10          MOV EAX, DWORD PTR DS:[EDX+10]
+                //007D015C  -E9 C53DDFFF      JMP empires2.005C3F26
+
+
+                //00461332     E9 0DDC1A00    JMP Empires2.0060EF44
+                Injection(0x461332, "E90DDC1A00");
+                //0060EF44     4D             DEC EBP
+                Injection(0x60EF44, "4D4F8B410885C0E9E723E5FF");
+                //0046134C  |> 8B51 30        MOV EDX,DWORD PTR DS:[ECX+30]
+                //0046134C     E9 01DC1A00    JMP Empires2.0060EF52
+                Injection(0x46134C, "E901DC1A00");
+                //0060EF52     8B51 30        MOV EDX,DWORD PTR DS:[ECX+30]
+                Injection(0x60EF52, "8B513083EA023BFAE9F223E5FF");
+                //00461359     E9 03DC1A00    JMP Empires2.0060EF61
+                Injection(0x461359, "E903DC1A00");
+                //0060EF61     8B41 30        MOV EAX,DWORD PTR DS:[ECX+30]
+                Injection(0x60EF61, "8B413083E8023BE8E9F023E5FF");
+
+                //005C4B4F. 33D2           XOR EDX, EDX
+                //005C4B51. 3BCF CMP ECX,EDI
+                //005C4B53. 8986 78010000  MOV DWORD PTR DS:[ESI+178],EAX
+                //005C4B59. 0F94C2 SETE DL
+                //005C4B5C. 8996 7C010000 MOV DWORD PTR DS:[ESI+17C],EDX
+                //005C4B62   > 8B4E 20        MOV ECX, DWORD PTR DS:[ESI+20]
+                Injection(0x5C4B41, "81F9A600000072198D8E7C0100008941FC33C038010F940174073841010F944101");
+                //0046140F     8B0D B0517A00  MOV ECX,DWORD PTR DS:[7A51B0]
+                Injection(0x46140F, "B9000000009083C104894C241C666690");
+
+                File.WriteAllBytes(this.gameExe, exe);
+                MessageBox.Show("Done.");
+            }
             if(radioButton_10c.Checked)
             {
                 labelDescSIgnal.Visible = false;
@@ -3277,7 +3333,7 @@ namespace Aok_Patch.patcher_
         {
             tabhelper.HideAllPages();
             tabhelper.ShowAllPages();
-            tabhelper.HidePage(tabControlAokPatch.TabPages["MiniMapColor"]);
+            //tabhelper.HidePage(tabControlAokPatch.TabPages["MiniMapColor"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["AokChatColor"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["AddCivOnAok20"]);
             //tabhelper.HidePage(tabControlAokPatch.TabPages["Windowed"]);
@@ -3297,7 +3353,7 @@ namespace Aok_Patch.patcher_
         {
             tabhelper.HideAllPages();
             tabhelper.ShowAllPages();
-            tabhelper.HidePage(tabControlAokPatch.TabPages["MiniMapColor"]);
+            //tabhelper.HidePage(tabControlAokPatch.TabPages["MiniMapColor"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["AokChatColor"]);
             tabhelper.HidePage(tabControlAokPatch.TabPages["AddCivOnAok20"]);
             //tabhelper.HidePage(tabControlAokPatch.TabPages["Windowed"]);
